@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 require 'coursegen/cli'
+
 CourseGen::CLI.start

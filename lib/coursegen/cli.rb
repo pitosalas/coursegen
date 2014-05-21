@@ -1,15 +1,26 @@
 require 'thor'
+require 'pry'
+binding.pry
+
+require_relative 'boilerplate.rb'
+
 module CourseGen
   class CLI < Thor
     include Thor::Actions
 
-    desc "Greet NAME", " Simply display name and prove that a command works at all"
-    def help(name)
+    desc "greet NAME", " Simply say hello to NAME and prove that a command works at all"
+    def greet(name)
       puts "Hello #{name}!!"
     end
 
     desc "new COURSE", "Create a new course by calling nanoc. Argument is name of the COURSE"
     def new(course)
+      run("nanoc create-site #{course}")
+    end
+
+    desc "test command", "Handy testing command"
+    def test
+      CourseGen::BoilerPlate.copy_test
     end
   end
 end
