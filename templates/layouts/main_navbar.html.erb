@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-7">
+      <a class="navbar-brand" href="/"><%= COURSE_SHORT_NAME %> - <%= COURSE_LONG_NAME %></a>
+    </div>
+    <div class="col-xs-2">
+      <div class="btn-group">
+        <%if citem.section != "root" %>
+          <%= link_to_prev toc, item %> <%= link_to_next toc, item %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <form role="form" class="form-inline" action="/search_index/search/index.html">
+        <div class="input-group input-group-sm">
+          <input type="text" name="q" id="tipue_search_input" placeholder="search..."class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<h3>
+	<%= citem.title %>
+	<% if citem.is_lecture? %>
+		<small class="pull-right">(<%= citem.lecture_date_s %>, <%= citem.lecture_number_s.to_s %>)</small>
+	<% end %>
+</h4>

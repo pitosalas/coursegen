@@ -15,6 +15,8 @@ module CourseGen
 
     def copy_dir from, to
       puts "[Copying templates from #{from} to #{to}]"
-      directory("boilerplate/#{from}", "#{to}", {wow: 1000})
+      @wow = 123
+      directory("templates/#{from}", "#{to}")
     end
+  end
 end

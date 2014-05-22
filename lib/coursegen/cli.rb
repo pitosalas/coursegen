@@ -1,7 +1,6 @@
 require 'thor'
 require "coursegen/templates"
 
-
 module CourseGen
   class CLI < Thor
     include Thor::Actions

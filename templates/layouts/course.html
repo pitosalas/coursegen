@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title><%= @item[:title] %> - <%= COURSE_SHORT_NAME %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/custom.css">
+    
+<!--     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+ -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="/tipuesearch/js/tipuesearch_content.js"></script>
+  <!-- <link href="/tipuesearch/css/tipuesearch.css" rel="stylesheet"> -->
+    <script src="/tipuesearch/js/tipuesearch_set.js"></script>
+    <script src="/tipuesearch/js/tipuesearch.js"></script>
+
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+  </head>
+  <body>
+
+    <% @citem = Toc.instance.n2c(@item) %>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <%= render "main_navbar", toc: Toc.instance, item: item, citem: @citem %>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+        <%= render "body_header", toc: Toc.instance, item: item, citem: @citem %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+        <div class="col-xs-3 well right-nav">
+          <ul>
+            <% SECTION_CONFIG.each do |sbb| %>
+              <%= section_helper(title: sbb.title, selector: sbb.selector) unless sbb.options[:hidden] %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <%= render "body_footer" %>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/custom.js"></script>
+    <script> $(document).ready(function() {
+     $('#tipue_search_input').tipuesearch();
+    });</script>
+
+  </body>
+</html>
