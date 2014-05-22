@@ -11,11 +11,12 @@ module CourseGen
     end
 
     desc "prepare", "Update with the latest coursegen code and templates."
-    def copy_templates
+    def prepare
       tplt = CourseGen::Templates.new
+      binding.pry
       tplt.copy_dir("layouts", "layouts")
-      tplt.copy_dir("content/bootstrap", "content/bootstrap")
-      tplt.copy_file("rules")
+#      tplt.copy_dir("content/bootstrap", "content/bootstrap")
+#      tplt.copy_file("rules", "rules")
     end
 
     desc "compile", "build the course and put resultant site into output directory"

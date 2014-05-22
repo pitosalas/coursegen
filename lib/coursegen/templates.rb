@@ -14,11 +14,11 @@ module CourseGen
     end
 
     def copy_dir from, to
-      puts "[copying templates from #{from} to #{to}]"
       directory("templates/#{from}", "#{to}")
     end
 
     def copy_file from, to
+      binding.pry
       template("templates/#{from}", "#{to}")
     end
   end
