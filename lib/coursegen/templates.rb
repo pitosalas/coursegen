@@ -20,5 +20,9 @@ module CourseGen
     def copy_template_file from, to
       template("templates/#{from}", "#{to}")
     end
+
+    def delete_target_file(to)
+      remove_file(to)
+    end
   end
 end
