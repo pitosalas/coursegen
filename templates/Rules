@@ -28,10 +28,6 @@ compile '/tipuesearch/*' do
   nil
 end
 
-compile '/content/config/*' do 
-  nil
-end
-
 compile '/content/scripts/*' do
   nil
 end
