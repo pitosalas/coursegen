@@ -18,7 +18,8 @@ module CourseGen
     desc "test command", "Handy testing command"
     def test
       tplt = CourseGen::Templates.new
-      tplt.copy_dir("layouts", "layout")
+      tplt.copy_dir("layouts", "layouts")
+      tplt.copy_dir("content/bootstrap", "content/bootstrap")
     end
   end
 end

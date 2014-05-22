@@ -1,0 +1,187 @@
+@import url(//fonts.googleapis.com/css?family=Telex);
+
+.navbar-inverse {
+	background-color: black;
+}
+
+.navbar a.navbar-brand {
+	color: white;
+	padding-top: 7px;
+}
+ 
+.navbar {
+	min-height: 35px;
+	margin-bottom: 1px;
+}
+
+.navbar a:hover {
+	color: white;
+}
+
+.navbar a {
+	padding: 6px;
+	color: light-blue;
+}
+
+.navbar .input-group-sm input{
+	height: 22px;
+	width: 150px;
+	margin-top: 6px;
+}
+
+h1, h2, h3, h4, h5{
+	font-family: telex;
+	color: rgb(21, 123, 207);
+}
+
+h3 {
+	margin-bottom: 0px;
+}
+
+h4 {
+	margin-top: 20px;
+	border-top: gainsboro solid 1px;
+	padding-top: 5px;
+}
+
+h5 {
+	margin-top: 15px;
+}
+
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+footer {
+	padding-top: 20px;
+}
+
+.right-nav ul {
+	list-style: none;
+	padding-left: 12px;
+	margin-top: 3px
+}
+
+.right-nav label.level2 {
+	margin-bottom: 0px;
+}
+
+.right-nav a {
+	font-size: 85%;
+}
+
+.right-nav label.level1 {
+	text-transform: uppercase;
+	color: grey;
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
+
+.right-nav label.level2 {
+	font-weight: normal;
+}
+
+.CodeRay .line-numbers {
+	margin-right: 15px;
+}
+
+.tree .bold a {
+	font-weight: bold;
+}
+
+.tree .red a {
+	color: red;
+}
+.tree .italic a {
+	font-style: italic;
+}
+
+.glyphicon-small {
+    font-size: 10px; 
+}
+
+/* Search Page */
+#tipue_search_results_count {
+	font-size: 14px;
+	color: red;
+	font-family: telex;
+}
+
+.tipue_search_content_title {
+	color: purple;
+	font-size: 16px;
+	margin-top: 15px;
+	margin-left: 10px;
+    text-rendering: optimizelegibility;
+	font-family: telex;
+}
+
+.tipue_search_content_text {
+	font-size: 14px;
+	margin-left: 30px;
+}
+
+div.tipue_search_content_loc a {
+	font-size: 14px;
+	margin-left: 20px;
+	display: none;
+}
+
+#tipue_search_foot
+{
+     margin: 51px 0 21px 0;
+}
+#tipue_search_foot_boxes
+{
+	padding: 0;
+	margin: 0;
+     font: 12px/1 'Open Sans', sans-serif;
+}
+#tipue_search_foot_boxes li
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+#tipue_search_foot_boxes li a
+{
+	padding: 9px 15px 10px 15px;
+     background-color: #f1f1f1;
+     border: 1px solid #dcdcdc;
+     border-radius: 1px;
+	color: #333;
+	margin-right: 7px;
+	text-decoration: none;
+	text-align: center;
+}
+#tipue_search_foot_boxes li.current
+{
+	padding: 9px 15px 10px 15px;
+     background: #fff;
+     border: 1px solid #dcdcdc;
+     border-radius: 1px;
+	color: #333;
+	margin-right: 7px;
+	text-align: center;
+}
+#tipue_search_foot_boxes li a:hover
+{
+	border: 1px solid #ccc;
+	background-color: #f3f3f3;
+}
+
+
+
+
+@media (max-width: 980px) {
+
+	/* Enable use of floated navbar text */
+	.navbar-text.pull-right {
+	  float: none;
+	  padding-left: 5px;
+	  padding-right: 5px;
+	}
+}
+
