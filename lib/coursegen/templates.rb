@@ -15,18 +15,6 @@ module CourseGen
 
     def copy_dir from, to
       puts "[Copying templates from #{from} to #{to}]"
-      directory("boilerplate/#{from}", "content/#{to}")
+      directory("boilerplate/#{from}", "#{to}", {wow: 1000})
     end
-
-
-    def copy_test_files
-      puts "[copying test boilerplate!]"
-      template "boilerplate/test/readme.tt"
-    end
-
-    def copy_directory source_directory
-      puts "[copying directory #{source_directory}]", @dest
-      directory(source_directory, "content/", wow: 1000)
-    end
-  end
 end

@@ -21,8 +21,6 @@ module CourseGen
     def test
       tplt = CourseGen::Templates.new
       tplt.copy_dir("content", "content")
-      #CourseGen::BoilerPlate.new.copy_test_files
-      #CourseGen::BoilerPlate.new.copy_directory("boilerplate/content")
     end
   end
 end
