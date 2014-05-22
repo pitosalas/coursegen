@@ -1,5 +1,6 @@
 require 'thor'
 require "coursegen/boilerplate"
+require "coursegen/templates"
 
 
 module CourseGen
@@ -18,8 +19,10 @@ module CourseGen
 
     desc "test command", "Handy testing command"
     def test
-      CourseGen::BoilerPlate.new.copy_test_files
-      CourseGen::BoilerPlate.new.copy_directory("/boilerplate/content")
+      tplt = CourseGen::Templates.new
+      tplt.copy_dir("content", "content")
+      #CourseGen::BoilerPlate.new.copy_test_files
+      #CourseGen::BoilerPlate.new.copy_directory("boilerplate/content")
     end
   end
 end
