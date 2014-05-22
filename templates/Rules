@@ -1,0 +1,102 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+require 'pry'
+require './content/content/config/config.rb'
+
+preprocess do
+  Toc.instance.prepare @items, SECTION_CONFIG
+end
+
+compile '/bootstrap/*' do
+  nil
+end
+
+compile '/tipuesearch/*' do
+  nil
+end
+
+compile '/content/config/*' do 
+  nil
+end
+
+compile '/content/scripts/*' do
+  nil
+end
+
+compile "/search_index/tipuesearch_content/" do
+  filter :erb
+end
+
+compile '*' do
+  if item.binary? || item[:status] == "hidden"
+    nil
+  elsif item[:status] == "hidden"
+    nil
+  elsif item[:type] == "subsection"
+    nil    
+  elsif item[:extension] == "haml"
+    filter :haml;
+    layout 'course'
+  else
+    item[:extension].split('.').reverse.each do
+      |f|
+      case f
+      when 'md', 'markdown'
+        filter :kramdown, coderay_tab_width: 3
+      when 'erb'
+        filter :erb
+      end
+    end
+    layout 'course'
+  end
+end
+
+route '/bootstrap/*' do
+  @item.identifier.chop + '.' + @item[:extension]
+end
+
+route '/tipuesearch/*' do
+  @item.identifier.chop + '.' + @item[:extension]
+end  
+
+route '/content/' do
+  '/index.html'
+end
+
+route "/search_index/tipuesearch_content/" do
+  '/tipuesearch/js/tipuesearch_content.js'
+end
+
+route '*' do
+  if item[:extension].nil?
+    raise RuntimeError, "Missing required extension: \".#{item.identifier}\""
+  elsif item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension] rescue binding.pry
+  elsif item.identifier == "/search_index/tipuesearch_content/"
+      item.identifier.chop + '.' + item[:extension] rescue binding.pry
+  elsif item[:status] == "hidden"
+    nil
+  elsif item[:type] == "subsection"
+    nil
+  elsif item[:extension] != "css"
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :erb
+

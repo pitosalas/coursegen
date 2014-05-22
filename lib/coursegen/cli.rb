@@ -10,22 +10,31 @@ module CourseGen
       run("nanoc create-site #{course}")
     end
 
-    desc "Prepare the course directory.", "Update with the latest coursegen code and templates."
+    desc "prepare", "Update with the latest coursegen code and templates."
     def copy_templates
       tplt = CourseGen::Templates.new
       tplt.copy_dir("layouts", "layouts")
       tplt.copy_dir("content/bootstrap", "content/bootstrap")
+      tplt.copy_file("rules")
     end
 
+    desc "compile", "build the course and put resultant site into output directory"
     def compile
       run("nanoc compile")
     end
 
+    desc "serve", "start local web server to test the course web site"
     def serve
-      run("nanoc serve")
+      run("nanoc view")
     end
 
+    desc "reset", "reset all generated content to bring the course back to a base state."
     def reset
+    end
+    
+    desc "view", "view course site locally in browser"
+    def view
+      run "open http://0.0.0.0:3000"
     end
 
   end

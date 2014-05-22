@@ -14,9 +14,12 @@ module CourseGen
     end
 
     def copy_dir from, to
-      puts "[Copying templates from #{from} to #{to}]"
-      @wow = 123
+      puts "[copying templates from #{from} to #{to}]"
       directory("templates/#{from}", "#{to}")
+    end
+
+    def copy_file from, to
+      template("templates/#{from}", "#{to}")
     end
   end
 end
