@@ -12,16 +12,9 @@ module CourseGen
 
     desc "prepare", "Update with the latest coursegen code and templates."
     def prepare
+      invoke check
       tplt = CourseGen::Templates.new
-      tplt.copy_template_dir("layouts", "layouts")
-      tplt.copy_template_dir("content/bootstrap", "content/bootstrap")
-      tplt.copy_template_dir("content/content", "content/content")
-      tplt.copy_template_dir("lib", "lib")
-      tplt.copy_template_file("rules", "rules")
-      tplt.copy_template_file("cg_config.rb", "cg_config.rb")
-      tplt.copy_template_file("cg_config.rb_sample", "cg_config.rb_sample")
-      tplt.delete_target_file("content/stylesheet.css")
-      tplt.delete_target_file("content/index.html")
+      tplt.generate_all
     end
 
     desc "compile", "build the course and put resultant site into output directory"
@@ -36,12 +29,20 @@ module CourseGen
 
     desc "reset", "reset all generated content to bring the course back to a base state."
     def reset
+      run "rm -frd tmp"
+      run "rm -frd output"
     end
-    
+
     desc "view", "view course site locally in browser"
     def view
       run "open http://0.0.0.0:3000"
     end
 
+    desc "check", "verify that this is a valid cg directory"
+    def check
+      CourseGen::Templates.new.valid_cg_directory? ? 
+        say("Valid cg directory") :
+        error("Invalid cg directory")
+    end
   end
 end
