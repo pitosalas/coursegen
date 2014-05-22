@@ -1,8 +1,6 @@
 require 'thor'
-require 'pry'
-binding.pry
+require "coursegen/boilerplate"
 
-require_relative 'boilerplate.rb'
 
 module CourseGen
   class CLI < Thor
@@ -20,7 +18,8 @@ module CourseGen
 
     desc "test command", "Handy testing command"
     def test
-      CourseGen::BoilerPlate.copy_test
+      CourseGen::BoilerPlate.new.copy_test_files
+      CourseGen::BoilerPlate.new.copy_directory("/boilerplate/content")
     end
   end
 end
