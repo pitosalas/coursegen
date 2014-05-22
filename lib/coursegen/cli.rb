@@ -20,6 +20,7 @@ module CourseGen
       tplt.copy_template_file("cg_config.rb", "cg_config.rb")
       tplt.copy_template_file("cg_config.rb_sample", "cg_config.rb_sample")
       tplt.delete_target_file("content/stylesheet.css")
+      tplt.delete_target_file("content/index.html")
     end
 
     desc "compile", "build the course and put resultant site into output directory"
