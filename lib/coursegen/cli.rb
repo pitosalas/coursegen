@@ -1,5 +1,4 @@
 require 'thor'
-require "coursegen/boilerplate"
 require "coursegen/templates"
 
 
