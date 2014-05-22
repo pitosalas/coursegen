@@ -13,12 +13,11 @@ module CourseGen
       destination_root = Dir.getwd
     end
 
-    def copy_dir from, to
+    def copy_template_dir from, to
       directory("templates/#{from}", "#{to}")
     end
 
-    def copy_file from, to
-      binding.pry
+    def copy_template_file from, to
       template("templates/#{from}", "#{to}")
     end
   end
