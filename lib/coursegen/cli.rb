@@ -12,7 +12,7 @@ module CourseGen
 
     desc "prepare", "Update with the latest coursegen code and templates."
     def prepare
-      invoke check
+      check_valid_directory
       tplt = CourseGen::Templates.new
       tplt.generate_all
     end
@@ -38,8 +38,7 @@ module CourseGen
       run "open http://0.0.0.0:3000"
     end
 
-    desc "check", "verify that this is a valid cg directory"
-    def check
+    def check_valid_directory
       CourseGen::Templates.new.valid_cg_directory? ? 
         say("Valid cg directory") :
         error("Invalid cg directory")
