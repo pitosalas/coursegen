@@ -18,7 +18,7 @@ module CourseGen
 
     def valid_cg_directory?
       valid = true
-      list = ["Rules", "cg_config.rb", "nanoc.yaml", "content", "lib"]
+      list = ["Rules", "nanoc.yaml", "content", "lib"]
       list.each do |filename|
         if !File.exists?(filename)
           valid = false
