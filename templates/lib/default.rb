@@ -5,4 +5,5 @@ require 'nanoc/toolbox'
 require 'pry'
 require 'nokogiri'
 require './lib/section'
+require 'coursegen'
 
