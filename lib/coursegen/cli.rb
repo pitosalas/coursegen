@@ -38,10 +38,12 @@ module CourseGen
       run "open http://0.0.0.0:3000"
     end
 
-    def check_valid_directory
-      CourseGen::Templates.new.valid_cg_directory? ? 
-        say("Valid cg directory") :
-        error("Invalid cg directory")
+    no_commands do
+      def check_valid_directory
+        CourseGen::Templates.new.valid_cg_directory? ? 
+          say("Valid cg directory") :
+          error("Invalid cg directory")
+      end
     end
   end
 end
