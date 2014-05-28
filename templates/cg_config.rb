@@ -1,6 +1,3 @@
-require './lib/schedule_def.rb'
-require './lib/section_def.rb'
-
 # Copyright string
 COPYRIGHT_STRING = "Copyright (2013-2014) R. Pito Salas, pitosalas@gmail.com"
 
