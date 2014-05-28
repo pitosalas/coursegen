@@ -24,5 +24,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "nanoc"
   spec.add_dependency "thor"
+  spec.add_dependency "nanoc/toolbox"
 
 end
