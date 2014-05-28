@@ -1,3 +1,7 @@
+require 'nanoc/toolbox'
+require 'pry'
+require 'nokogiri'
+
 require "coursegen/version"
 require "coursegen/course/helpers/sidebar_helpers"
 require "coursegen/course/helpers/lecture_helpers"
@@ -12,11 +16,6 @@ require 'coursegen/course/lib/scheduler'
 require 'coursegen/course/lib/lectures'
 require 'coursegen/course/lib/search_data_generator'
 require 'coursegen/course/lib/section'
-
-require 'nanoc/toolbox'
-require 'pry'
-require 'nokogiri'
-
 
 module Coursegen
   # Your code goes here...
