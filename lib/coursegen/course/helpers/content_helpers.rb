@@ -111,7 +111,7 @@ module ContentHelpers
   end
 
   def include_ruby name
-    filename = Dir.pwd+"/content/content/topics/scripts/"+name+".rb"
+    filename = Dir.pwd+"/content/content/topics/scripts/"+name.to_s+".rb"
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
