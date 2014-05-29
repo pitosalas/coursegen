@@ -8,29 +8,32 @@ This gem is still under development. In the current form it can already be used 
 
 # Steps to building a new course
 
+### Install 
 * install the gem, `gem install coursegen`
+
+### Generate Blank Course
 * generate a blank course site `gem new MYCOURSE`. This will create a local directory called MYCOURSE containing the skeleton
 * `cd MYCOURSE`
 * Load up the template and basics into the newly created directory `cg prepare`
 * Modify the configuration of the course by editing the file `cg_config.rb`. You can look at a complicated example to see some of the things that are possible: `cg_config.rb_sample`
 
-# Add it to github (optional)
+### Add it to github (optional)
 * Create a new github repo with the course name
 * `cd MYCOURSE; git init`
 * Follow Github instructions to push the first commit up to github
 
-# Steps to develop the course 
+### Steps to develop the course 
 * Add your course content as new files into the content/ directory
 * Rebuild the course static html: `cg compile`
 * Start a local server for testing: `cg serve`
 * Open your web browser to look at the course: `cg view`
 * Rinse, dry and repeat
 
-# Steps for deploying the course
+### Steps for deploying the course
 * The /output directory is a complete self-contained static html site. You can deploy it anywhere.
 * I recommend Amazon S3 for a free site
 
-# Create an S3 instance to host the site (optional)
+### Create an S3 instance to host the site (optional)
 * Log into aws.amazon.com and look for the management console for S3
 * Create a new bucket. Call it whatever you want.
 * Look in the properties and choose "Static Website Hosting". Enable it and set index.html as your index document
@@ -38,14 +41,14 @@ This gem is still under development. In the current form it can already be used 
 * Click on permissions/add more permissions
 * Choose Grantee: Everyone; And "list" and no others
 
-# Deploy to S3 (optional)
+### Deploy to S3 (optional)
 * I've used s3cmd with great success. You can find it at s3tools.org. Follow their instructions to install it.
 * Configure your course to point to the bucket you just created. Notice, we are using the bucket name not the url
 
-  # Bucket Deployment of the course
-  AWS_BUCKET = "cosi165-2014"
+    # Bucket Deployment of the course
+    AWS_BUCKET = "cosi165-2014"
 
-# Examples
+### Examples
 * A simple example: https://github.com/pitosalas/jbscosi2014
 * A complex example (but based on a previous version): https://github.com/pitosalas/cosi236b
 * The resultant web site: bit.ly/cosi236b
