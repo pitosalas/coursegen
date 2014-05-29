@@ -41,6 +41,7 @@ This gem is still under development. In the current form it can already be used 
 * Click on permissions/add more permissions
 * Choose Grantee: Everyone; And "list" and no others
 * Click "Edit Bucket Policy". Paste this into your bucket policy and save. Notice you have to edit "yourbucketname" to be your bucket name
+
     {
       "Version": "2008-10-17",
       "Id": "Policy1",
@@ -65,3 +66,14 @@ This gem is still under development. In the current form it can already be used 
 * A simple example: https://github.com/pitosalas/jbscosi2014
 * A complex example (but based on a previous version): https://github.com/pitosalas/cosi236b
 * The resultant web site: bit.ly/cosi236b
+
+## Open Source Catalog of Topics
+CourseGen comes with a large, shared catalog of topics. Depending on what you teach you may or may not find useful content there. Over time we hope to broaden this catalog. You can review the current set of topics here: https://github.com/pitosalas/coursegen-topics
+
+### Step by step
+* First clone the topic directory to your local drive: `git clone git@github.com:pitosalas/coursegen-topics.git`
+* Add a symbolic link between your course and the newly cloned directory. For example you might do this:
+    cd MYCOURSE/content
+    ln -s TOPICDIR .
+   
+

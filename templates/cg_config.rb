@@ -1,3 +1,5 @@
+require 'coursegen'
+
 # Copyright string
 COPYRIGHT_STRING = "Copyright (2013-2014) R. Pito Salas, pitosalas@gmail.com"
 

@@ -129,7 +129,8 @@ module ContentHelpers
   end
 
   def include_code name
-    filename = "content/content/scripts/#{name.to_s}"
+    local_dir = File.dirname(__FILE)
+    filename = local_dir + name.to_s}
     filecontents = File.new(filename).read
     code_string filecontents
   end
