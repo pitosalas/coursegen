@@ -40,6 +40,22 @@ This gem is still under development. In the current form it can already be used 
 * Make a note of the "endpoint url"
 * Click on permissions/add more permissions
 * Choose Grantee: Everyone; And "list" and no others
+* Click "Edit Bucket Policy". Paste this into your bucket policy and save. Notice you have to edit "yourbucketname" to be your bucket name
+    {
+      "Version": "2008-10-17",
+      "Id": "Policy1",
+      "Statement": [
+        {
+          "Sid": "Stmt1",
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "*"
+          },
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::yourbucketname/*"
+        }
+      ]
+    }
 
 ### Deploy to S3 (optional)
 * I've used `s3cmd` with great success. You can find it at s3tools.org. Follow their instructions to install it.

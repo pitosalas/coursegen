@@ -38,6 +38,11 @@ module CourseGen
       run "open http://0.0.0.0:3000"
     end
 
+    desc "deploy", "Deploy course to S3"
+    def deploy
+      run "s3cmd sync --delete-removed output/ s3://#{AWS_BUCKET}/"
+    end
+
     no_commands do
       def check_valid_directory
         CourseGen::Templates.new.valid_cg_directory? ? 
