@@ -45,7 +45,6 @@ This gem is still under development. In the current form it can already be used 
 * I've used s3cmd with great success. You can find it at s3tools.org. Follow their instructions to install it.
 * Configure your course to point to the bucket you just created. Notice, we are using the bucket name not the url
 
-    # Bucket Deployment of the course
     AWS_BUCKET = "cosi165-2014"
 
 ### Examples
