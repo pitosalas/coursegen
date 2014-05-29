@@ -1,6 +1,7 @@
 module SidebarHelpers
   def section_helper title:nil, selector:nil
     sect = Toc.instance.section(selector)
+    binding.pry
     str = "<li>
             <label class=\"tree-toggler level1\">
               #{collapsed_indicator(sect[0].collapsed)}
