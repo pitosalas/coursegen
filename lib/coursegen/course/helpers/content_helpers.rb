@@ -129,9 +129,7 @@ module ContentHelpers
   end
 
   def include_code name
-    binding.pry
-    local_dir = File.dirname(__FILE__)
-    filename = local_dir + name.to_s
+    filename = Dir.pwd+"/content/content/topics/scripts/"+name
     filecontents = File.new(filename).read
     code_string filecontents
   end
