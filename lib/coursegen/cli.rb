@@ -1,5 +1,6 @@
 require 'thor'
-require "coursegen/templates"
+require 'coursegen/templates'
+require './cg_config.rb'
 
 module CourseGen
   class CLI < Thor
