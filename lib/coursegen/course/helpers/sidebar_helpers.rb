@@ -3,7 +3,7 @@ module SidebarHelpers
     sect = Toc.instance.section(selector)
     str = "<li>
             <label class=\"tree-toggler level1\">
-              #{collapsed_indicator(sect[0].collapsed)}
+              #{collapsed_indicator(sect.collapsed?)}
               #{title}
             </label>"
     if sect.has_subsections?
@@ -22,10 +22,10 @@ module SidebarHelpers
     "<ul class=\"tree\">
       <li>
         <label class=\"tree-toggler level2\">
-          #{collapsed_indicator(sect.content.collapsed)} 
+          #{collapsed_indicator(sect.content.collapsed?)} 
           #{sect.content.title}
         </label>
-        #{subsection(sect, sect.content.collapsed)}
+        #{subsection(sect, sect.content.collapsed?)}
       </li>
     </ul>"
   end
@@ -46,7 +46,7 @@ module SidebarHelpers
   end
 
   def flat_section sect
-    disp_clause = sect[0].collapsed ? "display: none" : "display: block"
+    disp_clause = sect.collapsed? ? "display: none" : "display: block"
     str = "<ul class=\"tree\" style=\"#{disp_clause}\">"
     str = sect.reduce(str) { |acc, item| acc + flat_section_item_link(item) }
     str += "</ul>" 
