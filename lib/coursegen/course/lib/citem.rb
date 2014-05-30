@@ -1,12 +1,12 @@
 require 'active_support/inflector'
 
 #
-# Curriculu Item decorates Nanoc Item
+# Coursegen Item decorates Nanoc Item
 #
 class CItem
 
   attr_reader :order, :section, :subsection, :subsection_citem, :title,
-              :type, :identifier, :short_name, :status, :nitem, :css_class, :collapsed
+              :type, :identifier, :short_name, :status, :nitem, :css_class
   attr_accessor :lecture_number, :lecture_date
 
   # Callable with nitem=nil to create a mock
@@ -25,7 +25,6 @@ class CItem
       @order = order
       @title = ident
       @style = nil
-      @collapsed = nil
       parse_identifier ident
     end
   end
@@ -44,6 +43,10 @@ class CItem
 
   def is_lecture?
     !@lecture_date.nil?
+  end
+
+  def collapsed?
+    @collapsed = @nitem[:collapsed].nil? ? true : @nitem[:collapsed]
   end
 
   def lecture_date_s
@@ -67,7 +70,6 @@ class CItem
     @section = @nitem[:section]
     @title = @nitem[:title]
     @css_class = @nitem[:css_class]
-    @collapsed = @nitem[:collapsed].nil? ? true : @nitem[:collapsed]
   end
 
   def parse_identifier ident

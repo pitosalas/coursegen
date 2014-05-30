@@ -6,8 +6,9 @@ class Section
 	attr_reader :section
 	def_delegators :@citems, :[], :count, :each, :sort!, :reduce
 
-	def initialize sect, citems
+	def initialize (sect, citems, collapsed)
 		@section = sect
+		@collapsed = collapsed
 		@citems = section_filter(citems)
 		sort_pages
 	end
@@ -50,6 +51,10 @@ class Section
 		false
 	end
 
+	def collapsed?
+		@collapsed
+	end
+
 	protected
 
   def lookup_citem_by_identifier identifier
@@ -59,7 +64,7 @@ class Section
     res[0]
   end
 
-
+  # Remove citems that don't belong in this section, or are hidden
 	def section_filter citems
 		filtered_citems = citems.map do 
 			|citem|

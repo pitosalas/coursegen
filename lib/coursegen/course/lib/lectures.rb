@@ -1,8 +1,8 @@
 require 'tree'
 
 class Lectures < Section
-	def initialize sect, citems, schedule=nil
-		super sect, citems
+	def initialize(sect, citems, schedule=nil, collapsed=false)
+		super sect, citems, collapsed
 		@schedule = schedule || ::Scheduler.new
 		@citems = sort_items
 		build_tree

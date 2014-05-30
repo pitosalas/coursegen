@@ -21,9 +21,9 @@ class Toc
       if sect.options[:type] == :lecture
         schedule = Scheduler.new
         schedule.setup_from_schedule_def(sect.options[:schedule])
-        @sections[selector] = Lectures.new(selector, items, schedule)
+        @sections[selector] = Lectures.new(selector, items, schedule, sect.options[:collapsed])
       elsif sect.options[:type] == :section
-        @sections[selector] = Section.new(selector, items)
+        @sections[selector] = Section.new(selector, items, sect.options[:collapsed])
       else
         raise ArgumentError.new("Invalid section option")
       end
