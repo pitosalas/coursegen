@@ -31,6 +31,14 @@ module ContentHelpers
 
   def ir string; italic_red(string); end
 
+  def callout title, body, format=nil
+    template_string = <<-HTMLSTRING
+<div class="well well-sm">
+<span class="label label-primary">#{title}</span>#{body}
+</div>
+HTMLSTRING
+  end
+
   def include_image_old string, extra_class: nil
     css_class = "img-responsive"
     css_class += " img-"+extra_class unless extra_class.nil?

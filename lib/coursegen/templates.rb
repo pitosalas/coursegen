@@ -16,6 +16,7 @@ module CourseGen
       copy_template_file("cg_config.rb_sample", "cg_config.rb_sample")
       delete_target_file("content/stylesheet.css")
       delete_target_file("content/index.html")
+      #create empty directory content/images
     end
 
     def valid_cg_directory?
