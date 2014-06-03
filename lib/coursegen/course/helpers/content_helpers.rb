@@ -22,7 +22,7 @@ module ContentHelpers
   end
 
   def bold_red string
-      "<span style=\"color: red; font-style: italic;\">\#{string}</span>"
+      "<span style=\"color: red; font-style: italic;\">#{string}</span>"
   end
 
   def italic_red string
@@ -50,7 +50,7 @@ HTMLSTRING
   template_string = <<-HTMLSTRING
 <div class="row">
   <div class="col-md-offset-2 col-md-#{width}">
-    <img src="/content/images/#{filename_string}" class="img-responsive img-thumbnail" />
+    <img src="../#{filename_string}" class="img-responsive img-thumbnail" />
   </div>
 </div>
   HTMLSTRING
