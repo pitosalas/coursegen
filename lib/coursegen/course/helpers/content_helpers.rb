@@ -1,7 +1,4 @@
 module ContentHelpers
-  def generate_detailed_schedule section
-#        binding.pry
-  end
 
   def include_topic item_symbol
       incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
