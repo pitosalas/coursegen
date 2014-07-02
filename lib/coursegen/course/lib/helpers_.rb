@@ -3,6 +3,7 @@ include ContentHelpers
 include NavigationHelpers
 include LectureHelpers
 include SidebarHelpers
+include LectureTableHelpers
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::LinkTo
 include Nanoc::Toolbox::Helpers::Navigation
