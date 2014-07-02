@@ -19,6 +19,7 @@ require 'coursegen/course/lib/scheduler'
 require 'coursegen/course/lib/lectures'
 require 'coursegen/course/lib/search_data_generator'
 require 'coursegen/course/lib/bootstrap_table_markupper'
+require 'coursegen/course/lib/table_builder'
 
 module Coursegen
   # Your code goes here...
