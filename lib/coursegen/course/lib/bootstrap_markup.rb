@@ -47,7 +47,7 @@ class BootstrapMarkup
   end
 
   def bigcell_begin
-    @str << "<td colspan=\"2\"><h5>"
+    @str << "<td colspan=\"3\"><h5>"
   end
 
   def bigcell_end

@@ -71,6 +71,8 @@ class LectureTable
   def cell_content_string(row_id, col_selector, detail:)
     if (col_selector == :title && detail)
       link_to_unless_current(row_id.nitem[:title], row_id.identifier)
+    elsif (col_selector == :date)
+      @data.cell_value(row_id, col_selector).strftime("%a %b %-d")
     else
       @data.cell_value(row_id, col_selector).to_s
     end
