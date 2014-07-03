@@ -7,21 +7,20 @@ require "coursegen/course/helpers/sidebar_helpers"
 require "coursegen/course/helpers/lecture_helpers"
 require "coursegen/course/helpers/content_helpers"
 require "coursegen/course/helpers/logging_helpers"
-require "coursegen/course/helpers/lecture_table_helpers"
+require "coursegen/course/helpers/list_of_helpers"
+require 'coursegen/course/helpers/bootstrap_markup'
 require "coursegen/course/helpers/navigation_helpers"
-require "coursegen/course/lib/section"
-require "coursegen/course/lib/toc"
-require 'coursegen/course/lib/citem'
+require "coursegen/course/data/section"
+require "coursegen/course/data/toc"
+require 'coursegen/course/data/citem'
 require 'coursegen/course/lib/helpers_'
-require 'coursegen/course/lib/schedule_def'
-require 'coursegen/course/lib/section_def'
-require 'coursegen/course/lib/scheduler'
-require 'coursegen/course/lib/lectures'
+require 'coursegen/course/schedule/schedule_def'
+require 'coursegen/course/data/section_def'
+require 'coursegen/course/schedule/scheduler'
+require 'coursegen/course/data/lectures'
 require 'coursegen/course/lib/search_data_generator'
-require 'coursegen/course/lib/bootstrap_markup'
-require 'coursegen/course/lib/table_builder'
-require 'coursegen/course/lib/data_adaptor'
-require 'coursegen/course/lib/lecture_table'
+require 'coursegen/course/data/data_adaptor'
+require 'coursegen/course/helpers/list_of'
 
 
 module Coursegen
