@@ -25,7 +25,7 @@ class CItem
       @order = order
       @title = ident
       @style = nil
-      parse_identifier ident
+      parse_identifier(ident)
     end
   end
 

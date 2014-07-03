@@ -19,17 +19,13 @@ class DataAdaptor
   def cell_value(citem, col_selector)
     case col_selector
     when :number
-      citem.order
+      citem.lecture_number
     when :date
-      "date" #citem.date
+      citem.lecture_date
     when :title
       citem.title
-    else
-      "error!"
+    when :url
+      citem.identifier
     end
-  end
-
-  def cell_value_string(citem, column_selector)
-    cell_value(citem, column_selector).to_s
   end
 end

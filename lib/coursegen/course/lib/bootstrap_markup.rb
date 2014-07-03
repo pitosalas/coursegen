@@ -20,7 +20,6 @@ class BootstrapMarkup
 
   def header_begin
     @str << "<th>"
-
   end
 
   def header_end
@@ -45,6 +44,14 @@ class BootstrapMarkup
 
   def cell_end
     @str << "</td>"
+  end
+
+  def bigcell_begin
+    @str << "<td colspan=\"2\"><h5>"
+  end
+
+  def bigcell_end
+    @str << "</h5></td>"
   end
 
   def cell_content(str)
