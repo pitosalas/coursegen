@@ -4,6 +4,7 @@ include NavigationHelpers
 include LectureHelpers
 include SidebarHelpers
 include ListOfHelpers
+include ChalkmarkHelpers
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::LinkTo
 include Nanoc::Toolbox::Helpers::Navigation
