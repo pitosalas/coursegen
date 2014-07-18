@@ -37,11 +37,16 @@
         <div class="col-xs-9">
           <%= yield %>
         </div>
-        <div class="col-xs-3 well right-nav">
-          <ul>
-            <% SECTION_CONFIG.each do |sbb| %>
-              <%= section_helper(title: sbb.title, selector: sbb.selector) unless sbb.options[:hidden] %>
-            <% end %>
+        <div class="col-xs-3">
+          <div class="well right-nav">
+              <%= render "helpful_box" %>
+          </div>
+          <div "well right-nav">
+            <ul>
+              <% SECTION_CONFIG.each do |sbb| %>
+                <%= section_helper(title: sbb.title, selector: sbb.selector) unless sbb.options[:hidden] %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
