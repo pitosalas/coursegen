@@ -13,9 +13,6 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-require 'pry'
-require './cg_config.rb'
-
 preprocess do
   Toc.instance.prepare @items, SECTION_CONFIG
 end
