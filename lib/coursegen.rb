@@ -1,6 +1,5 @@
 require 'nanoc/toolbox'
 require 'pry'
-require 'nokogiri'
 
 require "coursegen/version"
 require "coursegen/course/helpers/sidebar_helpers"
