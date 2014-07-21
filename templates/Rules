@@ -31,6 +31,10 @@ compile '/content/scripts/*' do
   nil
 end
 
+compile '/chalkmark/*' do
+  nil
+end
+
 compile "/search_index/tipuesearch_content/" do
   filter :erb
 end
@@ -65,7 +69,12 @@ end
 
 route '/tipuesearch/*' do
   @item.identifier.chop + '.' + @item[:extension]
-end  
+end
+
+route '/chalkmark/*' do
+  @item.identifier.chop + '.' + @item[:extension]
+end
+
 
 route '/content/' do
   '/index.html'

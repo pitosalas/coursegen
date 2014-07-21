@@ -1,7 +1,7 @@
 function handle_helpful_link(yesno) {
   $.ajax({
     url: "http://0.0.0.0:3001/api/helpful/vote/",
-    data: {url: "myuxyrl", value: yesno},
+    data: {url: document.title, value: yesno},
     dataType: "jsonp",
     success: function(data) { display_visit_stats(data); }}
 )};
@@ -20,7 +20,7 @@ $("#no-link").click( function() { handle_helpful_link("no");});
 function record_visit() {
   $.ajax({
     url: "http://0.0.0.0:3001/api/helpful/visiting/",
-    data: {url: "myuxyrl"},
+    data: {url: document.title},
     dataType: "jsonp",
     success: function(data) { display_visit_stats(data) }}
 )};
