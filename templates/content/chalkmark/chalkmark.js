@@ -10,7 +10,7 @@ function display_visit_stats(response) {
   yes_votes = response.true;
   no_votes = response.false;
   if (yes_votes > 0 || no_votes > 0) {
-    $("#helpful").html("Helpful votes so far: Yes: " + response.true + " No: " + response.false );
+    $("#helpful").addClass("text-center").html("<small>votes so far: Yes: " + response.true + " No: " + response.false  + "</small>");
   }
 }
 

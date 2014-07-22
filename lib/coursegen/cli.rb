@@ -1,5 +1,7 @@
 require 'thor'
 require 'coursegen/templates'
+require 'nanoc'
+require './cg_config.rb'
 
 
 module CourseGen
