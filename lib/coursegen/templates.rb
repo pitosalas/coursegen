@@ -19,11 +19,12 @@ module CourseGen
       delete_target_file("content/index.html")
       delete_target_file("layouts/default.html")
       create_empty_dir("content/images")
+      copy_template_dir("content/tipuesearch", "content/tipuesearch")
     end
 
     def valid_cg_directory?
       valid = true
-      list = ["Rules", "nanoc.yaml", "content", "lib", "cg_config.rb"]
+      list = ["Rules", "nanoc.yaml", "content", "lib"]
       list.each do |filename|
         if !File.exists?(filename)
           valid = false
