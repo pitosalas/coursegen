@@ -1,7 +1,8 @@
 require 'thor'
 require 'coursegen/templates'
 require 'nanoc'
-require './cg_config.rb'
+require './cg_config.rb' if CourseGen::Templates.new.valid_cg_directory?
+
 
 
 module CourseGen
