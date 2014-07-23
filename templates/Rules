@@ -35,7 +35,7 @@ compile '/tipuesearch/*' do
   nil
 end
 
-compile "/tipuesearch_content/tipuesearch_content/" do
+compile "/tipuesearch/tipuesearch_logic/*" do
   filter :erb
 end
 
@@ -71,7 +71,7 @@ route '/tipuesearch/*' do
   @item.identifier.chop + '.' + @item[:extension]
 end
 
-route "/tipuesearch_content/tipuesearch_content/" do
+route "/tipuesearch_logic/tipuesearch_content/" do
   '/tipuesearch/tipuesearch_content.js'
 end
 
@@ -90,7 +90,7 @@ route '*' do
   elsif item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension] rescue binding.pry
-  elsif item.identifier == "/search_index/tipuesearch_content/"
+  elsif item.identifier == "/search_logic/tipuesearch_content/"
       item.identifier.chop + '.' + item[:extension] rescue binding.pry
   elsif item[:status] == "hidden"
     nil

@@ -20,6 +20,7 @@ module CourseGen
       delete_target_file("layouts/default.html")
       create_empty_dir("content/images")
       copy_template_dir("content/tipuesearch", "content/tipuesearch")
+      copy_template_dir("content/tipuesearch_logic", "content/tipuesearch_logic")
     end
 
     def valid_cg_directory?
