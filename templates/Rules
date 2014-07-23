@@ -23,15 +23,15 @@ compile '/bootstrap/*' do
   nil
 end
 
-compile '/tipuesearch/*' do
-  nil
-end
-
 compile '/content/scripts/*' do
   nil
 end
 
 compile '/chalkmark/*' do
+  nil
+end
+
+compile '/tipuesearch/*' do
   nil
 end
 
