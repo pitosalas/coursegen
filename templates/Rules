@@ -35,7 +35,7 @@ compile '/tipuesearch/*' do
   nil
 end
 
-compile "/search_index/tipuesearch_content/" do
+compile "/tipuesearch_content/tipuesearch_content/" do
   filter :erb
 end
 
@@ -71,10 +71,14 @@ route '/tipuesearch/*' do
   @item.identifier.chop + '.' + @item[:extension]
 end
 
+route "/tipuesearch_content/tipuesearch_content/" do
+  '/tipuesearch/tipuesearch_content.js'
+end
+
+
 route '/chalkmark/*' do
   @item.identifier.chop + '.' + @item[:extension]
 end
-
 
 route '/content/' do
   '/index.html'
