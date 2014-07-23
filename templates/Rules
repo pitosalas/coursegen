@@ -80,10 +80,6 @@ route '/content/' do
   '/index.html'
 end
 
-route "/search_index/tipuesearch_content/" do
-  '/tipuesearch/js/tipuesearch_content.js'
-end
-
 route '*' do
   if item[:extension].nil?
     raise RuntimeError, "Missing required extension: \".#{item.identifier}\""
