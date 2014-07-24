@@ -102,6 +102,12 @@ footer {
 }
 
 /* Search Page */
+
+.h01 {
+     color: red;
+     font-weight: bold;
+}
+
 #tipue_search_results_count {
 	font-size: 14px;
 	color: red;
