@@ -35,7 +35,7 @@ compile '/tipuesearch/*' do
   nil
 end
 
-compile "/tipuesearch/tipuesearch_logic/*" do
+compile "/tipuesearch_logic/tipuesearch_content" do
   filter :erb
 end
 
