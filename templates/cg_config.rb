@@ -9,6 +9,7 @@ COURSE_LONG_NAME = "Not a course"
 
 # Sections in the right hand margin of the page
 SECTION_CONFIG = [
-    SectionDef.new("Background", "background", type: :section)
+  SectionDef.new("Background", "background", type: :section),
+  SectionDef.new("Hidden", "hidden", hidden: true, type: :section)
 ]
 
