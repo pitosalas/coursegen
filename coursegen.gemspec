@@ -30,5 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "pry"
   spec.add_dependency "nokogiri"
   spec.add_dependency "activesupport"
+  spec.add_dependency "kramdown"
 
 end
