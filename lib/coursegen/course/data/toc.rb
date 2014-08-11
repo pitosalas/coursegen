@@ -64,13 +64,13 @@ class Toc
 
   def find_next_forn(nitem)
     p = find_next_for(n2c(nitem)) 
-    binding.pry if p.nil?
+    fail "find_next_forn" if p.nil?
     p
   end
 
   def find_previous_forn(nitem)
     p = find_previous_for(n2c(nitem))
-    binding.pry if p.nil?
+    fail "find_previous_forn" if p.nil?
     p
   end
 
@@ -81,12 +81,6 @@ class Toc
   def find_previous_for(citem)
     section(citem.section).previous_for(citem)
   end
-
-  # def section_for nitem
-  #   sec = @sections[n2c(nitem).section]
-  #   binding.pry if sec.nil?
-  #   sec
-  # end
 
   def citem_section citem
     @sections[citem.section]

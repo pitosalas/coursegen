@@ -3,7 +3,7 @@ require 'active_support/core_ext/date/conversions'
 require_relative "./spec_helper.rb"
 
 def s2d(string_date)
-  Date.strptime(string_date, "%b-%d-%Y") rescue binding.pry
+  Date.strptime(string_date, "%b-%d-%Y")
 end
 
 describe Scheduler do
