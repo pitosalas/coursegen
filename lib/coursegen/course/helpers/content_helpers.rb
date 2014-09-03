@@ -47,7 +47,7 @@ HTMLSTRING
   template_string = <<-HTMLSTRING
 <div class="row">
   <div class="col-md-offset-2 col-md-#{width}">
-    <img src="../#{filename_string}" class="img-responsive img-thumbnail" />
+    <img src="#{filename_string}" class="img-responsive img-thumbnail" />
   </div>
 </div>
   HTMLSTRING
