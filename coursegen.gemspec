@@ -26,5 +26,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency "nanoc", "~>3.6.11"
   spec.add_dependency "thor"
   spec.add_dependency "rubytree"
+  spec.add_dependency "cri"
+  spec.add_dependency "pry"
+  spec.add_dependency "nokogiri"
+  spec.add_dependency "activesupport"
+  spec.add_dependency "kramdown"
+  spec.add_dependency "adsf"
+  spec.add_dependency "guard"
+  spec.add_dependency "guard-shell"
 
 end

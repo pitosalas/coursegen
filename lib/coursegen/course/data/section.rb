@@ -19,7 +19,6 @@ class Section
 
 	def find_by_short_name(sname)
 		matches = @citems.select { |c| sname == c.short_name}
-#		binding.pry	if matches.length != 1
 	  raise RuntimeError,"#{sname}: invalid reference in section \"#{@section}\"" if matches.length == 0
     raise RunimeError, "#{sname}: duplicate referenced in section \"#{@section}\"" if matches.length != 1
 		matches[0]
@@ -59,7 +58,6 @@ class Section
 
   def lookup_citem_by_identifier identifier
     res = @citems.select { |i| i.identifier == identifier }
-    binding.pry if res.length != 1
     raise RuntimeError, "lookup by identifier failed #{identifier}" if res.length != 1
     res[0]
   end
@@ -74,6 +72,6 @@ class Section
   end
 
 	def sort_pages
-		@citems.sort! { |a,b| a.order <=> b.order } rescue binding.pry
+		@citems.sort! { |a,b| a.order <=> b.order } rescue fail "sort_pages in section.rb"
 	end
 end

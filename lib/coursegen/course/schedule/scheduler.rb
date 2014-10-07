@@ -72,6 +72,7 @@ class Scheduler
 private
 
   def string_to_date(string_date)
-    Date.strptime(string_date, "%b-%d-%Y") rescue binding.pry
+    Date.strptime(string_date, "%b-%d-%Y") rescue  fail "string to date in scheduler.rb"
+
   end
 end

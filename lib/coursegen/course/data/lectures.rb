@@ -23,10 +23,10 @@ class Lectures < Section
 			i.lecture_number = lecture_num
 			i.lecture_date = @schedule.event_date_by_index(lecture_num - 1) # Lecture numbers are base 1
 			if i.type == "subsection"
-				@root.add(Tree::TreeNode.new(i.subsection, i)) rescue binding.pry
+				@root.add(Tree::TreeNode.new(i.subsection, i)) 
 			elsif i.type == "page"
 				parent_tree_node = parent_node_of(i)
-				parent_tree_node.add(Tree::TreeNode.new(i.identifier, i)) rescue binding.pry
+				parent_tree_node.add(Tree::TreeNode.new(i.identifier, i))
 				lecture_num += 1
 			else
 				raise ArgumentError, "invalid lecture page type of #{i.type}for #{i.title}"
@@ -36,7 +36,6 @@ class Lectures < Section
 
 	def parent_node_of citem
 		parent_node = @root[citem.subsection]
-#		binding.pry if parent_node.nil?
 		raise  RuntimeError, "Cant find section for item: #{citem.identifier}" if parent_node.nil?
 		parent_node
 	end
@@ -57,7 +56,7 @@ class Lectures < Section
 	end
 
 	def next_for(citem)
-		next_node = treenode_of(citem).next_sibling rescue binding.pry
+		next_node = treenode_of(citem).next_sibling
 		if !next_node.nil?
 			next_node.content
 		else
@@ -74,15 +73,7 @@ class Lectures < Section
 		end
 	end
 
-	# def citem_lecture_number citem
-	# 	citem.lecture_number
-	# end
-
 protected
-
-	# def sort_items
-	# 	@citems.sort_by { |i| [ i.type == "subsection" ? "A" : "B", i.order ] }
-	# end
 
 	def sort_items
 		@citems.sort_by! { |i| [ lookup_citem_by_identifier(i.subsection).order, ((i.type == "page" ? 100 : 1 ) * i.order) ] }
