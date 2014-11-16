@@ -3,9 +3,6 @@ require 'coursegen'
 # bucket for AWS Deployment of the course
 AWS_BUCKET = "cosi236b.courses.salas.com"
 
-# Local directory path for directory of topics
-TOPICS_PATH = "/mydev/curriculous-topics"
-
 # Local directory path for directory of content
 CONTENT_PATH = "/mydev/cosi236b"
 
