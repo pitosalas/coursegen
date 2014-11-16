@@ -1,3 +1,5 @@
+require 'coursegen'
+
 # bucket for AWS Deployment of the course
 AWS_BUCKET = "cosi236b.courses.salas.com"
 
@@ -37,7 +39,7 @@ SECTION_CONFIG = [
 		SectionDef.new("Background", "background", type: :section),
 		SectionDef.new("Root", "root", hidden: true, type: :section),
 		SectionDef.new("Topics", "topics", hidden: true, type: :section),
-		SectionDef.new("Search", "search_results", hidden: true, type: :section)
+		SectionDef.new("Hidden", "hidden", hidden: true, type: :section)
 ]
 
 
