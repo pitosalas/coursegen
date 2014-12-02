@@ -4,17 +4,20 @@ class ListOf
   # rows: array with one or more of:
   #     "pages"
   #     "subsections"
+  # subsections: array with one or more strings corresponding to subsection string in an item
+  #     .e.g. "/content/topics/arch/"
   # cols: array with one or more of:
   #     :date
   #     :number
   #     :title
   #     :homeworks
 
-  def initialize(markup_adaptor, data_adaptor, rows, cols)
+  def initialize(markup_adaptor, data_adaptor, rows, cols, subsections)
     @mark = markup_adaptor
     @rows = rows
     @cols = cols
     @data = data_adaptor
+    @subsections = subsections
   end
 
   def render
@@ -40,6 +43,7 @@ class ListOf
   end
 
   def generate_rows
+    binding.pry
     @data.rows do |row_id|
       next unless include_row?(row_id)
       if subsection_hdr?(row_id)
@@ -79,7 +83,15 @@ class ListOf
   end
 
   def include_row?(row_id)
+    include_by_row_type?(row_id) && include_by_subsection_path?(row_id) 
+  end
+
+  def include_by_row_type?(row_id)
     @rows.include?(row_id.type)
+  end
+
+  def include_by_subsection_path?(row_id)
+    @subsections.length == 0 || @subsections.include?(row_id.subsection)
   end
 
   def subsection_hdr?(row_id)
