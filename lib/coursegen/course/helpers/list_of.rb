@@ -43,7 +43,6 @@ class ListOf
   end
 
   def generate_rows
-    binding.pry
     @data.rows do |row_id|
       next unless include_row?(row_id)
       if subsection_hdr?(row_id)
