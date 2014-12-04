@@ -4,6 +4,11 @@ module NavigationHelpers
     link_to_section :lectures, item_symbol
   end
 
+  def link_to_next_lecture
+    the_item = Toc.instance.find_next_forn(@item)
+    link_to(the_item.title, the_item.identifier)
+  end
+
   def link_to_topic item_symbol
     link_to_section :topics, item_symbol
   end

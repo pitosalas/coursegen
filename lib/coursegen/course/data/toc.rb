@@ -61,6 +61,12 @@ class Toc
     section
   end
 
+  def section_def selector
+    matching_defs = @section_config.select { |sd| sd.selector == selector}
+    fail "Invalid selector used in section_def" if matching_defs.length != 1
+    matching_defs.first
+  end
+
 
   def find_next_forn(nitem)
     p = find_next_for(n2c(nitem)) 

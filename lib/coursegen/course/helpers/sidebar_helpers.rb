@@ -1,6 +1,7 @@
 module SidebarHelpers
   def section_helper title:nil, selector:nil
     sect = Toc.instance.section(selector)
+    @sect_def = Toc.instance.section_def(selector)
     str = "<li>
             <label class=\"tree-toggler level1\">
               #{collapsed_indicator(sect.collapsed?)}
@@ -42,7 +43,8 @@ module SidebarHelpers
   end
 
   def subsection_item_link tree_node
-   "<li class=\"#{tree_node.content.css_class}\"><a href=\"#{tree_node.content.path}\">#{tree_node.content.title}</a></li>"
+  bullet = @sect_def.options[:bullet]
+   "<li class=\"#{tree_node.content.css_class}\">#{icon_markup(bullet)}<a href=\"#{tree_node.content.path}\">#{tree_node.content.title}</a></li>"
   end
 
   def flat_section sect
@@ -53,11 +55,15 @@ module SidebarHelpers
   end
 
   def flat_section_item_link citem
-    "<li class=\"#{citem.css_class}\"><a href=\"#{citem.path}\">#{citem.title}</a></li>"
+    bullet = @sect_def.options[:bullet]
+    "<li class=\"#{citem.css_class}\">#{icon_markup(bullet)}<a href=\"#{citem.path}\">#{citem.title}</a></li>"
   end
 
   def icon_markup icon_type
-    css_class = {star: "glyphicon-star", plus: "glyphicon-plus-sign", minus: "glyphicon-minus-sign"}.fetch(icon_type)
-    "<span class=\"glyphicon #{css_class} glyphicon-small \"></span>"
+    return "" if icon_type.nil?
+    css_class = {dash: "glyphicon-minus", star: "glyphicon-star", plus: "glyphicon-plus-sign", minus: "glyphicon-minus-sign"}.fetch(icon_type)
+    "<span class=\"glyphicon #{css_class}\" style=#{STYLING_CONFIG[:bullet_style]}></span>"
   end
+
+
 end
