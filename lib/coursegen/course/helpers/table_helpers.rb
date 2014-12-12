@@ -1,9 +1,14 @@
 class TableHelper
-  def initialize(*headers)
+  def initialize(property)
+    @prop = property
     @bm = BootstrapMarkup.new
-    @bm.table_begin
+  end
+
+  def headers(*labels)
+    css_style = @prop == :normal ? "table-condensed" : ""
+    @bm.table_begin(css_style)
     @bm.headers_begin
-    headers.each do |h|
+    labels.each do |h|
       @bm.header_begin
       @bm.header_content(h)
       @bm.header_end
@@ -21,8 +26,8 @@ class TableHelper
     @bm.row_end
   end
 
-  def generate()
+  def render()
     @bm.table_end
-    @bm.generate
+    @bm.render
   end
 end

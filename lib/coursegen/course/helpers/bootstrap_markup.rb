@@ -2,8 +2,8 @@ class BootstrapMarkup
   def initialize
     @str = ""
   end
-  def table_begin
-    @str << "<table class=\"table table-condensed\">"
+  def table_begin(css_class="table-condensed")
+    @str << "<table class=\"table #{css_class}\">"
   end
 
   def table_end

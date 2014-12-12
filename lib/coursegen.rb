@@ -7,6 +7,7 @@ require "coursegen/course/helpers/content_helpers"
 require "coursegen/course/helpers/logging_helpers"
 require "coursegen/course/helpers/list_of_helpers"
 require 'coursegen/course/helpers/bootstrap_markup'
+require 'coursegen/course/helpers/table_helpers'
 require "coursegen/course/helpers/navigation_helpers"
 require "coursegen/course/data/section"
 require "coursegen/course/data/toc"
