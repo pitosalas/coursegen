@@ -109,6 +109,33 @@ HTMLSTRING
     body
   end
 
+  def carousel_new(filenames)
+    carousel_work(filenames.map {|filename| "/content/topics/images/"+filename })
+  end
+
+ def carousel_work(filenames)
+  body = %~<div id="myCarousel" class="carousel slide" style="width: 500px; margin: 0 auto;">
+            <div class="carousel-inner" style="margin: 20px; ">~
+  counter = 0
+  filenames.each do
+    |nam|
+    if counter == 0
+        body << %~<div class="item active">~
+    else
+        body << %~<div class="item">~
+    end
+    body << %~<img src="~
+    body << nam
+    body << %~" class="img-polaroid" alt=""></div>~
+    counter += 1
+  end
+    body << %~</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>~
+    body
+  end
+
+
   def ruby_begin
       "\n~~~~~~"
   end
