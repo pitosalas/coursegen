@@ -45,7 +45,7 @@ compile '*' do
   elsif item[:status] == "hidden"
     nil
   elsif item[:type] == "subsection"
-    nil    
+    nil
   elsif item[:extension] == "haml"
     filter :haml;
     layout 'course'
@@ -103,4 +103,3 @@ route '*' do
 end
 
 layout '*', :erb
-

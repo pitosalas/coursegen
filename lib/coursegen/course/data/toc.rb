@@ -15,7 +15,7 @@ class Toc
 
   def build_sections items
     @sections = {}
-    @section_config.each do 
+    @section_config.each do
       |sect|
       selector = sect.selector.to_s
       if sect.options[:type] == :lecture
@@ -44,6 +44,7 @@ class Toc
   end
 
   def n2c nitem
+    binding.pry
     @map_n2c[nitem]
   end
 
@@ -69,7 +70,7 @@ class Toc
 
 
   def find_next_forn(nitem)
-    p = find_next_for(n2c(nitem)) 
+    p = find_next_for(n2c(nitem))
     fail "find_next_forn" if p.nil?
     p
   end
