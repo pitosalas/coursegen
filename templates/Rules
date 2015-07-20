@@ -89,4 +89,8 @@ route '/**/*' do
   end
 end
 
+<<<<<<< HEAD
 layout '/**/*', :erb
+=======
+layout '*', :erb
+>>>>>>> f1fe81913cb02260841cda7f3ee77647a740673d
