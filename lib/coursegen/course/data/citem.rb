@@ -11,7 +11,7 @@ class CItem
 
   # Callable with nitem=nil to create a mock
   def initialize nitem=nil, ident=nil, type=nil, order=nil
-    if nitem != nil
+    if !nitem.nil?
       raise ArgumentError, "invalid CItem contruction" unless ident.nil?
       @nitem = nitem
       defaults_from_nitem @nitem
@@ -75,8 +75,8 @@ class CItem
   end
 
   def parse_identifier ident
-    parts = ident.split("/")
-    @section ||= parts[2] 
+    parts = ident.to_s.split("/")
+    @section ||= parts[2]
     parsed_title = parts[-1].match(/^((\d*)_)?([^\/]*)$/)
     raise RuntimeError, "Invalid item title" if parsed_title.nil?
 
@@ -87,6 +87,6 @@ class CItem
       @subsection = "/#{parts[1..-1].join('/')}/"
     elsif @type == "page"
       @subsection = "/#{parts[1..-2].join('/')}/"
-    end 
+    end
   end
 end

@@ -15,7 +15,7 @@ class Toc
 
   def build_sections items
     @sections = {}
-    @section_config.each do 
+    @section_config.each do
       |sect|
       selector = sect.selector.to_s
       if sect.options[:type] == :lecture
@@ -35,7 +35,7 @@ class Toc
     items.each do
       |nitem|
       citem = CItem.new(nitem)
-      @map_n2c[nitem] = citem
+      @map_n2c[nitem.identifier] = citem
     end
   end
 
@@ -44,7 +44,7 @@ class Toc
   end
 
   def n2c nitem
-    @map_n2c[nitem]
+    @map_n2c[nitem.identifier]
   end
 
   def lookup_citem the_sect, item_short_name
@@ -69,7 +69,7 @@ class Toc
 
 
   def find_next_forn(nitem)
-    p = find_next_for(n2c(nitem)) 
+    p = find_next_for(n2c(nitem))
     fail "find_next_forn" if p.nil?
     p
   end

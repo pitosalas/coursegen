@@ -1,54 +1,41 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
 require './cg_config.rb'
 
 preprocess do
   Toc.instance.prepare @items, SECTION_CONFIG
 end
 
-compile '/bootstrap/*' do
+compile '/bootstrap/**/*' do
   nil
 end
 
-compile '/content/scripts/*' do
+compile '/content/scripts/**/*' do
   nil
 end
 
-compile '/chalkmark/*' do
+compile '/chalkmark/**/*' do
   nil
 end
 
-compile '/tipuesearch/*' do
+compile '/tipuesearch/**/*' do
   nil
 end
 
-compile "/tipuesearch_logic/tipuesearch_content" do
+compile "/tipuesearch_logic/tipuesearch_content.*" do
   filter :erb
 end
 
-compile '*' do
+compile '/**/*' do
   if item.binary? || item[:status] == "hidden"
     nil
   elsif item[:status] == "hidden"
     nil
   elsif item[:type] == "subsection"
-    nil    
+    nil
   elsif item[:extension] == "haml"
     filter :haml;
-    layout 'course'
+    layout '/course.*'
   else
     item[:extension].split('.').reverse.each do
       |f|
@@ -59,32 +46,32 @@ compile '*' do
         filter :erb
       end
     end
-    layout 'course'
+    layout '/course.*'
   end
 end
 
-route '/bootstrap/*' do
-  @item.identifier.chop + '.' + @item[:extension]
+route '/bootstrap/**/*' do
+  @item.identifier.to_s
 end
 
-route '/tipuesearch/*' do
-  @item.identifier.chop + '.' + @item[:extension]
+route '/tipuesearch/**/*' do
+  @item.identifier.to_s
 end
 
-route "/tipuesearch_logic/tipuesearch_content/" do
+route "/tipuesearch_logic/tipuesearch_content.*" do
   '/tipuesearch/tipuesearch_content.js'
 end
 
 
-route '/chalkmark/*' do
-  @item.identifier.chop + '.' + @item[:extension]
+route '/chalkmark/**/*' do
+  @item.identifier.to_s
 end
 
-route '/content/' do
+route '/content/*' do
   '/index.html'
 end
 
-route '*' do
+route '/**/*' do
   if item[:extension].nil?
     raise RuntimeError, "Missing required extension: \".#{item.identifier}\""
   elsif item.binary?
@@ -102,5 +89,4 @@ route '*' do
   end
 end
 
-layout '*', :erb
-
+layout '/**/*', :erb

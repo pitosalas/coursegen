@@ -9,7 +9,7 @@ class SearchIndex
         { title:  clean_string(item.title),
           text:   clean_string(nok_parse_inner_text),
           tags:   "",
-          loc:  item.nitem.rep_named(:default).path }
+          loc:  item.nitem.reps[:default].path }
     end
   end
 
@@ -19,9 +19,9 @@ class SearchIndex
 
   def include_in_index?(citem)
     skiplist = Regexp.union([/\/tipuesearch_logic\/.*/, /\/bootstrap\/.*/, /\/config\/.*/, /\/tipuesearch\/.*/])
-    citem.type == "page" && 
+    citem.type == "page" &&
       !citem.nitem.binary? &&
-      !citem.identifier.match(skiplist)  
+      !citem.identifier.to_s.match(skiplist)
   end
 
 end

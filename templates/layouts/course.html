@@ -3,8 +3,8 @@
   <head>
     <title><%= @item[:title] %> - <%= COURSE_SHORT_NAME %></title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap/css/custom.css">
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -19,12 +19,12 @@
 
     <% @citem = Toc.instance.n2c(@item) %>
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <%= render "main_navbar", toc: Toc.instance, item: item, citem: @citem %>
+      <%= render "/main_navbar.*", toc: Toc.instance, item: item, citem: @citem %>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-        <%= render "body_header", toc: Toc.instance, item: item, citem: @citem %>
+        <%= render "/body_header.*", toc: Toc.instance, item: item, citem: @citem %>
         </div>
       </div>
       <div class="row">
@@ -33,7 +33,7 @@
         </div>
         <div class="col-xs-3">
           <div class="row well right-nav" style="color: rgb(158, 48, 48);padding-top: 4px;padding-bottom: 4px;padding-left: 8px;padding-right: 8px;margin-bottom: 8px;">
-            <%= render "helpful_box" %>
+            <%= render "/helpful_box.*" %>
           </div>
           <div class="row well right-nav" style="padding: 5px;">
             <ul>
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <%= render "body_footer" %>
+      <%= render "/body_footer.*" %>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
