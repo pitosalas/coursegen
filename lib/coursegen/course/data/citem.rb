@@ -13,7 +13,6 @@ class CItem
   def initialize nitem=nil, ident=nil, type=nil, order=nil
     if !nitem.nil?
       raise ArgumentError, "invalid CItem contruction" unless ident.nil?
-      binding.pry
       @nitem = nitem
       defaults_from_nitem @nitem
       parse_identifier @nitem.identifier

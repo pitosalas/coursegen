@@ -44,12 +44,7 @@ class Toc
   end
 
   def n2c nitem
-<<<<<<< HEAD
     @map_n2c[nitem.identifier]
-=======
-    binding.pry
-    @map_n2c[nitem]
->>>>>>> f1fe81913cb02260841cda7f3ee77647a740673d
   end
 
   def lookup_citem the_sect, item_short_name

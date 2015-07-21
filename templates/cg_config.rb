@@ -12,10 +12,6 @@ SECTION_CONFIG = [
   SectionDef.new("Background", "background", type: :section),
   SectionDef.new("Hidden", "hidden", hidden: true, type: :section)
 ]
-<<<<<<< HEAD
-
-=======
->>>>>>> f1fe81913cb02260841cda7f3ee77647a740673d
 # Options are:
 # bullet_style: css style for each bullet
 STYLING_CONFIG = {bullet_style: "\"font-size: 60%; width: 10px; color: grey\""}
