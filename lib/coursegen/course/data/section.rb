@@ -58,13 +58,14 @@ class Section
 
   def lookup_citem_by_identifier identifier
     res = @citems.select { |i| i.identifier == identifier }
-    raise RuntimeError, "lookup by identifier failed #{identifier}" if res.length != 1
+    # raise RuntimeError, "lookup by identifier failed '#{identifier}'"
+		binding.pry if res.length != 1
     res[0]
   end
 
   # Remove citems that don't belong in this section, or are hidden
 	def section_filter citems
-		filtered_citems = citems.map do 
+		filtered_citems = citems.map do
 			|citem|
   		citem.section == @section && !citem.hidden? ? citem : nil
   	end

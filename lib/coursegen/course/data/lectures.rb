@@ -2,6 +2,7 @@ require 'tree'
 
 class Lectures < Section
 	def initialize(sect, citems, schedule=nil, collapsed=false)
+		binding.pry
 		super sect, citems, collapsed
 		@schedule = schedule || ::Scheduler.new
 		@citems = sort_items
@@ -23,7 +24,7 @@ class Lectures < Section
 			i.lecture_number = lecture_num
 			i.lecture_date = @schedule.event_date_by_index(lecture_num - 1) # Lecture numbers are base 1
 			if i.type == "subsection"
-				@root.add(Tree::TreeNode.new(i.subsection, i)) 
+				@root.add(Tree::TreeNode.new(i.subsection, i))
 			elsif i.type == "page"
 				parent_tree_node = parent_node_of(i)
 				parent_tree_node.add(Tree::TreeNode.new(i.identifier, i))
@@ -41,11 +42,11 @@ class Lectures < Section
 	end
 
 	def treenode_of citem
-		@root.find do 
-			|tree_node| 
+		@root.find do
+			|tree_node|
 				if citem.type == "subsection"
 					citem.subsection == tree_node.name
-				else 
+				else
 					citem.identifier == tree_node.name
 				end
 		end
