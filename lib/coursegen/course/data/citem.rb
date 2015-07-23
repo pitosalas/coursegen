@@ -84,7 +84,9 @@ class CItem
     @short_name = parsed_title[3]
     @title ||= short_name
     if @type == "subsection"
-      @subsection = "/#{parts[1..-1].join('/')}/"
+      binding.pry
+      @subsection = "/#{parts[1..-2].join('/')}/"
+#      @subsection = "/#{parts[1..-1].join('/')}/"
     elsif @type == "page"
       @subsection = "/#{parts[1..-2].join('/')}/"
     end

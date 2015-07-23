@@ -76,6 +76,10 @@ class Lectures < Section
 
 protected
 
+#
+# Sort all the items in this section: First by the ordering of the subseciton
+# that the item belongs to, and second by the item's own indicated order.
+#
 	def sort_items
 		@citems.sort_by! { |i| [ lookup_citem_by_identifier(i.subsection).order, ((i.type == "page" ? 100 : 1 ) * i.order) ] }
 	end

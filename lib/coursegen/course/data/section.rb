@@ -57,7 +57,7 @@ class Section
 	protected
 
   def lookup_citem_by_identifier identifier
-    res = @citems.select { |i| i.identifier == identifier }
+    res = @citems.select { |i| i.identifier.to_s == identifier }
     # raise RuntimeError, "lookup by identifier failed '#{identifier}'"
 		binding.pry if res.length != 1
     res[0]
