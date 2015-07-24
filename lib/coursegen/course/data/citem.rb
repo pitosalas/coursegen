@@ -77,14 +77,14 @@ class CItem
   def parse_identifier ident
     parts = ident.to_s.split("/")
     @section ||= parts[2]
-    parsed_title = parts[-1].match(/^((\d*)_)?([^\/]*)$/)
+    #parsed_title = parts[-1].match(/^((\d*)_)?([^\/]*)$/)
+    parsed_title = parts[-1].match(/^((\d*)_)?(\w*)/)
     raise RuntimeError, "Invalid item title" if parsed_title.nil?
 
     @order ||= parsed_title[2].to_i
     @short_name = parsed_title[3]
     @title ||= short_name
     if @type == "subsection"
-      binding.pry
       @subsection = "/#{parts[1..-2].join('/')}/"
 #      @subsection = "/#{parts[1..-1].join('/')}/"
     elsif @type == "page"

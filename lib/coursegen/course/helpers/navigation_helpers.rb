@@ -38,8 +38,9 @@ module NavigationHelpers
   end
 
   def link_to_section section_symbol, item_symbol
-  	the_item = lookup_nitem(section_symbol.to_s, item_symbol.to_s)
-		link_to_unless_current(the_item[:title], the_item.identifier)
+	   the_item = lookup_nitem(section_symbol.to_s, item_symbol.to_s)
+		#link_to_unless_current(the_item[:title], the_item.identifier)
+    link_to(the_item[:title], the_item)
 	end
 
 	def link_to_next toc, item

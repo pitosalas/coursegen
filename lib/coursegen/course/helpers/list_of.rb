@@ -73,7 +73,8 @@ class ListOf
 
   def cell_content_string(row_id, col_selector, detail:)
     if (col_selector == :title && detail)
-      link_to_unless_current(row_id.nitem[:title], row_id.identifier)
+#      link_to_unless_current(row_id.nitem[:title], row_id.identifier)
+      link_to_unless_current(row_id.nitem[:title], row_id)
     elsif (col_selector == :date)
       @data.cell_value(row_id, col_selector).strftime("%b %-d")
     else
@@ -82,7 +83,7 @@ class ListOf
   end
 
   def include_row?(row_id)
-    include_by_row_type?(row_id) && include_by_subsection_path?(row_id) 
+    include_by_row_type?(row_id) && include_by_subsection_path?(row_id)
   end
 
   def include_by_row_type?(row_id)

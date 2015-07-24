@@ -2,7 +2,6 @@ require 'tree'
 
 class Lectures < Section
 	def initialize(sect, citems, schedule=nil, collapsed=false)
-		binding.pry
 		super sect, citems, collapsed
 		@schedule = schedule || ::Scheduler.new
 		@citems = sort_items
@@ -81,7 +80,8 @@ protected
 # that the item belongs to, and second by the item's own indicated order.
 #
 	def sort_items
-		@citems.sort_by! { |i| [ lookup_citem_by_identifier(i.subsection).order, ((i.type == "page" ? 100 : 1 ) * i.order) ] }
+		new_citems = @citems.sort_by { |i| [ lookup_citem_by_identifier(i.subsection+"index.html").order, ((i.type == "page" ? 100 : 1 ) * i.order) ] }
+		@items = new_citems
 	end
 
 end

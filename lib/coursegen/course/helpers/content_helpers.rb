@@ -2,8 +2,8 @@ module ContentHelpers
 
   def include_topic item_symbol
       incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
-      Toc.instance.record_inclusion @item, incorporated_topic
-      items[incorporated_topic.identifier].compiled_content
+#      Toc.instance.record_inclusion @item, incorporated_topic
+#      items[incorporated_topic.identifier].compiled_content
   end
 
   def include_from_section sect_symbol, item_symbol
@@ -13,7 +13,7 @@ module ContentHelpers
   end
 
   def lookup_nitem the_sect, short_name
-      Toc.instance.lookup_citem(the_sect, short_name).nitem
+    citem = Toc.instance.lookup_citem(the_sect, short_name).nitem
   end
 
   def link_to_doc label, file_name

@@ -19,8 +19,8 @@ class Section
 
 	def find_by_short_name(sname)
 		matches = @citems.select { |c| sname == c.short_name}
-	  raise RuntimeError,"#{sname}: invalid reference in section \"#{@section}\"" if matches.length == 0
-    raise RunimeError, "#{sname}: duplicate referenced in section \"#{@section}\"" if matches.length != 1
+	  raise RuntimeError,"'#{sname}': invalid reference in section \"#{@section}\"" if matches.length == 0
+    raise RunimeError, "'#{sname}': duplicate referenced in section \"#{@section}\"" if matches.length != 1
 		matches[0]
 	end
 
@@ -58,7 +58,7 @@ class Section
 
   def lookup_citem_by_identifier identifier
     res = @citems.select { |i| i.identifier.to_s == identifier }
-    # raise RuntimeError, "lookup by identifier failed '#{identifier}'"
+    # raise RuntimeError, "lookup by identifier failed '#{identifier}'"  if res.length != 1
 		binding.pry if res.length != 1
     res[0]
   end

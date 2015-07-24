@@ -48,7 +48,11 @@ class Toc
   end
 
   def lookup_citem the_sect, item_short_name
-    section(the_sect).find_by_short_name(item_short_name)
+    section = section(the_sect)
+    raise "Toc.lookup_citem: Unknown section: `#{the_sect}`" if (section.nil?)
+    citem = section.find_by_short_name(item_short_name)
+    raise "Toc.lookup_citem: Unknown short name: `#{item_short_name}`" if citem.nil?
+    return citem
   end
 
   def reset
@@ -57,7 +61,7 @@ class Toc
 
   def section selector
     section = @sections[selector]
-    raise RuntimeError, "Invalid Section: #{selector}" if section.nil?
+    fail "TOC.section: Unknown section: #{selector}" if section.nil?
     section
   end
 
@@ -107,8 +111,6 @@ class Toc
       block.call(subsection_item)
     end
   end
-
-
 
   def index_in_section item
     section_for(item).find_index(item)
