@@ -84,8 +84,6 @@ route '/**/*' do
   elsif item[:type] == "subsection"
     nil
   elsif item[:extension] != "css"
-    # Write item with identifier /foo/ to /foo/index.html
-#    item.identifier + 'index.html'
     item.identifier.without_ext + '/index.html'
 
   end
