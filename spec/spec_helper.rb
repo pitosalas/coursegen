@@ -1,5 +1,5 @@
 require 'rspec'
-require 'pry'
+require 'pry-byebug'
 require './lib/coursegen/course/data/section'
 require './lib/coursegen/course/data/toc'
 require './lib/coursegen/course/data/lectures'

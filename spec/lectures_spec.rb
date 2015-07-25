@@ -1,13 +1,13 @@
 require_relative "./spec_helper.rb"
 describe Lectures do
 	before do
-		mocks1_templates = 
-			[["/lectures/intro/wonders/", "subsection", 0],
-			 	["/lectures/intro/wonders/page2/", "page", 1],
-			 	["/lectures/intro/wonders/page3/", "page", 2],
-			 ["/lectures/intro/wonder2/", "subsection", 1],
-			 	["/lectures/intro/wonder2/page22/", "page", 1],
-			 	["/lectures/intro/wonder2/page32/", "page",2 ]
+		mocks1_templates =
+			[["/lectures/intro/wonders/index.html", "subsection", 0],
+			 	["/lectures/intro/wonders/page2.md.erb", "page", 1],
+			 	["/lectures/intro/wonders/page3.md.erb", "page", 2],
+			 ["/lectures/intro/wonder2/index.html", "subsection", 1],
+			 	["/lectures/intro/wonder2/page22.md.erb", "page", 1],
+			 	["/lectures/intro/wonder2/page32.md.erb/", "page",2 ]
 			]
 		@citems1 = mocks1_templates.map { |i, t, o| CItem.new(nil, i, t, o) }
 		@sect = Lectures.new "intro", @citems1

@@ -58,8 +58,8 @@ class Section
 
   def lookup_citem_by_identifier identifier
     res = @citems.select { |i| i.identifier.to_s == identifier }
-    # raise RuntimeError, "lookup by identifier failed '#{identifier}'"  if res.length != 1
-		binding.pry if res.length != 1
+    fail "TOC#lookup_citem_by_identifier failed to find: '#{identifier}'"  if res.length != 1
+#		binding.pry if res.length != 1
     res[0]
   end
 

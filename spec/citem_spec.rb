@@ -1,5 +1,4 @@
 require_relative "./spec_helper.rb"
-require 'pry'
 
 class NIMock
   attr_reader :identifier
@@ -39,7 +38,7 @@ describe "more complicated cases" do
     ['/content/intro/term_overview/', 7, "intro", "term_overview", "intro", 7, "/content/intro/"],
     ['/content/intro/001_term_overview/', nil, "intro", "term_overview", "intro", 1, "/content/intro/"],
     ['/content/lectures/iter2/02_db_design/', 7, "lectures", "db_design", "lectures", 7, "/content/lectures/iter2/"],
-    ['/content/', 7, "lectures", "content", "lectures", 7, "//"],   
+    ['/content/', 7, "lectures", "content", "lectures", 7, "//"],
   ]
 
   context "table driven cases" do
