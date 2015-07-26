@@ -3,7 +3,7 @@ module ContentHelpers
   def include_topic item_symbol
       incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
 #      Toc.instance.record_inclusion @item, incorporated_topic
-#      items[incorporated_topic.identifier].compiled_content
+      items[incorporated_topic.identifier.to_s].compiled_content
   end
 
   def include_from_section sect_symbol, item_symbol
