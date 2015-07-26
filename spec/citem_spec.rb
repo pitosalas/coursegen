@@ -28,6 +28,8 @@ describe "null Case" do
   it "works as expected" do
     expect(@ci.title).to eq("db_design")
     expect(@ci.section).to eq("lectures")
+    expect(@ci.short_name).to eq("db_design")
+    expect(@ci.subsection).to eq("/content/lectures/iter4/")
     expect(@ci.order).to eq(7)
   end
 end
