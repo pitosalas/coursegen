@@ -6,7 +6,7 @@ module NavigationHelpers
 
   def link_to_next_lecture
     the_item = Toc.instance.find_next_forn(@item)
-    link_to(the_item.title, the_item.identifier)
+    link_to(the_item.title, the_item)
   end
 
   def link_to_topic item_symbol
