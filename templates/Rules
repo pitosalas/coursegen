@@ -67,7 +67,13 @@ route '/chalkmark/**/*' do
   @item.identifier.to_s
 end
 
-route '/content/*' do
+# Output the search page
+route '/tipuesearch_logic/search.md.erb' do
+  '/tipuesearch_logic/search/index.html'
+end
+
+# Select which .md.erb becomes the home page of the site
+route '/content/index.md.erb' do
   '/index.html'
 end
 
