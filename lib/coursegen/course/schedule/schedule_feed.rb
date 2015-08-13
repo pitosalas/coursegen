@@ -15,14 +15,14 @@ class ScheduleFeed
 
   def render_all_events
     @data.rows do |row_id|
-      render_event(row_id)
+      render_event(row_id) unless row_id.type == "subsection"
     end
   end
 
   def render_event row_id
     title = @data.cell_value(row_id, :title)
-    dt_start = Icalendar::Values::Date.new(@data.cell_value(row_id, :start_date_time))
-    dt_end = Icalendar::Values::Date.new(@data.cell_value(row_id, :end_date_time))
+    dt_start = @data.cell_value(row_id, :start_date_time)
+    dt_end = @data.cell_value(row_id, :end_date_time)
     desc = @data.cell_value(row_id, :full_desc)
     @feed_builder.feed_event(title, dt_start, dt_end, desc)
   end

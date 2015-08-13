@@ -12,16 +12,17 @@ require "coursegen/course/helpers/navigation_helpers"
 require "coursegen/course/data/section"
 require "coursegen/course/data/toc"
 require 'coursegen/course/data/citem'
-require 'coursegen/course/lib/helpers_'
 require 'coursegen/course/schedule/schedule_def'
 require 'coursegen/course/data/section_def'
 require 'coursegen/course/schedule/scheduler'
+require 'coursegen/course/schedule/schedule_feed'
 require 'coursegen/course/data/lectures'
 require 'coursegen/course/lib/search_data_generator'
 require 'coursegen/course/data/data_adaptor'
+require 'coursegen/course/lib/ical_adaptor'
 require 'coursegen/course/helpers/list_of'
 require 'coursegen/course/helpers/ical_feed_helpers'
-
+require 'coursegen/course/lib/helpers_'
 
 module Coursegen
   # Your code goes here...

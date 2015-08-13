@@ -16,6 +16,10 @@ class Lectures < Section
 		true
 	end
 
+	def schedule
+		@schedule
+	end
+
 	def build_tree
 		lecture_num = 1
 		@root = Tree::TreeNode.new("root", "root")

@@ -3,16 +3,20 @@ WEEKDAYS = {  sunday: 0,    monday: 1,    tuesday: 2,
 
 # Calculate days on which each event occurs, based on the configuration info
 class Scheduler
+  attr_reader :start_time_s, :end_time_s
+
   def self.add_weeks(the_date, number)
     the_date.to_date + Integer(number) * 7
   end
 
-  def setup_from_args(start: nil, weekdays: nil, number: nil, skips: [])
+  def setup_from_args(start: nil, weekdays: nil, number: nil, skips: [],
+                      start_time: "10:15", end_time: "11:15")
     if start.nil?
       @start = nil
       return
     end
-    convert_and_verify_arguments(start, weekdays, number, skips)
+    convert_and_verify_arguments(start, weekdays, number,
+                                 skips, start_time, end_time)
     @weekdays.sort!
     recalc_event_map
   end
@@ -23,7 +27,7 @@ class Scheduler
       return
     end
     setup_from_args(start: sdef.first_day, weekdays: sdef.weekdays,
-                    number: sdef.number, skips: sdef.skips)
+                    number: sdef.number, skips: sdef.skips, start_time: sdef.start_time, end_time: sdef.end_time)
   end
 
   def event_date_by_index(ind)
@@ -57,22 +61,27 @@ class Scheduler
     end
   end
 
-  def convert_and_verify_arguments(start, weekdays, number, skips)
+  def convert_and_verify_arguments(start, weekdays, number, skips,
+                                   start_time, end_time)
     @number = number + skips.length
     @start_date = string_to_date(start)
     @skips = skips.map { |d| string_to_date(d) } rescue raise(ArgumentError, "Scheduler: Invalid skip date")
 
-    raise ArgumentError, "Scheduler: invalid weekdays" unless weekdays.all? { |wd| WEEKDAYS.include? wd } 
+    raise ArgumentError, "Scheduler: invalid weekdays" unless weekdays.all? { |wd| WEEKDAYS.include? wd }
 
     @weekdays = weekdays.map { |wd| WEEKDAYS[wd]}
     raise ArgumentError, "Scheduler: Start date is not on one of the weekdays" unless @weekdays.include? @start_date.cwday
     raise ArgumentError, "Scheduler: Skip date is not on a valid weekday" if !@skips.reduce(true) { |accum, skip| accum && @weekdays.include?(skip.cwday) }
-  end
 
-private
+    @start_time_s = start_time
+    @end_time_s = end_time
+  end
 
   def string_to_date(string_date)
     Date.strptime(string_date, "%b-%d-%Y") rescue  fail "string to date in scheduler.rb"
+  end
 
+  def strings_to_date_time(string_date, string_time)
+    DateTime.strptime(string_date + " " + string_time, "%b-%d-%Y %H:%M")
   end
 end

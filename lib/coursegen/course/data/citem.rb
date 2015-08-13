@@ -53,6 +53,20 @@ class CItem
     @lecture_date.strftime('%a %b %-d') unless @lecture_date.nil?
   end
 
+  def schedule_start_date_time
+    if !@lecture_date.nil?
+      string_time = Toc.instance.section(@section).schedule.start_time_s
+      DateTime.strptime(lecture_date.to_s + " " + string_time, "%Y-%m-%d %H:%M")
+    end
+  end
+
+  def schedule_end_date_time
+    if !@lecture_date.nil?
+      string_time= Toc.instance.section(@section).schedule.end_time_s
+      DateTime.strptime(lecture_date.to_s + " " + string_time, "%Y-%m-%d %H:%M")
+    end
+  end
+
   def lecture_number_s
     "#{@section.singularize} #{@lecture_number.to_s}"
   end

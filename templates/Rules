@@ -26,6 +26,10 @@ compile "/tipuesearch_logic/tipuesearch_content.*" do
   filter :erb
 end
 
+compile "/content/**/*.ical.erb" do
+  filter :erb
+end
+
 compile '/**/*' do
   if item.binary? || item[:status] == "hidden"
     nil
@@ -72,8 +76,13 @@ route '/tipuesearch_logic/search.md.erb' do
   '/tipuesearch_logic/search/index.html'
 end
 
+route '/**/*.ical.erb' do
+  @item.identifier.without_ext
+end
+
+
 # Select which .md.erb becomes the home page of the site
-route '/content/indexc.md.erb' do
+route '/content/index.md.erb' do
   '/index.html'
 end
 

@@ -1,4 +1,5 @@
 module SidebarHelpers
+
   def section_helper title:nil, selector:nil
     sect = Toc.instance.section(selector)
     @sect_def = Toc.instance.section_def(selector)
@@ -23,7 +24,7 @@ module SidebarHelpers
     "<ul class=\"tree\">
       <li>
         <label class=\"tree-toggler level2\">
-          #{collapsed_indicator(sect.content.collapsed?)} 
+          #{collapsed_indicator(sect.content.collapsed?)}
           #{sect.content.title}
         </label>
         #{subsection(sect, sect.content.collapsed?)}
@@ -51,7 +52,7 @@ module SidebarHelpers
     disp_clause = sect.collapsed? ? "display: none" : "display: block"
     str = "<ul class=\"tree\" style=\"#{disp_clause}\">"
     str = sect.reduce(str) { |acc, item| acc + flat_section_item_link(item) }
-    str += "</ul>" 
+    str += "</ul>"
   end
 
   def flat_section_item_link citem

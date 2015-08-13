@@ -14,8 +14,10 @@ class ICalAdaptor
 
   def feed_event(title, dt_start, dt_end, desc)
     event = Icalendar::Event.new
-    event.dtstart = date_start
+    event.dtstart = dt_start
+    event.dtend = dt_end
     event.summary = title
+    event.description = desc
     @cal.add_event(event)
   end
 
