@@ -73,7 +73,7 @@ route '/tipuesearch_logic/search.md.erb' do
 end
 
 # Select which .md.erb becomes the home page of the site
-route '/content/index.md.erb' do
+route '/content/indexc.md.erb' do
   '/index.html'
 end
 
