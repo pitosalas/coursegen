@@ -20,6 +20,7 @@ require 'coursegen/course/data/lectures'
 require 'coursegen/course/lib/search_data_generator'
 require 'coursegen/course/data/data_adaptor'
 require 'coursegen/course/helpers/list_of'
+require 'coursegen/course/helpers/ical_feed_helpers'
 
 
 module Coursegen
