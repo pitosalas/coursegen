@@ -55,15 +55,15 @@ class CItem
 
   def schedule_start_date_time
     if !@lecture_date.nil?
-      string_time = Toc.instance.section(@section).schedule.start_time_s
-      DateTime.strptime(lecture_date.to_s + " " + string_time, "%Y-%m-%d %H:%M")
+      schedule = Toc.instance.section(@section).schedule
+      lecture_date + schedule.start_time
     end
   end
 
   def schedule_end_date_time
     if !@lecture_date.nil?
-      string_time= Toc.instance.section(@section).schedule.end_time_s
-      DateTime.strptime(lecture_date.to_s + " " + string_time, "%Y-%m-%d %H:%M")
+      schedule = Toc.instance.section(@section).schedule
+      lecture_date + schedule.end_time
     end
   end
 

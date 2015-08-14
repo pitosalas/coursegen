@@ -3,14 +3,14 @@ WEEKDAYS = {  sunday: 0,    monday: 1,    tuesday: 2,
 
 # Calculate days on which each event occurs, based on the configuration info
 class Scheduler
-  attr_reader :start_time_s, :end_time_s
+  attr_reader :start_time, :end_time
 
   def self.add_weeks(the_date, number)
     the_date.to_date + Integer(number) * 7
   end
 
   def setup_from_args(start: nil, weekdays: nil, number: nil, skips: [],
-                      start_time: "10:15", end_time: "11:15")
+                      start_time: 0, end_time: 0)
     if start.nil?
       @start = nil
       return
@@ -73,8 +73,8 @@ class Scheduler
     raise ArgumentError, "Scheduler: Start date is not on one of the weekdays" unless @weekdays.include? @start_date.cwday
     raise ArgumentError, "Scheduler: Skip date is not on a valid weekday" if !@skips.reduce(true) { |accum, skip| accum && @weekdays.include?(skip.cwday) }
 
-    @start_time_s = start_time
-    @end_time_s = end_time
+    @start_time = time_span_to_seconds(start_time)
+    @end_time = time_span_to_seconds(end_time)
   end
 
   def string_to_date(string_date)
@@ -84,4 +84,10 @@ class Scheduler
   def strings_to_date_time(string_date, string_time)
     DateTime.strptime(string_date + " " + string_time, "%b-%d-%Y %H:%M")
   end
+
+  def time_span_to_seconds(string_time)
+    result = string_time.match(/(\d\d):(\d\d)/)
+    result[1].to_i.hours + result[2].to_i.minutes
+  end
+
 end
