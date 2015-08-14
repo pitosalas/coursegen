@@ -6,6 +6,7 @@ COPYRIGHT_STRING = "Copyright (2013-2014) R. Pito Salas, pitosalas@gmail.com"
 # Course short name
 COURSE_SHORT_NAME = "Sample Course"
 COURSE_LONG_NAME = "Sample Coursegen Course"
+COURSE_ABBREV = "SC"
 
 LECTURES_SCHEDULE_CONFIG = ScheduleDef.new(
 		first_day: "aug-11-2015",

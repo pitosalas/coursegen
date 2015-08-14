@@ -20,10 +20,11 @@ class ScheduleFeed
   end
 
   def render_event row_id
-    title = @data.cell_value(row_id, :title)
+    title = COURSE_ABBREV + ": " + @data.cell_value(row_id, :title)
     dt_start = @data.cell_value(row_id, :start_date_time)
     dt_end = @data.cell_value(row_id, :end_date_time)
     desc = @data.cell_value(row_id, :full_desc)
-    @feed_builder.feed_event(title, dt_start, dt_end, desc)
+    url = @data.cell_value(row_id, :url)
+    @feed_builder.feed_event(title, dt_start, dt_end, desc, url)
   end
 end
