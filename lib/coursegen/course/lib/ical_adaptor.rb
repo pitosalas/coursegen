@@ -4,6 +4,10 @@ require 'icalendar'
 class ICalAdaptor
   def initialize
     @cal = Icalendar::Calendar.new
+    tzid = "America/New_York"
+    tz = TZInfo::Timezone.get tzid
+    binding.pry
+    @cal.add_timezone tz
   end
 
   def feed_begin

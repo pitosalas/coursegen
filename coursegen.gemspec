@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "adsf"
   spec.add_dependency "guard"
   spec.add_dependency "guard-shell"
+  spec.add_dependency "tzinfo"
 end

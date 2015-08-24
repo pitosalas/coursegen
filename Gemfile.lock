@@ -13,6 +13,7 @@ PATH
       pry-byebug
       rubytree
       thor
+      tzinfo
 
 GEM
   remote: https://rubygems.org/
