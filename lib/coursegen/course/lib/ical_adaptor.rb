@@ -1,12 +1,12 @@
 require 'icalendar'
+require 'icalendar/tzinfo'
 
-#file ical_adaptor.rb
 class ICalAdaptor
   def initialize
     @cal = Icalendar::Calendar.new
-    # tzid = "America/New_York"
-    # tz = TZInfo::Timezone.get tzid
-    # @cal.add_timezone tz
+    tzid = "America/New_York"
+    tz = TZInfo::Timezone.get tzid
+    @cal.add_timezone tz.ical_timezone(Date.today)
   end
 
   def feed_begin
