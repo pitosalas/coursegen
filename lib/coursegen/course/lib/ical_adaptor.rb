@@ -6,7 +6,7 @@ class ICalAdaptor
     @cal = Icalendar::Calendar.new
     tzid = "America/New_York"
     tz = TZInfo::Timezone.get tzid
-    @cal.add_timezone tz.ical_timezone(Date.today)
+    @cal.add_timezone tz.ical_timezone(Time.now)
   end
 
   def feed_begin
@@ -21,7 +21,7 @@ class ICalAdaptor
     event.dtend = dt_end
     event.summary = title
     event.description = desc
-    event.url = url
+#    event.url = url
     @cal.add_event(event)
   end
 
