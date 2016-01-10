@@ -9,7 +9,7 @@ module ContentHelpers
   def include_from_section sect_symbol, item_symbol
     incorporated_item = lookup_nitem(sect_symbol.to_s, item_symbol.to_s)
     Toc.instance.record_inclusion @item, incorporated_item
-    items[incorporated_item.identifier].compiled_content
+    items[incorporated_item.identifier.to_s].compiled_content
   end
 
   def lookup_nitem the_sect, short_name
