@@ -17,19 +17,19 @@ module ContentHelpers
   end
 
   def link_to_doc label, file_name
-      "<a href=\"/docs/#{file_name}\">#{label}</a>"
+    "<a href=\"/docs/#{file_name}\">#{label}</a>"
   end
 
   def toc_link_to item
-      link_to_unless_current item[:title], item
+    link_to_unless_current item[:title], item
   end
 
   def bold_red string
-      "<span style=\"color: red; font-style: italic;\">#{string}</span>"
+    "<span style=\"color: red; font-style: italic;\">#{string}</span>"
   end
 
   def italic_red string
-      " *#{string}*{: style=\"color: red\"} "
+    " *#{string}*{: style=\"color: red\"} "
   end
 
   def ir string; italic_red(string); end
@@ -44,9 +44,9 @@ HTMLSTRING
 
   def include_image_old string, extra_class: nil
     css_class = "img-responsive"
-    css_class += " img-"+extra_class unless extra_class.nil?
+    css_class += " img-" + extra_class unless extra_class.nil?
 
-    "<img src=\"/content/images/#{string}\" class=\"%s\" />"  % css_class
+    "<img src=\"/content/images/#{string}\" class=\"%s\" />" % css_class
   end
 
   def include_image filename_string, width: 8
@@ -59,28 +59,36 @@ HTMLSTRING
   HTMLSTRING
   end
 
-  def important string=":"
-      "**Important#{string}**{: style=\"color: red\"}"
+  def important string = ":"
+    "**Important#{string}**{: style=\"color: red\"}"
   end
 
-  def nb string=""
-      "*NB: #{string}*{: style=\"color: green\"}"
+  def nb string = ""
+    "*NB: #{string}*{: style=\"color: green\"}"
   end
 
-  def tbd string=""
-      "*[TO BE DETERMINED#{string}]*{: style=\"color: red\"}"
+  def tbd string = ""
+    "*[TO BE DETERMINED#{string}]*{: style=\"color: red\"}"
   end
 
-  def deliverable string
-      "*Deliverable:*{: style=\"color: red\"} *#{string}*"
+  def deliverable string, append=""
+    "*Deliverable:*{: style=\"color: red\"} #{string + append} "
+  end
+
+  def deliverable_po(string)
+    deliverable(string, " *(graded for participation only)*")
+  end
+
+  def deliverable_popdf(string)
+    deliverable(string, " *(pdf with name and hw number, graded for participation only)*")
   end
 
   def team_deliverable string
-      "*Team Deliverable:*{: style=\"color: red\"} *#{string}*"
+    "*Team Deliverable:*{: style=\"color: red\"} *#{string}*"
   end
 
   def discussion string
-      "*Discussion:*{: style=\"color: blue\"} *#{string}*"
+    "*Discussion:*{: style=\"color: blue\"} *#{string}*"
   end
 
   def homework_hdr
@@ -91,18 +99,18 @@ HTMLSTRING
     body = %~<div id="myCarousel" class="carousel slide" style="width: 500px; margin: 0 auto;">
             <div class="carousel-inner" style="margin: 20px; ">~
     counter = 0
-  filenames.each do
-    |nam|
-    if counter == 0
-        body << %~<div class="item active">~
-    else
-        body << %~<div class="item">~
+    filenames.each do
+      |nam|
+      if counter == 0
+          body << %~<div class="item active">~
+      else
+          body << %~<div class="item">~
+      end
+      body << %~<img src="~
+      body << "/content/images/#{nam}"
+      body << %~" class="img-polaroid" alt=""></div>~
+      counter += 1
     end
-    body << %~<img src="~
-    body << "/content/images/#{nam}"
-    body << %~" class="img-polaroid" alt=""></div>~
-    counter += 1
-  end
     body << %~</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
             </div>~
