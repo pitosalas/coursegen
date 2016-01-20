@@ -15,7 +15,7 @@ LECTURES_SCHEDULE_CONFIG = ScheduleDef.new(
 		skips: [],
 		start_time: "15:00",
 		end_time: "16:20")
-)
+
 
 # Sections in the right hand margin of the page
 SECTION_CONFIG = [
