@@ -2,6 +2,7 @@ class BootstrapMarkup
   def initialize
     @str = ""
   end
+
   def table_begin(css_class="table-condensed")
     @str << "<table class=\"table #{css_class}\">"
   end
@@ -27,7 +28,7 @@ class BootstrapMarkup
   end
 
   def header_content(str)
-    @str << str
+    @str << str unless str.nil?
   end
 
   def row_begin

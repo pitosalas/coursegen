@@ -8,6 +8,3 @@
 * Clean up the placement of the .js files for the search stuff. It's a bit messy
 
 ### Features
-
-* Add a macro for <%= link_to_next_lecture %>
-* Add a way to automatically generate a list of homeworks on a single page
