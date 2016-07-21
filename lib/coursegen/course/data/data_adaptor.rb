@@ -1,11 +1,12 @@
+# Standard way to access information to be used in a list_of()
 class DataAdaptor
   def initialize(source)
     @section = Toc.instance.section(source)
   end
 
   # column_selector is one of: :number, :date, :title, :homework
-  COL_NAMES = { number: "#", date: "lecture date", title: "title",
-                homework: "homework", desc: "description", cat: "category" }
+  COL_NAMES = {number: "#", date: "lecture date", title: "title",
+                homework: "homework", desc: "description", cat: "category"}
 
   def column_name(column_selector)
     COL_NAMES[column_selector]

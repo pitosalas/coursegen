@@ -16,7 +16,6 @@ class CItem
       @nitem = nitem
       defaults_from_nitem
       parse_identifier @nitem.identifier
-      @cat = ""
     else
       # path to create a mock citem
       fail ArgumentError, "invalid CItem contruction" unless nitem.nil?
@@ -86,6 +85,7 @@ class CItem
     @css_class = @nitem[:css_class]
     @homework = @nitem[:homework]
     @desc = @nitem[:desc]
+    @cat = @nitem[:cat]
   end
 
   def parse_identifier(ident)
