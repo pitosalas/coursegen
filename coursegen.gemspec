@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
 
-  spec.add_dependency "nanoc", '~> 4.0.0rc2'
+  spec.add_dependency "nanoc"
   spec.add_dependency "thor"
   spec.add_dependency "rubytree"
   spec.add_dependency "cri"
