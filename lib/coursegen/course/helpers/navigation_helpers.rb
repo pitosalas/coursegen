@@ -33,37 +33,37 @@ module NavigationHelpers
     link_to_section :lab, item_symbol
   end
 
- 	def link_to_pa item_symbol
+   def link_to_pa item_symbol
     link_to_section :pa, item_symbol
   end
 
   def link_to_section section_symbol, item_symbol
-	   the_item = lookup_nitem(section_symbol.to_s, item_symbol.to_s)
-		#link_to_unless_current(the_item[:title], the_item.identifier)
+    the_item = lookup_nitem(section_symbol.to_s, item_symbol.to_s)
+    # link_to_unless_current(the_item[:title], the_item.identifier)
     link_to(the_item[:title], the_item)
-	end
+  end
 
-	def link_to_next toc, item
-		nav_markup "", toc.find_next_forn(item).nitem.path, "glyphicon glyphicon-chevron-right", "next page"
-	end
+  def link_to_next (toc, item)
+    nav_markup "", toc.find_next_forn(item).nitem.path, "glyphicon glyphicon-chevron-right", "next page"
+  end
 
-	def link_to_prev toc, item
-		nav_markup "", toc.find_previous_forn(item).nitem.path, "glyphicon glyphicon-chevron-left", "previous page"
-	end
+  def link_to_prev toc, item
+    nav_markup "", toc.find_previous_forn(item).nitem.path, "glyphicon glyphicon-chevron-left", "previous page"
+  end
 
-	def link_to_inclusion item
-		inclusion = Toc.instance.lookup_inclusion(item)
-		if inclusion.nil?
-			"(never included)"
-		else
-			" (#{inclusion.identifier})"
-		end
-	end
+  def link_to_inclusion item
+    inclusion = Toc.instance.lookup_inclusion(item)
+    if inclusion.nil?
+      "(never included)"
+    else
+      " (#{inclusion.identifier})"
+    end
+  end
 
-	private
+  private
 
-	def nav_markup text, path, icon, tooltip=""
-		"<a class=\"btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
-	end
+  def nav_markup text, path, icon, tooltip=""
+    "<a class=\"btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
+  end
 
 end
