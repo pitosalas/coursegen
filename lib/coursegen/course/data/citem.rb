@@ -3,7 +3,7 @@ require 'active_support/inflector'
 # Coursegen Item decorates Nanoc Item
 #
 class CItem
-  include NanocContext
+  include ::NanocContext
   attr_reader :order, :section, :subsection, :subsection_citem, :title,
               :type, :identifier, :short_name, :status, :nitem, :css_class, :homework, :desc, :cat
   attr_accessor :lecture_number, :lecture_date

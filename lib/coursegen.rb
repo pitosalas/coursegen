@@ -1,5 +1,6 @@
 require 'nokogiri'
 
+require 'coursegen/course/lib/nanoc_context_helpers'
 require "coursegen/version"
 require "coursegen/course/helpers/sidebar_helpers"
 require "coursegen/course/helpers/lecture_helpers"
@@ -23,7 +24,7 @@ require 'coursegen/course/lib/ical_adaptor'
 require 'coursegen/course/helpers/list_of'
 require 'coursegen/course/helpers/ical_feed_helpers'
 require 'coursegen/course/lib/helpers_'
-require 'coursegen/course/lib/nanoc_context'
+
 
 module Coursegen
   # Your code goes here...
