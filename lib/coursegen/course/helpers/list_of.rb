@@ -11,8 +11,9 @@ class ListOf
   #     :number
   #     :title
   #     :homeworks
+  # items: refers to nanoc's @items (temp hack!)
 
-  def initialize(markup_adaptor, data_adaptor, rows, cols, subsections)
+  def initialize(markup_adaptor, data_adaptor, rows, cols, subsections, items)
     @mark = markup_adaptor
     @rows = rows
     @cols = cols

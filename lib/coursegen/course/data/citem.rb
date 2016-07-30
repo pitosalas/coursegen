@@ -1,4 +1,5 @@
 require 'active_support/inflector'
+
 #
 # Coursegen Item decorates Nanoc Item
 #
@@ -35,10 +36,6 @@ class CItem
     else
       @nitem[:status] == 'hidden' || %w(css min.css js png).include?(@nitem[:extension])
     end
-  end
-
-  def path
-    ident2nitem(identifier)
   end
 
   def lecture?

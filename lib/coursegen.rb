@@ -1,6 +1,5 @@
 require 'nokogiri'
 
-require 'coursegen/course/helpers/nanoc_context_helpers'
 require 'coursegen/version'
 require 'coursegen/course/helpers/sidebar_helpers'
 require 'coursegen/course/helpers/lecture_helpers'
