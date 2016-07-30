@@ -19,6 +19,7 @@ class ListOf
     @cols = cols
     @data = data_adaptor
     @subsections = subsections
+    @items = items
   end
 
   def render
@@ -74,8 +75,8 @@ class ListOf
 
   def cell_content_string(row_id, col_selector, detail:)
     if (col_selector == :title && detail)
-      binding.pry
-      link_to_unless_current(row_id.nitem[:title], row_id)
+      nitem = @items[row_id.identifier]
+      link_to_unless_current(nitem[:title], nitem)
     elsif (col_selector == :date)
       @data.cell_value(row_id, col_selector).strftime("%b %-d")
     else
