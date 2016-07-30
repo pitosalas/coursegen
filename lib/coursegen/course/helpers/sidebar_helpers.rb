@@ -45,7 +45,8 @@ module SidebarHelpers
 
   def subsection_item_link tree_node
   bullet = @sect_def.options[:bullet]
-   "<li class=\"#{tree_node.content.css_class}\">#{icon_markup(bullet)}<a href=\"#{tree_node.content.path}\">#{tree_node.content.title}</a></li>"
+  link_path = @items[tree_node.content.identifier]
+   "<li class=\"#{tree_node.content.css_class}\">#{icon_markup(bullet)}<a href=\"#{link_path}\">#{tree_node.content.title}</a></li>"
   end
 
   def flat_section sect
@@ -57,7 +58,8 @@ module SidebarHelpers
 
   def flat_section_item_link citem
     bullet = @sect_def.options[:bullet]
-    "<li class=\"#{citem.css_class}\">#{icon_markup(bullet)}<a href=\"#{citem.path}\">#{citem.title}</a></li>"
+    path = @items[citem.identifier]
+    "<li class=\"#{citem.css_class}\">#{icon_markup(bullet)}<a href=\"#{path}\">#{citem.title}</a></li>"
   end
 
   def icon_markup icon_type

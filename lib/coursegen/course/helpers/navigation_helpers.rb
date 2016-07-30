@@ -5,8 +5,9 @@ module NavigationHelpers
   end
 
   def link_to_next_lecture
-    the_item = Toc.instance.find_next_forn(@item)
-    link_to(the_item.title, the_item)
+    the_citem = Toc.instance.find_next_forn(@item)
+    the_item = @items[the_citem.identifier]
+    link_to(the_citem.title, the_item)
   end
 
   def link_to_topic item_symbol
@@ -38,17 +39,18 @@ module NavigationHelpers
   end
 
   def link_to_section section_symbol, item_symbol
-    the_item = lookup_nitem(section_symbol.to_s, item_symbol.to_s)
-    # link_to_unless_current(the_item[:title], the_item.identifier)
+    the_item = @items[lookup_nitem(section_symbol.to_s, item_symbol.to_s).identifier]
     link_to(the_item[:title], the_item)
   end
 
   def link_to_next (toc, item)
-    nav_markup "", toc.find_next_forn(item).nitem.path, "glyphicon glyphicon-chevron-right", "next page"
+    next_nitem = toc.find_next_forn(item).identifier
+    nav_markup "", @items[next_nitem], "glyphicon glyphicon-chevron-right", "next page"
   end
 
   def link_to_prev toc, item
-    nav_markup "", toc.find_previous_forn(item).nitem.path, "glyphicon glyphicon-chevron-left", "previous page"
+    prev_nitem = toc.find_previous_forn(item).identifier
+    nav_markup "", @items[prev_nitem], "glyphicon glyphicon-chevron-left", "previous page"
   end
 
   def link_to_inclusion item
