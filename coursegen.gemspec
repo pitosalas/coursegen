@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
   spec.add_dependency "rubytree"
   spec.add_dependency "cri"
-  spec.add_dependency "pry-byebug"
+  spec.add_dependency "byebug"
   spec.add_dependency "nokogiri"
   spec.add_dependency "activesupport"
   spec.add_dependency "kramdown"

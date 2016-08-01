@@ -1,6 +1,6 @@
+# Set of helpers to display the navigation sidebar
 module SidebarHelpers
-
-  def section_helper title:nil, selector:nil
+  def section_helper title: nil, selector: nil
     sect = Toc.instance.section(selector)
     @sect_def = Toc.instance.section_def(selector)
     str = "<li>
@@ -8,12 +8,8 @@ module SidebarHelpers
               #{collapsed_indicator(sect.collapsed?)}
               #{title}
             </label>"
-    if sect.has_subsections?
-      str += nested_section(sect)
-    else
-      str += flat_section(sect)
-    end
-    str += "</li>"
+    str += sect.has_subsections? ? nested_section(sect) : flat_section(sect)
+    str + "</li>"
   end
 
   def nested_section sect
@@ -36,29 +32,29 @@ module SidebarHelpers
     icon_markup(coll ? :plus : :minus)
   end
 
-  def subsection subsect, collapsed
+  def subsection(subsect, collapsed)
     disp_clause = collapsed ? "display: none" : "display: block"
     str = "<ul class=\"tree\" style=\"#{disp_clause}\">"
     str = subsect.children.reduce(str) { |acc, item| acc + subsection_item_link(item) }
-    str += "</ul>"
+    str + "</ul>"
   end
 
   def subsection_item_link tree_node
-  bullet = @sect_def.options[:bullet]
-  link_path = @items[tree_node.content.identifier]
-   "<li class=\"#{tree_node.content.css_class}\">#{icon_markup(bullet)}<a href=\"#{link_path}\">#{tree_node.content.title}</a></li>"
+    bullet = @sect_def.options[:bullet]
+    link_path = @items[tree_node.content.identifier].path
+    "<li class=\"#{tree_node.content.css_class}\">#{icon_markup(bullet)}<a href=\"#{link_path}\">#{tree_node.content.title}</a></li>"
   end
 
   def flat_section sect
     disp_clause = sect.collapsed? ? "display: none" : "display: block"
     str = "<ul class=\"tree\" style=\"#{disp_clause}\">"
     str = sect.reduce(str) { |acc, item| acc + flat_section_item_link(item) }
-    str += "</ul>"
+    str + "</ul>"
   end
 
   def flat_section_item_link citem
     bullet = @sect_def.options[:bullet]
-    path = @items[citem.identifier]
+    path = @items[citem.identifier].path
     "<li class=\"#{citem.css_class}\">#{icon_markup(bullet)}<a href=\"#{path}\">#{citem.title}</a></li>"
   end
 
@@ -67,6 +63,4 @@ module SidebarHelpers
     css_class = {dash: "glyphicon-minus", star: "glyphicon-star", plus: "glyphicon-plus-sign", minus: "glyphicon-minus-sign"}.fetch(icon_type)
     "<span class=\"glyphicon #{css_class}\" style=#{STYLING_CONFIG[:bullet_style]}></span>"
   end
-
-
 end
