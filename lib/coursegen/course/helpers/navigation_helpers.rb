@@ -1,5 +1,5 @@
+# Used in the nav bar along the top of the page. Called by main_navbar.html.erb
 module NavigationHelpers
-
   def link_to_lecture item_symbol
     link_to_section :lectures, item_symbol
   end
@@ -34,7 +34,7 @@ module NavigationHelpers
     link_to_section :lab, item_symbol
   end
 
-   def link_to_pa item_symbol
+  def link_to_pa item_symbol
     link_to_section :pa, item_symbol
   end
 
@@ -43,14 +43,14 @@ module NavigationHelpers
     link_to(the_item[:title], the_item)
   end
 
-  def link_to_next (toc, item)
+  def link_to_next toc, item
     next_nitem = toc.find_next_forn(item).identifier
-    nav_markup "", @items[next_nitem], "glyphicon glyphicon-chevron-right", "next page"
+    nav_markup "", @items[next_nitem].path, "glyphicon glyphicon-chevron-right", "next page"
   end
 
   def link_to_prev toc, item
     prev_nitem = toc.find_previous_forn(item).identifier
-    nav_markup "", @items[prev_nitem], "glyphicon glyphicon-chevron-left", "previous page"
+    nav_markup "", @items[prev_nitem].path, "glyphicon glyphicon-chevron-left", "previous page"
   end
 
   def link_to_inclusion item
@@ -67,5 +67,4 @@ module NavigationHelpers
   def nav_markup text, path, icon, tooltip=""
     "<a class=\"btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
   end
-
 end
