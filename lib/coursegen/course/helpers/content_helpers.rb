@@ -46,7 +46,7 @@ HTMLSTRING
   end
 
   def iconbadge icon, tooltip
-    %(<span class="glyphicon glyphicon-#{icon}" style="color:green" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
+    %(<span class="glyphicon glyphicon-#{icon}" style="color:rgb(47, 86, 111)" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
   end
 
   def pdfbadge
