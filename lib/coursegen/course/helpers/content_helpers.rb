@@ -46,7 +46,7 @@ HTMLSTRING
   end
 
   def iconbadge icon, tooltip
-    %(<span class="glyphicon glyphicon-#{icon}" style="color:rgb(47, 86, 111)" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
+    %(<span class="glyphicon glyphicon-#{icon} themefg" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
   end
 
   def pdfbadge
@@ -57,6 +57,10 @@ HTMLSTRING
   def partbadge
     # textbadge("participation", "Graded for participation only")
     iconbadge("check", "Graded for participation only")
+  end
+
+  def timebadge
+    iconbadge("time", "Must be submitted by 8am on class day")
   end
 
   def include_image_old string, extra_class: nil

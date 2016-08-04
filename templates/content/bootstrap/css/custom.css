@@ -1,14 +1,14 @@
 @import url(//fonts.googleapis.com/css?family=Telex);
 
-.navbar-inverse {
-	background-color: black;
+.themecolor {
+  rgb(47, 86, 111);
 }
 
 .navbar a.navbar-brand {
 	color: white;
 	padding-top: 7px;
 }
- 
+
 .navbar {
 	min-height: 35px;
 	margin-bottom: 1px;
@@ -98,7 +98,7 @@ footer {
 }
 
 .glyphicon-small {
-    font-size: 10px; 
+    font-size: 10px;
 }
 
 /* Search Page */
@@ -190,4 +190,3 @@ div.tipue_search_content_loc a {
 	  padding-right: 5px;
 	}
 }
-
