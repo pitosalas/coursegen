@@ -36,7 +36,7 @@ module ContentHelpers
   def callout title, body
     <<-HTMLSTRING
 <div class="well well-sm">
-<span class="label label-primary">#{title}</span>#{body}
+<span class="themebg label label-primary">#{title}</span>#{body}
 </div>
 HTMLSTRING
   end

@@ -65,6 +65,6 @@ module NavigationHelpers
   private
 
   def nav_markup text, path, icon, tooltip=""
-    "<a class=\"btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
+    "<a class=\"nav-btn btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
   end
 end
