@@ -50,12 +50,14 @@ HTMLSTRING
   end
 
   def pdfbadge
-    # textbadge("pdf", "Submit as 1 page pdf")
     iconbadge("file", "Submit as 1 page pdf")
   end
 
+  def codebadge
+    iconbadge("cloud", "Work on code in your portfolio")
+  end
+
   def partbadge
-    # textbadge("participation", "Graded for participation only")
     iconbadge("check", "Graded for participation only")
   end
 
