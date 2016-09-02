@@ -1,1 +1,16 @@
 Updating 0883e48..1fc37aa
+[master 3f7f085] Checkpoint work to git
+ 2 files changed, 2 insertions(+)
+ create mode 100644 gitlog.txt
+ create mode 100644 workscript.log
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   workscript.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
