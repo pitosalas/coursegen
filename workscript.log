@@ -27,3 +27,19 @@ Changes not staged for commit:
 	modified:   workscript.log
 
 no changes added to commit (use "git add" and/or "git commit -a")
+[master 1f7e4e3] Checkpoint work to git
+ 1 file changed, 13 insertions(+)
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 3 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   workscript.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Auto-merging gitlog.txt
+CONFLICT (add/add): Merge conflict in gitlog.txt
+Automatic merge failed; fix conflicts and then commit the result.
