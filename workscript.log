@@ -55,3 +55,18 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 Already up-to-date.
 Already up-to-date.
+[master c437097] Checkpoint work to git
+ 1 file changed, 12 insertions(+)
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   workscript.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
+Already up-to-date.
