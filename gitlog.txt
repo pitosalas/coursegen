@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-Updating 0883e48..1fc37aa
-=======
-Already up-to-date.
-Already up-to-date.
->>>>>>> 1fc37aa64c74e334ff0b6511bea7216ef7de8e4d
