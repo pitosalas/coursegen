@@ -1,5 +1,6 @@
 # Helpers to be used to annotate content
 module ContentHelpers
+  
   def include_topic item_symbol
     incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
