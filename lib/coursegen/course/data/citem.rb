@@ -34,7 +34,7 @@ class CItem
     if @nitem.nil?
       false
     else
-      @nitem[:status] == 'hidden' || %w(css min.css js png).include?(@nitem[:extension])
+      @nitem[:status] == 'hidden' || %w(css min.css js pdf png).include?(@nitem[:extension])
     end
   end
 
