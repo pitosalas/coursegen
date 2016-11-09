@@ -1,7 +1,7 @@
 require 'thor'
 require 'coursegen/templates'
 require 'nanoc'
-require './cg_config.rb' if File.exists? 'cg_config.rb'
+require './cg_config.rb' if File.exist? 'cg_config.rb'
 
 module CourseGen
   class CLI < Thor
@@ -47,9 +47,11 @@ module CourseGen
 
     no_commands do
       def check_valid_directory
-        CourseGen::Templates.new.valid_cg_directory? ? 
-          say("Valid cg directory") :
+        if CourseGen::Templates.new.valid_cg_directory?
+          say("Valid cg directory")
+        else
           error("Invalid cg directory")
+        end
       end
     end
   end
