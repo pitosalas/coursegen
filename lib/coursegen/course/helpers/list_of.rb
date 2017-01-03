@@ -1,5 +1,4 @@
 class ListOf
-
   # source: name of a section as a string
   # rows: array with one or more of:
   #     "pages"
@@ -56,13 +55,13 @@ class ListOf
   end
 
   def generate_detail_row(row_id)
-      @mark.row_begin
-      @cols.each do |col_selector|
-        @mark.cell_begin
-        @mark.cell_content(cell_content_string(row_id, col_selector, detail: true))
-        @mark.cell_end
-      end
-      @mark.row_end
+    @mark.row_begin
+    @cols.each do |col_selector|
+      @mark.cell_begin
+      @mark.cell_content(cell_content_string(row_id, col_selector, detail: true))
+      @mark.cell_end
+    end
+    @mark.row_end
   end
 
   def generate_summary_row(row_id)
@@ -99,5 +98,4 @@ class ListOf
   def subsection_hdr?(row_id)
     row_id.type == "subsection"
   end
-
 end

@@ -1,4 +1,6 @@
-# Used in generating iCal feed. Given a data_adapter (who knows how to get data out and iterate across things) and a feed_builder (who knows how to turn that data into some kind of feed), produce the feed. This same class could also generate, for example, an RSs feed.
+# Used in generating iCal feed. Given a data_adapter (who knows how to get data out and iterate across things) and a
+# feed_builder (who knows how to turn that data into some kind of feed), produce the feed. This same class could also
+# generate, for example, an RSs feed.
 
 class ScheduleFeed
   def initialize feed_builder, data_adapter

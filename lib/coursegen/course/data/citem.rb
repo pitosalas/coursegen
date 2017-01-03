@@ -1,3 +1,4 @@
+require 'byebug'
 require 'active_support/inflector'
 
 #
@@ -52,6 +53,7 @@ class CItem
 
   def schedule_start_date_time
     return if @lecture_date.nil?
+byebug
     schedule = Toc.instance.section(@section).schedule
     lecture_date + schedule.start_time
   end
