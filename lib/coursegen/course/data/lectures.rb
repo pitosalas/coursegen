@@ -2,10 +2,10 @@ require 'tree'
 
 class Lectures < Section
   def initialize(sect, citems, schedule=nil, collapsed=false)
-  super sect, citems, collapsed
-  @schedule = schedule || ::Scheduler.new
-  @citems = sort_items
-  build_tree
+    super sect, citems, collapsed
+    @schedule = schedule || ::Scheduler.new
+    @citems = sort_items
+    build_tree
   end
 
   def has_subsections?
@@ -26,6 +26,8 @@ class Lectures < Section
     @citems.each do |i|
       i.lecture_number = lecture_num
       i.lecture_date = @schedule.event_date_by_index(lecture_num - 1) # Lecture numbers are base 1
+      i.start_time = get_time(@schedule.start_times, lecture_num)
+      i.end_time = get_time(@schedule.end_times, lecture_num)
       if i.type == "subsection"
         @root.add(Tree::TreeNode.new(i.subsection, i))
       elsif i.type == "page"
@@ -78,15 +80,23 @@ class Lectures < Section
 
   protected
 
+  def get_time(times, lect_num)
+    if times.nil?
+      "0"
+    else
+      times[(lect_num % 3) - 1]
+    end
+  end
+
 #
 # Sort all the items in this section: First by the ordering of the subseciton
 # that the item belongs to, and second by the item's own indicated order.
 #
   def sort_items
-  new_citems = @citems.sort_by do |i|
-    [lookup_citem_by_identifier(i.subsection + "index.html").order,
-     ((i.type == "page" ? 100 : 1) * i.order)]
-  end
-  @items = new_citems
+    new_citems = @citems.sort_by do |i|
+      [lookup_citem_by_identifier(i.subsection + "index.html").order,
+       ((i.type == "page" ? 100 : 1) * i.order)]
+    end
+    @items = new_citems
   end
 end

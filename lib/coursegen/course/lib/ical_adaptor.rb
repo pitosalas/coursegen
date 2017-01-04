@@ -10,13 +10,11 @@ class ICalAdaptor
     @cal.add_timezone tz.ical_timezone(Time.now)
   end
 
-  def feed_begin
-  end
+  def feed_begin; end
 
-  def feed_end
-  end
+  def feed_end; end
 
-  def feed_event(title, dt_start, dt_end, desc, url)
+  def feed_event(title, dt_start, dt_end, desc, _url)
     event = Icalendar::Event.new
     event.dtstart = dt_start
 #    event.dtstart = Icalendar::Values::DateOrDateTime.new(dt_start, tzid: 'UTC').call

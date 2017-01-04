@@ -15,8 +15,7 @@ class Toc
 
   def build_sections items
     @sections = {}
-    @section_config.each do
-      |sect|
+    @section_config.each do |sect|
       selector = sect.selector.to_s
       if sect.options[:type] == :lecture
         schedule = Scheduler.new

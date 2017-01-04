@@ -7,7 +7,7 @@ require 'active_support/inflector'
 class CItem
   attr_reader :order, :section, :subsection, :subsection_citem, :title,
               :type, :identifier, :short_name, :status, :nitem, :css_class, :homework, :desc, :cat
-  attr_accessor :lecture_number, :lecture_date
+  attr_accessor :lecture_number, :lecture_date, :start_time, :end_time
 
   # Callable with nitem=nil to create a mock
   def initialize(nitem=nil, ident=nil, type=nil, order=nil)
@@ -23,7 +23,7 @@ class CItem
       @nitem = nil
       @status = nil
       @type = type
-      @identifier = identcd
+      @identifier = ident
       @order = order
       @title = ident
       @style = nil
@@ -53,15 +53,16 @@ class CItem
 
   def schedule_start_date_time
     return if @lecture_date.nil?
-byebug
     schedule = Toc.instance.section(@section).schedule
     lecture_date + schedule.start_time
+    lecture_date + @start_time
   end
 
   def schedule_end_date_time
     return if @lecture_date.nil?
     schedule = Toc.instance.section(@section).schedule
     lecture_date + schedule.end_time
+    lecture_date + @end_time
   end
 
   def lecture_number_s

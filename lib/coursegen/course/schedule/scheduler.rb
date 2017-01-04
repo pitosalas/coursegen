@@ -3,20 +3,20 @@ WEEKDAYS = {  sunday: 0,    monday: 1,    tuesday: 2,
 
 # Calculate days on which each event occurs, based on the configuration info
 class Scheduler
-  attr_reader :start_time, :end_time
+  attr_reader :start_time, :end_time, :start_times, :end_times
 
   def self.add_weeks(the_date, number)
     the_date.to_date + Integer(number) * 7
   end
 
   def setup_from_args(start: nil, weekdays: nil, number: nil, skips: [],
-                      start_time: 0, end_time: 0)
+                      start_time: 0, end_time: 0, start_times: [], end_times: [])
     if start.nil?
       @start = nil
       return
     end
     convert_and_verify_arguments(start, weekdays, number,
-                                 skips, start_time, end_time)
+                                 skips, start_time, end_time, start_times, end_times)
     @weekdays.sort!
     recalc_event_map
   end
@@ -27,7 +27,7 @@ class Scheduler
       return
     end
     setup_from_args(start: sdef.first_day, weekdays: sdef.weekdays,
-                    number: sdef.number, skips: sdef.skips, start_time: sdef.start_time, end_time: sdef.end_time)
+                    number: sdef.number, skips: sdef.skips, start_time: sdef.start_time, end_time: sdef.end_time, start_times: sdef.start_times, end_times: sdef.end_times)
   end
 
   def event_date_by_index(ind)
@@ -62,7 +62,7 @@ class Scheduler
   end
 
   def convert_and_verify_arguments(start, weekdays, number, skips,
-                                   start_time, end_time)
+                                   start_time, end_time, start_times, end_times)
     @number = number + skips.length
     @start_date = string_to_date(start)
     @skips = skips.map { |d| string_to_date(d) } rescue raise(ArgumentError, "Scheduler: Invalid skip date")
@@ -75,6 +75,8 @@ class Scheduler
 
     @start_time = time_span_to_seconds(start_time)
     @end_time = time_span_to_seconds(end_time)
+    @start_times = start_times.map { |x| time_span_to_seconds(x)}
+    @end_times = end_times.map { |x| time_span_to_seconds(x)}
   end
 
   def string_to_date(string_date)
