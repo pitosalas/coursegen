@@ -57,6 +57,14 @@ HTMLSTRING
     iconbadge("cloud", "Work on code in your portfolio")
   end
 
+  def cloudbadge
+    codebadge
+  end
+
+  def zipbadge
+    iconbadge("briefcase", "Submit code as a .zip file")
+  end
+
   def partbadge
     iconbadge("check", "Graded for participation only")
   end
