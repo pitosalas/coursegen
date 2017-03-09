@@ -70,7 +70,7 @@ HTMLSTRING
   end
 
   def timebadge
-    iconbadge("time", "Must be submitted by 8am on class day")
+    iconbadge("time", "Must be submitted by 10am on class day")
   end
 
   def include_image_old string, extra_class: nil
@@ -148,18 +148,20 @@ HTMLSTRING
   end
 
   def carousel_work(filenames)
-    body = %(<div id="myCarousel" class="carousel slide" style="width: 500px; margin: 0 auto;">
-            <div class="carousel-inner" style="margin: 20px; ">)
+    body = %(<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 500px; margin: 0 auto;">
+            <div class="carousel-inner" role="listbox" style="margin: 20px; ">)
     counter = 0
     filenames.each do |nam|
-      body << counter == 0 ? %(<div class="item active">~) : %(<div class="item">)
+      ci = counter == 0 ? %(<div class="carousel-item active">) : %(<div class="carousel-item">)
+      puts "****** #{ci}"
+      body << ci
       body << %(<img src=")
       body << nam
-      body << %(" class="img-polaroid" alt=""></div>)
+      body << %(" class="d-block img-fluid"></div>)
       counter += 1
     end
-    body << %(</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+    body << %(</div> <a class="carousel-control-prev" role="button" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="carousel-control-next" role="button" href="#myCarousel" data-slide="next">›</a>
             </div>)
     body
   end
