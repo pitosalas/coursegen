@@ -1,3 +1,4 @@
+require 'byebug'
 require 'tree'
 
 class Lectures < Section
@@ -21,6 +22,7 @@ class Lectures < Section
   end
 
   def build_tree
+    byebug
     lecture_num = 1
     @root = Tree::TreeNode.new("root", "root")
     @citems.each do |i|
@@ -80,7 +82,9 @@ class Lectures < Section
 
   protected
 
+# @TODO: once there are skips, this calcluation doesn't work anymore!
   def get_time(times, lect_num)
+    byebug
     if times.nil?
       "0"
     else
