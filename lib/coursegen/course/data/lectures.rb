@@ -1,4 +1,3 @@
-require 'byebug'
 require 'tree'
 
 class Lectures < Section
@@ -22,14 +21,13 @@ class Lectures < Section
   end
 
   def build_tree
-    byebug
     lecture_num = 1
     @root = Tree::TreeNode.new("root", "root")
     @citems.each do |i|
       i.lecture_number = lecture_num
       i.lecture_date = @schedule.event_date_by_index(lecture_num - 1) # Lecture numbers are base 1
-      i.start_time = get_time(@schedule.start_times, lecture_num)
-      i.end_time = get_time(@schedule.end_times, lecture_num)
+      i.start_time = @schedule.event_start_times[lecture_num - 1]
+      i.end_time = @schedule.event_end_times[lecture_num - 1]
       if i.type == "subsection"
         @root.add(Tree::TreeNode.new(i.subsection, i))
       elsif i.type == "page"
@@ -84,7 +82,6 @@ class Lectures < Section
 
 # @TODO: once there are skips, this calcluation doesn't work anymore!
   def get_time(times, lect_num)
-    byebug
     if times.nil?
       "0"
     else

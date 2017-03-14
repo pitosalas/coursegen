@@ -3,7 +3,7 @@ WEEKDAYS = {sunday: 0, monday: 1, tuesday: 2,
 
 # Calculate days on which each event occurs, based on the configuration info
 class Scheduler
-  attr_reader :start_time, :end_time, :start_times, :end_times
+  attr_reader :start_time, :end_time, :start_times, :end_times, :event_start_times, :event_end_times
 
   def self.add_weeks(the_date, number)
     the_date.to_date + Integer(number) * 7
@@ -43,18 +43,23 @@ class Scheduler
   def recalc_event_map
     return if self.null?
     @event_dates = []
+    @event_start_times = []
+    @event_end_times = []
     wkdy_of_start = @start_date.cwday
     wkday_index = @weekdays.find_index(wkdy_of_start)
     curr_event_date = @start_date
-    @number.times do
-      |i|
-      @event_dates << curr_event_date unless @skips.include? curr_event_date
+    @number.times do |i|
+      unless @skips.include? curr_event_date
+        @event_dates << curr_event_date
+        @event_start_times << @start_times[wkday_index]
+        @event_end_times << @end_times[wkday_index]
+      end
       if @weekdays.length == 1
         curr_event_date += 7
-      elsif wkday_index < @weekdays.length-1
+      elsif wkday_index < @weekdays.length - 1
         wkday_index += 1
-        curr_event_date += @weekdays[wkday_index] - @weekdays[wkday_index-1]
-      elsif wkday_index == @weekdays.length-1
+        curr_event_date += @weekdays[wkday_index] - @weekdays[wkday_index - 1]
+      elsif wkday_index == @weekdays.length - 1
         wkday_index = 0 # wrap
         curr_event_date += 7 + @weekdays.first - @weekdays.last
       end

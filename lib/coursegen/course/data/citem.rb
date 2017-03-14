@@ -53,15 +53,15 @@ class CItem
 
   def schedule_start_date_time
     return if @lecture_date.nil?
-    schedule = Toc.instance.section(@section).schedule
-    lecture_date + schedule.start_time
+    # schedule = Toc.instance.section(@section).schedule
+    # lecture_date + schedule.start_time
     lecture_date + @start_time
   end
 
   def schedule_end_date_time
     return if @lecture_date.nil?
-    schedule = Toc.instance.section(@section).schedule
-    lecture_date + schedule.end_time
+    # schedule = Toc.instance.section(@section).schedule
+    # lecture_date + schedule.end_time
     lecture_date + @end_time
   end
 
