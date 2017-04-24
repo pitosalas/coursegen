@@ -20,7 +20,7 @@ class Section
   def find_by_short_name(sname)
     matches = @citems.select { |c| sname == c.short_name }
     raise RuntimeError,"'#{sname}': invalid reference in section \"#{@section}\"" if matches.length == 0
-    raise RunimeError, "'#{sname}': duplicate referenced in section \"#{@section}\"" if matches.length != 1
+    raise RuntimeError, "'#{sname}': duplicate referenced in section \"#{@section}\"" if matches.length != 1
     matches[0]
   end
 
