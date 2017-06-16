@@ -18,7 +18,7 @@ class SearchIndex
   end
 
   def include_in_index?(citem)
-    skiplist = Regexp.union([/\/tipuesearch_logic\/.*/, /\/bootstrap\/.*/, /\/config\/.*/, /\/tipuesearch\/.*/])
+    skiplist = Regexp.union([/\/tipuesearch\/.*/, /\/bootstrap\/.*/, /\/config\/.*/, /\/tipuesearch\/.*/])
     citem.type == "page" &&
       !citem.nitem.binary? &&
       !citem.identifier.to_s.match(skiplist)
