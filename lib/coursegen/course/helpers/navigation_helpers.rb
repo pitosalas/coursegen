@@ -42,6 +42,10 @@ module NavigationHelpers
     link_to_section :pages, item_symbol
   end
 
+  def link_to_project item_symbol
+    link_to_section :project, item_symbol
+  end
+
   def link_to_section section_symbol, item_symbol
     the_item = @items[lookup_nitem(section_symbol.to_s, item_symbol.to_s).identifier]
     link_to(the_item[:title], the_item)
