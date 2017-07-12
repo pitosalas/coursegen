@@ -23,5 +23,4 @@ class SearchIndex
       !citem.nitem.binary? &&
       !citem.identifier.to_s.match(skiplist)
   end
-
 end
