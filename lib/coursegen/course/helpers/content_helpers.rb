@@ -5,6 +5,11 @@ module ContentHelpers
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
+  def include_page item_symbol
+    incorporated_topic = lookup_nitem("pages", item_symbol.to_s)
+    items[incorporated_topic.identifier.to_s].compiled_content
+  end
+
   def include_from_section sect_symbol, item_symbol
     incorporated_item = lookup_nitem(sect_symbol.to_s, item_symbol.to_s)
     Toc.instance.record_inclusion @item, incorporated_item
