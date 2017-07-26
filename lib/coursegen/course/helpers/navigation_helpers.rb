@@ -38,12 +38,12 @@ module NavigationHelpers
     link_to_section :pa, item_symbol
   end
 
-  def link_to_pages item_symbol
+  def link_to_page item_symbol
     link_to_section :pages, item_symbol
   end
 
   def link_to_project item_symbol
-    link_to_section :project, item_symbol
+    link_to_section :projects, item_symbol
   end
 
   def link_to_section section_symbol, item_symbol
