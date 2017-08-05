@@ -193,8 +193,12 @@ HTMLSTRING
     "\n~~~~~~"
   end
 
-  def code_end
-    "~~~~~~\n"
+  def code_end lang=""
+    str = "~~~~~~\n"
+    if ["ruby", "css", "java", "html"].include? lang
+      str += "{: .language-#{lang}}"
+    end
+    str
   end
 
   def code_string str
