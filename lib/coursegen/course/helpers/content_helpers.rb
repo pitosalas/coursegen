@@ -55,7 +55,7 @@ HTMLSTRING
   end
 
   def pdfbadge
-    iconbadge("file", "Submit as 1 page pdf")
+    iconbadge("file", "Submit as 1 page pdf, include name and homework #")
   end
 
   def codebadge
@@ -75,7 +75,7 @@ HTMLSTRING
   end
 
   def timebadge
-    iconbadge("time", "Must be submitted by 10am on class day")
+    iconbadge("time", "Must be submitted first thing on day of class")
   end
 
   def include_image_old string, extra_class: nil
