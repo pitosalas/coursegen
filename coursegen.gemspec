@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "guard-shell"
   spec.add_dependency "tzinfo"
   spec.add_dependency "icalendar"
+  spec.add_dependency "byebug"
 end
