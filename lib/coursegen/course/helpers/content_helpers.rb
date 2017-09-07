@@ -88,18 +88,19 @@ HTMLSTRING
     iconbadge("time", "Must be submitted first thing on day of class")
   end
 
-  def include_image_old string, extra_class: nil
+  def include_image_old filename_string, extra_class: nil
     css_class = "img-responsive"
     css_class += " img-" + extra_class unless extra_class.nil?
-
-    "<img src=\"/content/images/#{string}\" class=\"%s\" />" % css_class
+    <<-HTMLSTRING
+    <img src="#{filename_string}" class=\"%s\" />" % css_class
+    HTMLSTRING
   end
 
-  def include_image filename_string, width: 8
+  def include_image filename_string, extra: ""
     <<-HTMLSTRING
 <div class="row">
-  <div class="col-md-offset-2 col-md-#{width}">
-    <img src="#{filename_string}" class="img-responsive img-thumbnail" />
+  <div class="col-md-offset-2 col-md-8">
+    <img src="#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
   </div>
 </div>
   HTMLSTRING
