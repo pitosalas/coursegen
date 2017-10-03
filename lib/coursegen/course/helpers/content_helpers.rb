@@ -139,7 +139,7 @@ HTMLSTRING
   end
 
   def discussion_box string
-    %(<span class="alert alert-info">Discussion: #{string}</span>)
+    %(<div class="alert alert-info">Discussion: #{string}</div>)
   end
 
   def homework_hdr
