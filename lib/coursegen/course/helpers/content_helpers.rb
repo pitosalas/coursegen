@@ -138,6 +138,10 @@ HTMLSTRING
     "*Discussion:*{: style=\"color: blue\"} *#{string}*"
   end
 
+  def discussion_box string
+    %(<span class="alert alert-info">Discussion: #{string}</span>)
+  end
+
   def homework_hdr
     "#### Homework due for today"
   end
