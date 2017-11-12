@@ -78,8 +78,8 @@ class Scheduler
     raise ArgumentError, "Scheduler: Start date is not on one of the weekdays" unless @weekdays.include? @start_date.cwday
     raise ArgumentError, "Scheduler: Skip date is not on a valid weekday" if !@skips.reduce(true) { |accum, skip| accum && @weekdays.include?(skip.cwday) }
 
-    @start_time = time_span_to_seconds(start_time)
-    @end_time = time_span_to_seconds(end_time)
+    @start_time = time_span_to_seconds(start_time) rescue raise(ArgumentError, "error converting start time. Use hh:mm: #{start_time} ")
+    @end_time = time_span_to_seconds(end_time) rescue raise(ArgumentError, "error converting end time. Use hh:mm: #{end_time}")
     @start_times = start_times.map { |x| time_span_to_seconds(x)}
     @end_times = end_times.map { |x| time_span_to_seconds(x)}
   end
