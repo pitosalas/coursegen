@@ -5,6 +5,7 @@ include LectureHelpers
 include SidebarHelpers
 include ListOfHelpers
 include ICalFeedHelpers
+include FormattingHelpers
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Tagging
