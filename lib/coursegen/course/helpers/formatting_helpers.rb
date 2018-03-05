@@ -2,18 +2,17 @@
 module FormattingHelpers
 
   def list_begin
-    "<dl \"dl-horizontal\" style=\"font-size: 125%;\">"
+    "<dl class=\"dl-horizontal\" style=\"font-size: 125%;\">"
   end
 
   def list_end
-    "</dl>"
+    "</dd></dl>"
   end
 
-  def le name
+  def le (name, first_entry=false)
     str = ""
-    if !first.nil?
-      str += "<br/></dd>"
-      first = true
+    if !first_entry
+      str += "</dd><br/>"
     end
     str += "<dt>#{name}</dt><dd>"
     str
