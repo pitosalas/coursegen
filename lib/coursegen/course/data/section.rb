@@ -37,7 +37,7 @@ class Section
 
   def previous_for(citem)
     index = @citems.find_index(citem)
-    byebug if index.nil? 
+    byebug if index.nil?
     raise ArgumentError, "invalid citem in previous_for" if index.nil?
     new_index = [index, 1].max
     @citems[new_index - 1]
