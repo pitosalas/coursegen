@@ -107,11 +107,17 @@ HTMLSTRING
   end
 
   def important string = ":"
-    "**Important#{string}**{: style=\"color: red\"}"
+    <<-HTMLSTRING
+    <div class="cg-important">
+        #{string}
+    </div>
+    HTMLSTRING
   end
 
-  def nb string = ""
-    "*NB: #{string}*{: style=\"color: green\"}"
+  def nb string = ":"
+    <<-HTMLSTRING
+    <div class="label label-info">#{string}</div>
+    HTMLSTRING
   end
 
   def tbd string = ""
