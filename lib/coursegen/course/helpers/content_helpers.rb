@@ -205,8 +205,20 @@ HTMLSTRING
     "~~~~~~\n {: .language-ruby}"
   end
 
+  def python_begin
+    "\n~~~~~~"
+  end
+
+  def python_end
+    "~~~~~~\n {: .language-python}"
+  end
+
   def ruby_string str
     ruby_begin + "\n" + str + "\n" + ruby_end
+  end
+
+  def python_string str
+    python_begin + "\n" + str + "\n" + python_end
   end
 
   def include_ruby name
@@ -214,6 +226,13 @@ HTMLSTRING
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
+
+  def include_python name
+    filename = Dir.pwd + "/content/content/topics/robotcode/" + name.to_s + ".py"
+    filecontents = File.new(filename).read
+    ruby_string filecontents
+  end
+
 
   def code_begin
     "\n~~~~~~"
