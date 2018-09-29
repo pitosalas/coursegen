@@ -88,6 +88,11 @@ HTMLSTRING
     iconbadge("time", "Must be submitted first thing on day of class")
   end
 
+  def teambadge
+    iconbadge("tent", "Team Deliverable")
+  end
+
+
   def include_image_old filename_string, extra_class: nil
     css_class = "img-responsive"
     css_class += " img-" + extra_class unless extra_class.nil?
