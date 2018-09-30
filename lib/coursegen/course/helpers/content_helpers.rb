@@ -153,10 +153,11 @@ HTMLSTRING
     %(<div class="alert alert-info"><strong>Discussion:</strong> #{string}</div>)
   end
 
-  def homework_hdr(legend: :none)
+  def homework_hdr(show_legend: :on)
     body = "#### Homework due for today"
-    legend = "\n**Legend**: <%=partbadge%>: Participation | <%= timebadge %>: Early | <%= pdfbadge %>: PDxF | <%= teambadge %>: Team | <%=zipbadge %>:  Zipped"
-    body += legned if legend == :legend
+    legend = "\n**Legend**: #{partbadge}: Participation | #{timebadge}: Early | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Zipped"
+    body += legend if show_legend == :on
+    body
   end
 
   def carousel(filenames)
