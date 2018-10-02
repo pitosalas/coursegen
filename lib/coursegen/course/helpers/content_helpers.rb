@@ -1,54 +1,54 @@
 # Helpers to be used to annotate content
 module ContentHelpers
-  def include_topic item_symbol
+  def include_topic(item_symbol)
     incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
-  def include_page item_symbol
+  def include_page(item_symbol)
     incorporated_topic = lookup_nitem("pages", item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
-  def include_background item_symbol
+  def include_background(item_symbol)
     incorporated_topic = lookup_nitem("background", item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
-  def include_intro item_symbol
+  def include_intro(item_symbol)
     incorporated_topic = lookup_nitem("intro", item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
-  def include_from_section sect_symbol, item_symbol
+  def include_from_section(sect_symbol, item_symbol)
     incorporated_item = lookup_nitem(sect_symbol.to_s, item_symbol.to_s)
     Toc.instance.record_inclusion @item, incorporated_item
     items[incorporated_item.identifier.to_s].compiled_content
   end
 
-  def lookup_nitem the_sect, short_name
+  def lookup_nitem(the_sect, short_name)
     Toc.instance.lookup_citem(the_sect, short_name).nitem
   end
 
-  def link_to_doc label, file_name
+  def link_to_doc(label, file_name)
     "<a href=\"/docs/#{file_name}\">#{label}</a>"
   end
 
-  def toc_link_to item
+  def toc_link_to(item)
     link_to_unless_current item[:title], item
   end
 
-  def bold_red string
+  def bold_red(string)
     "<span style=\"color: red; font-style: italic;\">#{string}</span>"
   end
 
-  def italic_red string
+  def italic_red(string)
     " *#{string}*{: style=\"color: red\"} "
   end
 
-  def ir string; italic_red(string); end
+  def ir(string); italic_red(string); end
 
-  def callout title, body
+  def callout(title, body)
     <<-HTMLSTRING
 <div class="well well-sm">
 <span class="themebg label label-primary">#{title}</span>#{body}
@@ -56,16 +56,20 @@ module ContentHelpers
 HTMLSTRING
   end
 
-  def textbadge text, tooltip
+  def textbadge(text, tooltip)
     %(<span class="label label-info" data-toggle="tooltip" data-placement="top" title="#{tooltip}">#{text}</span>)
   end
 
-  def iconbadge icon, tooltip
+  def iconbadge(icon, tooltip)
     %(<span class="glyphicon glyphicon-#{icon} themefg" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
   end
 
   def pdfbadge
     iconbadge("file", "Submit as 1 page pdf, include name and homework #")
+  end
+
+  def teambadge
+    iconbadge("stroller", "Team submission")
   end
 
   def codebadge
@@ -88,7 +92,7 @@ HTMLSTRING
     iconbadge("time", "Must be submitted first thing on day of class")
   end
 
-  def include_image_old filename_string, extra_class: nil
+  def include_image_old(filename_string, extra_class: nil)
     css_class = "img-responsive"
     css_class += " img-" + extra_class unless extra_class.nil?
     <<-HTMLSTRING
@@ -96,7 +100,7 @@ HTMLSTRING
     HTMLSTRING
   end
 
-  def include_image filename_string, extra: ""
+  def include_image(filename_string, extra: "")
     <<-HTMLSTRING
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -106,7 +110,7 @@ HTMLSTRING
   HTMLSTRING
   end
 
-  def important string = ":"
+  def important(string = ":")
     <<-HTMLSTRING
     <div class="cg-important">
         #{string}
@@ -114,17 +118,17 @@ HTMLSTRING
     HTMLSTRING
   end
 
-  def nb string = ":"
+  def nb(string = ":")
     <<-HTMLSTRING
     <div class="label label-info">#{string}</div>
     HTMLSTRING
   end
 
-  def tbd string = ""
+  def tbd(string = "")
     "*[TO BE DETERMINED#{string}]*{: style=\"color: red\"}"
   end
 
-  def deliverable string, append=""
+  def deliverable(string, append = "")
     "*Deliverable:*{: style=\"color: red\"} #{string + append} "
   end
 
@@ -136,15 +140,15 @@ HTMLSTRING
     deliverable(string, " *(pdf with name and hw number, graded for participation only)*")
   end
 
-  def team_deliverable string
+  def team_deliverable(string)
     "*Team Deliverable:*{: style=\"color: red\"} *#{string}*"
   end
 
-  def discussion string
+  def discussion(string)
     "*Discussion:*{: style=\"color: blue\"} *#{string}*"
   end
 
-  def discussion_box string
+  def discussion_box(string)
     %(<div class="alert alert-info"><strong>Discussion:</strong> #{string}</div>)
   end
 
@@ -170,7 +174,7 @@ HTMLSTRING
   end
 
   def carousel_new(filenames)
-    carousel_work(filenames.map {|filename| "/content/topics/images/" + filename })
+    carousel_work(filenames.map { |filename| "/content/topics/images/" + filename })
   end
 
   def carousel_work(filenames)
@@ -213,32 +217,31 @@ HTMLSTRING
     "~~~~~~\n {: .language-python}"
   end
 
-  def ruby_string str
+  def ruby_string(str)
     ruby_begin + "\n" + str + "\n" + ruby_end
   end
 
-  def python_string str
+  def python_string(str)
     python_begin + "\n" + str + "\n" + python_end
   end
 
-  def include_ruby name
+  def include_ruby(name)
     filename = Dir.pwd + "/content/content/topics/scripts/" + name.to_s + ".rb"
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
 
-  def include_python name
+  def include_python(name)
     filename = Dir.pwd + "/content/content/topics/robotcode/" + name.to_s + ".py"
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
 
-
   def code_begin
     "\n~~~~~~"
   end
 
-  def code_end lang=""
+  def code_end(lang = "")
     str = "~~~~~~\n"
     if ["ruby", "css", "java", "html"].include? lang
       str += "{: .language-#{lang}}"
@@ -246,11 +249,11 @@ HTMLSTRING
     str
   end
 
-  def code_string str
+  def code_string(str)
     code_begin + "\n" + str + code_end
   end
 
-  def include_code name
+  def include_code(name)
     filename = Dir.pwd + "/content/content/topics/scripts/" + name
     filecontents = File.new(filename).read
     code_string filecontents
