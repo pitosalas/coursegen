@@ -1,2 +1,0 @@
-classs ViewGen
-      de
