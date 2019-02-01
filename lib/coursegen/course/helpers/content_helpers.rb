@@ -114,6 +114,12 @@ HTMLSTRING
   HTMLSTRING
   end
 
+  def image(filename_string, extra: "")
+    <<-HTMLSTRING
+    <img src="/content/topics/images/#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
+    HTMLSTRING
+  end
+
   def important(string = ":")
     <<-HTMLSTRING
     <div class="cg-important">
