@@ -1,4 +1,5 @@
 # Helpers to be used to annotate content
+require 'byebug'
 module ContentHelpers
   def include_topic(item_symbol)
     incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
