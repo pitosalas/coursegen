@@ -1,0 +1,14 @@
+<div class="col-xs-3">
+  <% if (HELPFUL_BOX) %>
+    <div class="row well right-nav" style="color: rgb(158, 48, 48);padding-top: 4px;padding-bottom: 4px;padding-left: 8px;padding-right: 8px;margin-bottom: 8px;">
+      <%= render "/helpful_box.*" %>
+    </div>
+    <% end %>
+  <div class="row well right-nav" style="padding: 5px;">
+    <ul>
+      <% SECTION_CONFIG.each do |sbb| %>
+        <%= section_helper(title: sbb.title, selector: sbb.selector) unless sbb.options[:hidden] %>
+      <% end %>
+    </ul>
+  </div>
+</div>

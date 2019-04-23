@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <button class="navbar-toggle" data-toggle="collapse"    data-target=".navHeaderCollapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  <div class="collapse navbar-collapse navHeaderCollapse">
+    <ul class="nav navbar-nav col-xs-7">
+      <li>
+        <a href="/content/intro/10_course_toc.md/">TOC</a>
+      </li>
+      <li>
+        <a href="/content/topics/nt/nt_outline.md/">Project Outline</a>
+      </li>
+      <li>
+        <a href="/content/intro/15_nt_links.md/">NanoTwitter</a>
+      </li>
+      <li>
+        <a href="/content/topics/syllabus/cosi105b_final_deliverables.md/">Deliverables</a>
+      </li>
+    </ul>
+    <div class="navbar-control col-xs-3">
+      <form role="form" class="form-inline" action="/content/tipuesearch/search.md/index.html">
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" placeholder="search..." name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+      </form>
+    </div>
+    <div class="btn-group btn-group-xs col-xs-2">
+      <%if citem.section != "root" %>
+        <%= link_to_prev toc, item %> <%= link_to_next toc, item %>
+      <% end %>
+    </div>
+  </div>
+</div>

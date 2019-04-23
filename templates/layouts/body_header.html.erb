@@ -1,6 +1,7 @@
-<h3>
+<h3 class="body-header">
 	<%= citem.title %>
 	<% if citem.lecture? %>
-		<small class="pull-right">(<%= citem.lecture_date_s %>, <%= citem.lecture_number_s.to_s %>)</small>
+		<small>(<%= citem.lecture_date_s %>, <%= citem.lecture_number_s.to_s %>)</small>
 	<% end %>
-</h4>
+	<br/><small> <%= citem.desc %> </small>
+</h3>
