@@ -1,0 +1,31 @@
+blockquote.pretty {
+  border:none;
+  margin-bottom:-30px;
+  position: relative;
+  max-width: 700px;
+      margin: 0 auto;
+      padding-left: 0.4em;
+      font-size:20px;
+      color: grey;
+}
+
+blockquote.pretty:before {
+    content: "\201C";
+    font-weight: bold;
+    font-size: 50px;
+    color:#889c0b;
+    position: absolute;
+    top: -0.2em;
+    left: -0.5em;
+    font-family: 'Georgia';
+}
+blockquote.pretty:after {
+    content: "\201D";
+    font-weight: bold;
+    font-size:50px;
+    color:#889c0b;
+    position: absolute;
+    bottom: -0.6em;
+    right: 0;
+    font-family: 'Georgia';
+}

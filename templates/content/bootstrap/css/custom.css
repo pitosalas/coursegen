@@ -1,16 +1,56 @@
+@import url("prettyquote.css");
+@import url("full-width-pics.css");
 @import url(//fonts.googleapis.com/css?family=Telex);
 
 .themefg {
-  color: rgb(47, 86, 111);
+  color: rgb(64,56,207);
 }
 
 .themebg {
-  background-color: rgb(47, 86, 111);
+  background-color: rgb(64,56,207);
+}
+.nav-menus {
+  height: 0px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  padding-top: 4px;
+  padding-bottom: 0px;
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  font-weight: bold;
+}
+
+a {
+ color: rgb(64,56,207);
 }
 
 .navbar a.navbar-title {
-	color: white;
-	padding-top: 7px;
+  font-family: telex;
+  float: left;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 28px;
+  color: white;
+  white-space: nowrap;
+  background-color: rgba(18, 0, 0, 0.3);
+}
+
+.nav-menus a.navbar-brand {
+  padding: 4px 10px;
+  color: white;
+}
+
+.nav-menus a.navbar-brand:hover {
+  font-weight: bold;
+}
+
+.nav-btn.btn-mini {
+  font-size: 16px;
+  color: white;
 }
 
 .navbar {
@@ -18,50 +58,52 @@
 	margin-bottom: 1px;
 }
 
-
 .navbar a:hover {
 	color: white;
-}
-
-.navbar a {
-	padding: 6px;
-	color: light-blue;
-}
-
-.navbar-title {
-  float: left;
-  height: 30px;
-  font-size: 18px;
-  line-height: 20px
+  text-decoration: none;
 }
 
 .navbar .input-group-sm input{
 	height: 22px;
 	width: 150px;
-	margin-top: 6px;
+	margin-top: 4px;
+}
+
+.header-main {
+  padding-left: 45px;
+}
+
+.body-main {
+  padding-left: 45px;
 }
 
 h1, h2, h3, h4, h5{
 	font-family: telex;
-	color: rgb(21, 123, 207);
+	color: rgb(64,56,207);
 }
 
 h3 {
-	margin-bottom: 15px;
+  padding-top: 20px;
+  /* padding-bottom: 10px; */
 }
 
-h3.body-header {
-  margin-bottom: -5px;
-}
+/* h3.body-header {
+  margin-left: -15px;
+  margin-top: -10px;
+  margin-right: -15px;
+  margin-bottom: -22px;
+} */
 
 h4 {
 	margin-top: 20px;
-	border-top: gainsboro solid 1px;
+  border-top: rgb(64,56,207) solid 3px;
 	padding-top: 5px;
 }
 
 h5 {
 	margin-top: 15px;
+  font-weight: bold;
+  font-variant: small-caps;
 }
 
 body {
