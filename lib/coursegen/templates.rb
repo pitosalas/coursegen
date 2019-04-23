@@ -8,7 +8,6 @@ module CourseGen
       copy_template_dir("layouts", "layouts")
       copy_template_dir("content/bootstrap", "content/bootstrap")
       copy_template_dir("content/content", "content/content")
-      copy_template_dir("content/chalkmark", "content/chalkmark")
       delete_target_file("lib/default.rb")
       copy_template_dir("lib", "lib")
       delete_target_file("Rules")
@@ -21,8 +20,6 @@ module CourseGen
       delete_target_file("content/index.html")
       delete_target_file("layouts/default.html")
       create_empty_dir("content/images")
-      copy_template_dir("content/tipuesearch", "content/tipuesearch")
-      copy_template_dir("content/tipuesearch_logic", "content/tipuesearch_logic")
     end
 
     def valid_cg_directory?
