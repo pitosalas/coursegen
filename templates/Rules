@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require './cg_config.rb'
 
 preprocess do
@@ -10,47 +8,39 @@ compile '/bootstrap/**/*' do
   nil
 end
 
+compile '/extras/**/*' do
+  nil
+end
+
+compile '/content/topics/robotcode/**/*' do
+  nil
+end
+
 compile '/content/scripts/**/*' do
   nil
 end
 
-compile '/chalkmark/**/*' do
-  nil
-end
-
-compile '/tipuesearch/**/*' do
-  nil
-end
-
-compile "/tipuesearch_logic/tipuesearch_content.*" do
+compile "/content/tipuesearch/tipuesearch_content.js.erb" do
   filter :erb
 end
 
-compile "/content/**/*.ical.erb" do
+compile '/**/*.ical.erb' do
   filter :erb
+end
+
+compile '/**/*.{md,ical}.erb' do
+  if item[:status] != "hidden"
+    filter :erb
+    filter :kramdown, coderay_line_numbers: nil
+    layout '/course.*'
+  else
+    nil
+  end
 end
 
 compile '/**/*' do
   if item.binary? || item[:status] == "hidden"
     nil
-  elsif item[:status] == "hidden"
-    nil
-  elsif item[:type] == "subsection"
-    nil
-  elsif item[:extension] == "haml"
-    filter :haml;
-    layout '/course.*'
-  else
-    item[:extension].split('.').reverse.each do
-      |f|
-      case f
-      when 'md', 'markdown'
-        filter :kramdown, coderay_tab_width: 3
-      when 'erb'
-        filter :erb
-      end
-    end
-    layout '/course.*'
   end
 end
 
@@ -62,27 +52,17 @@ route '/tipuesearch/**/*' do
   @item.identifier.to_s
 end
 
-route "/tipuesearch_logic/tipuesearch_content.*" do
+route "/content/tipuesearch/tipuesearch_content.*" do
   '/tipuesearch/tipuesearch_content.js'
 end
 
-
-route '/chalkmark/**/*' do
-  @item.identifier.to_s
-end
-
 # Output the search page
-route '/tipuesearch_logic/search.md.erb' do
-  '/tipuesearch_logic/search/index.html'
+route '/tipuesearch/search.md.erb' do
+  '/tipuesearch/search/index.html'
 end
-
-route '/**/*.ical.erb' do
-  @item.identifier.without_ext
-end
-
 
 # Select which .md.erb becomes the home page of the site
-route '/content/index.md.erb' do
+route HOME_PAGE do
   '/index.html'
 end
 
@@ -91,15 +71,14 @@ route '/**/*' do
     raise RuntimeError, "Missing required extension: \".#{item.identifier}\""
   elsif item.binary?
     item.identifier.to_s
-  elsif item.identifier == "/search_logic/tipuesearch_content/"
-      item.identifier.chop + '.' + item[:extension] rescue fail "in route * in Rules"
+  elsif item.identifier == "/searchtipuesearch_content/"
+    item.identifier.chop + '.' + item[:extension] rescue fail "in route * in Rules"
   elsif item[:status] == "hidden"
     nil
   elsif item[:type] == "subsection"
     nil
   elsif item[:extension] != "css"
     item.identifier.without_ext + '/index.html'
-
   end
 end
 
