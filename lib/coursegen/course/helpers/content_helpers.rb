@@ -272,4 +272,24 @@ HTMLSTRING
     filecontents = File.new(filename).read
     code_string filecontents
   end
+
+  def postit_begin title
+    "<div class=\"postit\">" + "<h5>" + title + "</h5>"
+  end
+
+  def postit_end
+    "</div>"
+  end
+
+  def ul_begin
+    "<ul>"
+  end
+
+  def list_items *items
+    items.reduce("") { |s, i| s + "<li>" + i + "</li>" }
+  end
+
+  def ul_end
+    "</ul>"
+  end
 end
