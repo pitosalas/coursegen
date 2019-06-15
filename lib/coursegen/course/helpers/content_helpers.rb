@@ -285,11 +285,21 @@ HTMLSTRING
     "<ul>"
   end
 
-  def list_items *items
-    items.reduce("") { |s, i| s + "<li>" + i + "</li>" }
-  end
-
   def ul_end
     "</ul>"
+  end
+
+  def ul body
+    "<ul>#{body}</ul>"
+  end
+
+  def list_items *items
+    items.reduce("") do |s, i|
+      if i.start_with?("<ul>")
+        s + i
+      else
+        s + "<li>" + i + "</li>"
+      end
+    end
   end
 end
