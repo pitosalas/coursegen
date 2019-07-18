@@ -82,7 +82,7 @@ HTMLSTRING
   end
 
   def zipbadge
-    iconbadge("briefcase", "Submit code as a .zip file")
+    iconbadge("briefcase", "Submit work as an attachment")
   end
 
   def partbadge
@@ -165,7 +165,7 @@ HTMLSTRING
 
   def homework_hdr(show_legend: :on)
     body = "#### Homework due for today"
-    legend = "\n**Legend**: #{partbadge}: Participation | #{timebadge}: Early | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Zipped"
+    legend = "\n**Legend**: #{partbadge}: Participation | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Attachment"
     body += legend if show_legend == :on
     body
   end
