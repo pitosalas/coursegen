@@ -9,6 +9,7 @@ module ListOfHelpers
   #     :number
   #     :title
   #     :homeworks
+  #     :assigned
 
   def list_of(source:, rows:, cols:, subsections: [], items:)
     markup_adaptor = BootstrapMarkup.new

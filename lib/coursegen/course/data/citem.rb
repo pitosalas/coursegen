@@ -6,7 +6,7 @@ require 'active_support/inflector'
 #
 class CItem
   attr_reader :order, :section, :subsection, :subsection_citem, :title,
-              :type, :identifier, :short_name, :status, :nitem, :css_class, :homework, :desc, :cat
+              :type, :identifier, :short_name, :status, :nitem, :css_class, :homework, :desc, :cat, :assigned
   attr_accessor :lecture_number, :lecture_date, :start_time, :end_time
 
   # Callable with nitem=nil to create a mock
@@ -85,6 +85,7 @@ class CItem
     @homework = @nitem[:homework]
     @desc = @nitem[:desc]
     @cat = @nitem[:cat]
+    @assigned = @nitem[:assigned]
   end
 
   def parse_identifier(ident)
