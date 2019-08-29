@@ -86,7 +86,7 @@ HTMLSTRING
   end
 
   def partbadge
-    iconbadge("check", "Graded for participation only")
+    iconbadge("check", "Graded for participation only - pass/fail")
   end
 
   def timebadge
@@ -165,7 +165,7 @@ HTMLSTRING
 
   def homework_hdr(show_legend: :on)
     body = "#### Homework due for today"
-    legend = "\n**Legend**: #{partbadge}: Participation | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Attachment"
+    legend = "\n**Legend**: #{partbadge}: Participation (pass/fail) | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Attachment"
     body += legend if show_legend == :on
     body
   end
