@@ -69,10 +69,6 @@ HTMLSTRING
     iconbadge("file", "Submit as 1 page pdf, include name and homework #")
   end
 
-  def teambadge
-    iconbadge("stroller", "Team submission")
-  end
-
   def codebadge
     iconbadge("cloud", "Work on code in your portfolio")
   end
@@ -301,5 +297,9 @@ HTMLSTRING
         s + "<li>" + i + "</li>"
       end
     end
+  end
+
+  def lab_note(title)
+    "<h5 style=\"font-family:cursive; font-weight:bold; font-szie:18px; color: red;\">#{title}</h5>"
   end
 end
