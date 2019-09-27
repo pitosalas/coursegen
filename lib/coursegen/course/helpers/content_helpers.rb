@@ -300,6 +300,6 @@ HTMLSTRING
   end
 
   def lab_note(title)
-    "<h5 style=\"font-family:cursive; font-weight:bold; font-szie:18px; color: red;\">#{title}</h5>"
+    "<h5 style=\"font-family:'Permanent Marker'; font-szie:18px; color: red;\">#{title}</h5>"
   end
 end
