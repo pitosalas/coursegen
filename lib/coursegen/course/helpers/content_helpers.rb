@@ -302,4 +302,13 @@ HTMLSTRING
   def lab_note(title)
     "<h5 style=\"font-family:'Permanent Marker'; font-szie:18px; color: red;\">#{title}</h5>"
   end
+
+  def toasty(header, *items)
+    str = header + "\n<ul>"
+    items.each do |itm|
+      str += "<li>" + itm + "</li>"
+    end
+    str += "</ul>"
+    str
+  end
 end
