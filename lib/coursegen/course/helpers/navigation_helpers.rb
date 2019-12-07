@@ -53,14 +53,12 @@ module NavigationHelpers
 
   def link_to_next toc, item
     next_nitem = toc.find_next_forn(item).identifier
-    # nav_markup "", @items[next_nitem].path, "glyphicon glyphicon-arrow-right", "next page"
-     nav_markup2 @items[next_nitem].path, "next page"
+    nav_markup2 @items[next_nitem].path, "next"
   end
 
   def link_to_prev toc, item
     prev_nitem = toc.find_previous_forn(item).identifier
-    # nav_markup "", @items[prev_nitem].path, "glyphicon glyphicon-arrow-left", "previous page"
-    nav_markup2 @items[prev_nitem].path, "previous page"
+    nav_markup2 @items[prev_nitem].path, "previous"
   end
 
   def link_to_inclusion item
@@ -79,6 +77,6 @@ module NavigationHelpers
   end
 
   def nav_markup2 path, text
-    "<a class=\"nav-link\" href=\"#{path}\">#{text}</a>"
+    "<a class=\"btn btn-sm btn-light\" href=\"#{path}\">#{text}</a>"
   end
 end
