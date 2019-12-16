@@ -49,12 +49,20 @@ module ContentHelpers
 
   def ir(string); italic_red(string); end
 
+  def callout_1(title, body)
+    <<~HTMLSTRING
+      <div class="well well-sm">
+      <span class="themebg label label-primary">#{title}</span>#{body}
+      </div>
+    HTMLSTRING
+  end
+
   def callout(title, body)
-    <<-HTMLSTRING
-<div class="well well-sm">
-<span class="themebg label label-primary">#{title}</span>#{body}
-</div>
-HTMLSTRING
+    <<~HTMLSTRING
+      <div class="border border-primary rounded p-2 m-3">
+      <span class="badge badge-pill badge-primary">#{title}</span>#{body}
+      </div>
+    HTMLSTRING
   end
 
   def textbadge(text, tooltip)
@@ -102,13 +110,13 @@ HTMLSTRING
   end
 
   def include_image(filename_string, extra: "")
-    <<-HTMLSTRING
-<div class="row">
-  <div class="col-md-offset-2 col-md-8">
-    <img src="#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
-  </div>
-</div>
-  HTMLSTRING
+    <<~HTMLSTRING
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <img src="#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
+        </div>
+      </div>
+    HTMLSTRING
   end
 
   def image(filename_string, extra: "")
