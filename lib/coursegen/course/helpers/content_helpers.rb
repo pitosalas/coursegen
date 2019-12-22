@@ -70,19 +70,19 @@ module ContentHelpers
   end
 
   def iconbadge(icon, tooltip)
-    %(<span class="glyphicon glyphicon-#{icon} themefg" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
+    %(<span class="fas fa-#{icon} themefg" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
   end
 
   def pdfbadge
-    iconbadge("file", "Submit as 1 page pdf, include name and homework #")
+    iconbadge("file-pdf", "Submit as 1 page pdf, include name and homework #")
   end
 
   def codebadge
-    iconbadge("cloud", "Work on code in your portfolio")
+    iconbadge("code", "Work on code in your portfolio")
   end
 
   def cloudbadge
-    codebadge
+    iconbadge("cloud-upload-alt", "Work on code in your portfolio")
   end
 
   def zipbadge
@@ -90,15 +90,15 @@ module ContentHelpers
   end
 
   def partbadge
-    iconbadge("check", "Graded for participation only - pass/fail")
+    iconbadge("hand-peace", "Graded for participation only - pass/fail")
   end
 
   def timebadge
-    iconbadge("time", "Must be submitted first thing on day of class")
+    iconbadge("coffee", "Must be submitted first thing on day of class")
   end
 
   def teambadge
-    iconbadge("tent", "Team Deliverable")
+    iconbadge("handshake", "Team Deliverable")
   end
 
   def include_image_old(filename_string, extra_class: nil)
@@ -312,11 +312,12 @@ module ContentHelpers
   end
 
   def toasty(header, *items)
-    str = header + "\n<ul>"
+    str = %Q(<div class="border border-info rounded w-75 mx-auto p-2 m-3">
+      <h5>#{header}</h5><ul>)
     items.each do |itm|
       str += "<li>" + itm + "</li>"
     end
-    str += "</ul>"
+    str += "</ul></div>"
     str
   end
 end
