@@ -174,48 +174,79 @@ module ContentHelpers
     body
   end
 
-  def carousel(filenames)
-    body = %(<div id="myCarousel" class="carousel slide" style="width: 500px; margin: 0 auto;">
-            <div class="carousel-inner" style="margin: 20px; ">)
-    counter = 0
-    filenames.each do |nam|
-      body << counter == 0 ? %(div class="item active">) : body << %(<div class="item">~
-      body << %~<img src=")
-      body << "/content/images/#{nam}"
-      body << %(" class="img-polaroid" alt=""></div>)
-      counter += 1
-    end
-    body << %(</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-            </div>)
-    body
-  end
+  # def carousel(filenames)
+  #   body = %(<div id="myCarousel" class="carousel slide" style="width: 500px; margin: 0 auto;">
+  #           <div class="carousel-inner" style="margin: 20px; ">)
+  #   counter = 0
+  #   filenames.each do |nam|
+  #     body << counter == 0 ? %(div class="item active">) : body << %(<div class="item">~
+  #     body << %~<img src=")
+  #     body << "/content/images/#{nam}"
+  #     body << %(" class="img-polaroid" alt=""></div>)
+  #     counter += 1
+  #   end
+  #   body << %(</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+  #               <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+  #           </div>)
+  #   body
+  # end
 
-  def carousel_new(filenames)
-    carousel_work(filenames.map { |filename| "/content/topics/images/" + filename })
-  end
+  # def carousel_new(filenames)
+  #   carousel_work(filenames.map { |filename| "/content/topics/images/" + filename })
+  # end
 
-  def carousel_work(filenames)
-    body = %(<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 500px; margin: 0 auto;">
-            <div class="carousel-inner" role="listbox" style="margin: 20px; ">)
-    counter = 0
-    filenames.each do |nam|
-      ci = counter == 0 ? %(<div class="item active">) : %(<div class="item">)
-      body << ci
-      body << %(<img src=")
-      body << nam
-      body << %("/>"></div>)
-      counter += 1
+  # def carousel_work(filenames)
+  #   body = %(<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 500px; margin: 0 auto;">
+  #           <div class="carousel-inner" role="listbox" style="margin: 20px; ">)
+  #   counter = 0
+  #   filenames.each do |nam|
+  #     ci = counter == 0 ? %(<div class="item active">) : %(<div class="item">)
+  #     body << ci
+  #     body << %(<img src=")
+  #     body << nam
+  #     body << %("/>"></div>)
+  #     counter += 1
+  #   end
+  #   body << %(</div> <a class="left carousel-control" role="button" href="#myCarousel" data-slide="prev">
+  #     <span class="glyphicon glyphicon-chevron-left"></span>
+  #     <span class="sr-only">Previous</span>
+  #   </a>
+  #   <a class="right carousel-control" role="button" href="#myCarousel" data-slide="next">
+  #     <span class="glyphicon glyphicon-chevron-right"></span>
+  #     <span class="sr-only">Next</span>
+  #   </a>
+  #   </div>)
+  #   body
+  # end
+
+  def carousel_V4(filenames)
+    body = <<~HEREDOC
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+    HEREDOC
+    count = 0
+    filenames.each do |fname|
+      active = count == 0 ? "active" : ""
+      body << <<~HEREDOC
+      <div class="carousel-item #{active}">
+        <img class="d-block w-100" src="/content/topics/images/#{fname}">
+      </div>
+      HEREDOC
+      count += 1
     end
-    body << %(</div> <a class="left carousel-control" role="button" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
+    body << <<~HEREDOC
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" role="button" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
-    </a>
-    </div>)
+    </a>  
+    </div>
+    HEREDOC
+    puts body
     body
   end
 
