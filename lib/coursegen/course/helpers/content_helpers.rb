@@ -308,6 +308,15 @@ module ContentHelpers
     code_string filecontents
   end
 
+  def source_begin(language)
+    "<pre><code class=\"#{language}\">"
+  end
+
+  def source_end
+    "</code></pre>"
+  end
+
+
   def postit_begin title
     "<div class=\"postit\">" + "<h5>" + title + "</h5>"
   end
