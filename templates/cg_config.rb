@@ -29,3 +29,6 @@ SECTION_CONFIG = [
 STYLING_CONFIG = {bullet_style: "\"font-size: 60%; width: 10px; color: grey\""}
 HELPFUL_BOX = false
 HOME_PAGE = "/content/index.md.erb".freeze
+MENULINKS = [["TOC", "/content/intro/course_toc.md/"],
+             ["Welcome", "/content/intro/welcome.md/"],
+             ["Extra", "/content/extras/extra_content.md/"]].freeze
