@@ -8,3 +8,7 @@
 * Clean up the placement of the .js files for the search stuff. It's a bit messy
 
 ### Features
+
+* generate pdf
+* more elaborate sample course in cg itself
+* document the different macros 
