@@ -6,9 +6,10 @@
 * Make the way mocks are built in specs more consitent
 * A way to have a nested section which is not an 'event' based section
 * Clean up the placement of the .js files for the search stuff. It's a bit messy
+* Add more tests
 
 ### Features
 
 * generate pdf
 * more elaborate sample course in cg itself
-* document the different macros 
+* document the different macros
