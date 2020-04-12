@@ -1,7 +1,7 @@
 require 'coursegen'
 
 # Copyright string
-COPYRIGHT_STRING = "Copyright (2013-2019) R. Pito Salas, pitosalas@gmail.com"
+COPYRIGHT_STRING = "Copyright (2013-#{Time.now.year}) R. Pito Salas, pitosalas@gmail.com"
 
 # Course short name
 COURSE_SHORT_NAME = "Sample Course"

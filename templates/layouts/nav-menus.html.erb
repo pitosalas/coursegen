@@ -1,44 +1,17 @@
-<div class="container">
-  <div class="row">
-    <button class="navbar-toggle" data-toggle="collapse"    data-target=".navHeaderCollapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  <div class="collapse navbar-collapse navHeaderCollapse">
-    <ul class="nav navbar-nav col-xs-7">
-      <% MENULINKS.each do |label, link| %>
-        <li>
-          <a class="nav-link py-0 text-light" href="<%= link %>">
-            <%= label %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
-    <div class="navbar-control col-xs-3">
-      <form
-        role="form"
-        class="form-inline"
-        action="/content/tipuesearch/search.md/index.html"
-      >
-        <div class="input-group input-group-sm">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="search..."
-            name="q"
-            id="tipue_search_input"
-            autocomplete="off"
-            required
-          />
-        </div>
-      </form>
-    </div>
-    <div class="btn-group btn-group-xs col-xs-2">
-      <%if citem.section != "root" %>
-        <%= link_to_prev toc, item %> <%= link_to_next toc, item %>
-      <% end %>
-    </div>
+<nav class="navbar navbar-expand-lg bg-dark py-0">
+  <nav class="nav py-0">
+    <% MENULINKS.each do |label, link| %>
+    <a class="nav-link py-0 text-light" href="<%= link %>">
+      <%= label %>
+    </a>
+    <% end %>
+  </nav>
+  <div class="navbar-control py-0">
+    <form role="form" class="form-inline" action="/content/tipuesearch/search.md/index.html">
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control" placeholder="search..." name="q" id="tipue_search_input"
+          autocomplete="off" required />
+      </div>
+    </form>
   </div>
-</div>
+</nav>
