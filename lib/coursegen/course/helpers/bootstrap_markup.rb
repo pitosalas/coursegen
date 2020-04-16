@@ -1,32 +1,34 @@
+# Class BootstrapMarkup provides methods for using Bootstrap specific HTML
+# markups.
 class BootstrapMarkup
   def initialize
-    @str = ""
+    @str = ''
   end
 
-  def table_begin(css_class = "table-condensed")
+  def table_begin(css_class = 'table-condensed')
     puts css_class.class
     @str << "<table class=\"table x #{css_class}\">"
     puts @str
   end
 
   def table_end
-    @str << "</table>"
+    @str << '</table>'
   end
 
   def headers_begin
-    @str << "<thead><tr>"
+    @str << '<thead><tr>'
   end
 
   def headers_end
-    @str << "</tr></thead>"
+    @str << '</tr></thead>'
   end
 
   def header_begin
-    @str << "<th>"
+    @str << '<th>'
   end
 
   def header_end
-    @str << "</th>"
+    @str << '</th>'
   end
 
   def header_content(str)
@@ -34,27 +36,27 @@ class BootstrapMarkup
   end
 
   def row_begin
-    @str << "<tr>"
+    @str << '<tr>'
   end
 
   def row_end
-    @str << "</tr>"
+    @str << '</tr>'
   end
 
   def cell_begin
-    @str << "<td>"
+    @str << '<td>'
   end
 
   def cell_end
-    @str << "</td>"
+    @str << '</td>'
   end
 
   def bigcell_begin
-    @str << "<td colspan=\"3\"><h5>"
+    @str << '<td colspan="3"><h5>'
   end
 
   def bigcell_end
-    @str << "</h5></td>"
+    @str << '</h5></td>'
   end
 
   def cell_content(str)
