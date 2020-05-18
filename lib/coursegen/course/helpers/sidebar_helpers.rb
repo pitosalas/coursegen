@@ -7,9 +7,9 @@ module SidebarHelpers
             <label class=\"tree-toggler level1\">
               #{collapsed_indicator(sect.collapsed?)}
               #{title}
-            </label>"
-    str += sect.has_subsections? ? nested_section(sect) : flat_section(sect)
-    str + '</li>'
+            </label>
+            #{sect.has_subsections? ? nested_section(sect) : flat_section(sect)}
+          </li>"
   end
 
   def nested_section(sect)
