@@ -1,5 +1,5 @@
 env:
-  RUBY_VERSION: 2.6.5
+  RUBY_VERSION: 2.6
 name: Gem build
 on: [pull_request]
 jobs:
@@ -17,9 +17,3 @@ jobs:
           bundler install
       - name: Run tests
         run: bundler exec rake spec
-      - name: Upload coverage results
-        uses: actions/upload-artifact@master
-        if: always()
-        with:
-          name: coverage-report
-          path: coverage
