@@ -1,23 +1,22 @@
-# Helpers to be used to annotate content
-require 'byebug'
+# ContentHelpers is used to annotate content.
 module ContentHelpers
   def include_topic(item_symbol)
-    incorporated_topic = lookup_nitem("topics", item_symbol.to_s)
+    incorporated_topic = lookup_nitem('topics', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
   def include_page(item_symbol)
-    incorporated_topic = lookup_nitem("pages", item_symbol.to_s)
+    incorporated_topic = lookup_nitem('pages', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
   def include_background(item_symbol)
-    incorporated_topic = lookup_nitem("background", item_symbol.to_s)
+    incorporated_topic = lookup_nitem('background', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
   def include_intro(item_symbol)
-    incorporated_topic = lookup_nitem("intro", item_symbol.to_s)
+    incorporated_topic = lookup_nitem('intro', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
   end
 
@@ -47,7 +46,9 @@ module ContentHelpers
     " *#{string}*{: style=\"color: red\"} "
   end
 
-  def ir(string); italic_red(string); end
+  def ir(string)
+    italic_red(string)
+  end
 
   def callout_1(title, body)
     <<~HTMLSTRING
@@ -74,42 +75,42 @@ module ContentHelpers
   end
 
   def pdfbadge
-    iconbadge("file-pdf", "Submit as 1 page pdf, include name and homework #")
+    iconbadge('file-pdf', 'Submit as 1 page pdf, include name and homework #')
   end
 
   def codebadge
-    iconbadge("code", "Work on code in your portfolio")
+    iconbadge('code', 'Work on code in your portfolio')
   end
 
   def cloudbadge
-    iconbadge("cloud-upload-alt", "Work on code in your portfolio")
+    iconbadge('cloud-upload-alt', 'Work on code in your portfolio')
   end
 
   def zipbadge
-    iconbadge("briefcase", "Submit work as an attachment")
+    iconbadge('briefcase', 'Submit work as an attachment')
   end
 
   def partbadge
-    iconbadge("hand-peace", "Graded for participation only - pass/fail")
+    iconbadge('hand-peace', 'Graded for participation only - pass/fail')
   end
 
   def timebadge
-    iconbadge("coffee", "Must be submitted first thing on day of class")
+    iconbadge('coffee', 'Must be submitted first thing on day of class')
   end
 
   def teambadge
-    iconbadge("handshake", "Team Deliverable")
+    iconbadge('handshake', 'Team Deliverable')
   end
 
   def include_image_old(filename_string, extra_class: nil)
-    css_class = "img-responsive"
-    css_class += " img-" + extra_class unless extra_class.nil?
+    css_class = 'img-responsive'
+    css_class += ' img-' + extra_class unless extra_class.nil?
     <<-HTMLSTRING
     <img src="#{filename_string}" class=\"%s\" />" % css_class
     HTMLSTRING
   end
 
-  def include_image(filename_string, extra: "")
+  def include_image(filename_string, extra: '')
     <<~HTMLSTRING
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
@@ -119,13 +120,13 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def image(filename_string, extra: "")
+  def image(filename_string, extra: '')
     <<~HTMLSTRING
-    <img src="/content/topics/images/#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
+      <img src="/content/topics/images/#{filename_string}" class="img-responsive img-thumbnail" #{extra}/>
     HTMLSTRING
   end
 
-  def important(string = ":")
+  def important(string = ':')
     <<-HTMLSTRING
     <div class="cg-important">
         #{string}
@@ -133,26 +134,26 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def nb(string = ":")
+  def nb(string = ':')
     <<-HTMLSTRING
     <div class="label label-info">#{string}</div>
     HTMLSTRING
   end
 
-  def tbd(string = "")
+  def tbd(string = '')
     "*[TO BE DETERMINED#{string}]*{: style=\"color: red\"}"
   end
 
-  def deliverable(string, append = "")
+  def deliverable(string, append = '')
     "*Deliverable:*{: style=\"color: red\"} #{string + append} "
   end
 
   def deliverable_po(string)
-    deliverable(string, " *(graded for participation only)*")
+    deliverable(string, ' *(graded for participation only)*')
   end
 
   def deliverable_popdf(string)
-    deliverable(string, " *(pdf with name and hw number, graded for participation only)*")
+    deliverable(string, ' *(pdf with name and hw number, graded for participation only)*')
   end
 
   def team_deliverable(string)
@@ -168,7 +169,7 @@ module ContentHelpers
   end
 
   def homework_hdr(show_legend: :on)
-    body = "#### Homework due for today"
+    body = '#### Homework due for today'
     legend = "\n**Legend**: #{partbadge}: Participation (pass/fail) | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Attachment"
     body += legend if show_legend == :on
     body
@@ -221,30 +222,30 @@ module ContentHelpers
 
   def carousel_V4(filenames)
     body = <<~HEREDOC
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
     HEREDOC
     count = 0
     filenames.each do |fname|
-      active = count == 0 ? "active" : ""
+      active = count == 0 ? 'active' : ''
       body << <<~HEREDOC
-      <div class="carousel-item #{active}">
-        <img class="d-block w-100" src="/content/topics/images/#{fname}">
-      </div>
+        <div class="carousel-item #{active}">
+          <img class="d-block w-100" src="/content/topics/images/#{fname}">
+        </div>
       HEREDOC
       count += 1
     end
     body << <<~HEREDOC
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>  
-    </div>
     HEREDOC
     puts body
     body
@@ -275,13 +276,13 @@ module ContentHelpers
   end
 
   def include_ruby(name)
-    filename = Dir.pwd + "/content/content/topics/scripts/" + name.to_s + ".rb"
+    filename = Dir.pwd + '/content/content/topics/scripts/' + name.to_s + '.rb'
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
 
   def include_python(name)
-    filename = Dir.pwd + "/content/content/topics/robotcode/" + name.to_s + ".py"
+    filename = Dir.pwd + '/content/content/topics/robotcode/' + name.to_s + '.py'
     filecontents = File.new(filename).read
     ruby_string filecontents
   end
@@ -290,11 +291,9 @@ module ContentHelpers
     "\n~~~~~~"
   end
 
-  def code_end(lang = "")
+  def code_end(lang = '')
     str = "~~~~~~\n"
-    if ["ruby", "css", "java", "html"].include? lang
-      str += "{: .language-#{lang}}"
-    end
+    str += "{: .language-#{lang}}" if %w[ruby css java html].include? lang
     str
   end
 
@@ -303,7 +302,7 @@ module ContentHelpers
   end
 
   def include_code(name)
-    filename = Dir.pwd + "/content/content/topics/scripts/" + name
+    filename = Dir.pwd + '/content/content/topics/scripts/' + name
     filecontents = File.new(filename).read
     code_string filecontents
   end
@@ -313,36 +312,35 @@ module ContentHelpers
   end
 
   def source_end
-    "</code></pre>"
+    '</code></pre>'
   end
 
-
-  def postit_begin title
-    "<div class=\"postit\">" + "<h5>" + title + "</h5>"
+  def postit_begin(title)
+    '<div class="postit">' + '<h5>' + title + '</h5>'
   end
 
   def postit_end
-    "</div>"
+    '</div>'
   end
 
   def ul_begin
-    "<ul>"
+    '<ul>'
   end
 
   def ul_end
-    "</ul>"
+    '</ul>'
   end
 
-  def ul body
+  def ul(body)
     "<ul>#{body}</ul>"
   end
 
-  def list_items *items
-    items.reduce("") do |s, i|
-      if i.start_with?("<ul>")
+  def list_items(*items)
+    items.reduce('') do |s, i|
+      if i.start_with?('<ul>')
         s + i
       else
-        s + "<li>" + i + "</li>"
+        s + '<li>' + i + '</li>'
       end
     end
   end
@@ -352,12 +350,12 @@ module ContentHelpers
   end
 
   def toasty(header, *items)
-    str = %Q(<div class="border border-info rounded w-75 mx-auto p-2 m-3">
+    str = %(<div class="border border-info rounded w-75 mx-auto p-2 m-3">
       <h5>#{header}</h5><ul>)
     items.each do |itm|
-      str += "<li>" + itm + "</li>"
+      str += '<li>' + itm + '</li>'
     end
-    str += "</ul></div>"
+    str += '</ul></div>'
     str
   end
 end

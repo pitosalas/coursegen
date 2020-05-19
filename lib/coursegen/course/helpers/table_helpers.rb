@@ -1,3 +1,4 @@
+# Class TableHelper provides methods for creating a table.
 class TableHelper
   def initialize(*property)
     @prop = property
@@ -5,9 +6,9 @@ class TableHelper
   end
 
   def headers(*labels)
-    css_style = ""
-    css_style += " table-condensed" if @prop.include? :normal
-    css_style += " table-bordered" if @prop.include? :bordered
+    css_style = ''
+    css_style += ' table-condensed' if @prop.include? :normal
+    css_style += ' table-bordered' if @prop.include? :bordered
     @bm.table_begin(css_style)
     @bm.headers_begin
     labels.each do |h|
@@ -28,7 +29,7 @@ class TableHelper
     @bm.row_end
   end
 
-  def render()
+  def render
     @bm.table_end
     @bm.render
   end

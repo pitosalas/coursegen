@@ -1,17 +1,20 @@
+# Class ListOf represents a lecture table.
 class ListOf
-  # source: name of a section as a string
-  # rows: array with one or more of:
-  #     "pages"
-  #     "subsections"
-  # subsections: array with one or more strings corresponding to subsection string in an item
-  #     .e.g. "/content/topics/arch/"
-  # cols: array with one or more of:
-  #     :date
-  #     :number
-  #     :title
-  #     :homeworks
-  # items: refers to nanoc's @items (temp hack!)
-
+  # Initialize creates an instance of ListOf.
+  #
+  # source:       name of a section as a string
+  # rows:         array with one or more of:
+  #               "pages"
+  #               "subsections"
+  # subsections:  array with one or more strings corresponding to subsection
+  #               string in an item
+  #               e.g. "/content/topics/arch/"
+  # cols:         array with one or more of:
+  #               :date
+  #               :number
+  #               :title
+  #               :homeworks
+  # items:        refers to nanoc's @items (temp hack!)
   def initialize(markup_adaptor, data_adaptor, rows, cols, subsections, items)
     @mark = markup_adaptor
     @rows = rows
@@ -21,6 +24,7 @@ class ListOf
     @items = items
   end
 
+  # Render renders the underlying lecture table.
   def render
     @mark.table_begin
     generate_headers
@@ -46,6 +50,7 @@ class ListOf
   def generate_rows
     @data.rows do |row_id|
       next unless include_row?(row_id)
+
       if subsection_hdr?(row_id)
         generate_summary_row(row_id)
       else
@@ -73,11 +78,11 @@ class ListOf
   end
 
   def cell_content_string(row_id, col_selector, detail:)
-    if (col_selector == :title && detail)
+    if col_selector == :title && detail
       nitem = @items[row_id.identifier]
       link_to_unless_current(nitem[:title], nitem)
-    elsif (col_selector == :date)
-      @data.cell_value(row_id, col_selector).strftime("%b %-d")
+    elsif col_selector == :date
+      @data.cell_value(row_id, col_selector).strftime('%b %-d')
     else
       @data.cell_value(row_id, col_selector).to_s
     end
@@ -92,10 +97,10 @@ class ListOf
   end
 
   def include_by_subsection_path?(row_id)
-    @subsections.length == 0 || @subsections.include?(row_id.subsection)
+    @subsections.empty? || @subsections.include?(row_id.subsection)
   end
 
   def subsection_hdr?(row_id)
-    row_id.type == "subsection"
+    row_id.type == 'subsection'
   end
 end
