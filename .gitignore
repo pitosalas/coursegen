@@ -2,3 +2,5 @@ pkg/*
 *.gem
 .idea/*
 *.log
+*.iml
+.byebug_history
