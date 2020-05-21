@@ -11,7 +11,9 @@
     // we create your config
     apiKey: '<%= SEARCH_CONFIG[:api_key] %>',
     indexName: '<%= SEARCH_CONFIG[:index_name] %>',
-    appId: '<%= SEARCH_CONFIG[:app_id] %>', // Should be only included if you are running DocSearch on your own.
+    <% if SEARCH_CONFIG[:app_id] != '' %>
+      appId: '<%= SEARCH_CONFIG[:app_id] %>',
+    <% end %>
     // Replace inputSelector with a CSS selector
     // matching your search input
     inputSelector: '#tipue_search_input',

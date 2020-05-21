@@ -12,10 +12,11 @@ This gem is still under development. In the current form it can already be used 
   - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Generating a blank course](#generating-a-blank-course)
-  - [Adding course to Github (Optional)](#adding-course-to-github-(optional))
+  - [Adding course to Github (Optional)](#adding-course-to-github-optional)
   - [Adding a lecture](#adding-a-lecture)
   - [Developing locally](#developing-locally)
   - [Deploying to S3](#deploying-to-s3)
+  - [Search](#search)
 - [Configuration](#configuration)
 - [Examples](#examples)
   - [Lectures](#lectures)
@@ -30,7 +31,7 @@ This gem is still under development. In the current form it can already be used 
 
 Before installing Coursegen, make sure the following tools are installed.
 
-- [Ruby > 2.3](https://www.ruby-lang.org/en/documentation/installation/)
+- [Ruby >= 2.6](https://www.ruby-lang.org/en/documentation/installation/)
 - [s3cmd](https://github.com/s3tools/s3cmd) (for deploying to AWS S3)
 
 Using Coursegen is easy. Install the gem using rubygem.
@@ -56,13 +57,7 @@ While you are welcome to provide your own organization, typically a Coursegen-ba
 │   ├── banner.html.erb
 │   ├── body_footer.html
 │   ├── body_header.html.erb
-│   ├── bottom_includes.html.erb
-│   ├── course.html.erb
-│   ├── helpful_box.html
-│   ├── main_navbar.html.erb
-│   ├── nav-menus.html.erb
-│   ├── sidebar.html.erb
-│   └── top_includes.html.erb
+│   └── ...
 ├── lib
 │   └── default.rb
 ├── nanoc.yaml
@@ -143,12 +138,31 @@ To host the course site on S3, you need to create a S3 bucket. Follow [this guid
 After the S3 bucket is created, you can deploy the course site using `cg deploy`. `AWS_BUCKET` is the name of the S3 bucket.
 
 ```bash
-AWS_BUCKET = "cosi165-2014" cg deploy
+AWS_BUCKET="cosi165-2014" cg deploy
+```
+
+### Search
+
+Coursegen uses [DocSearch by Algolia](https://docsearch.algolia.com/) to power its search. DocSearch is an external service that indexes the site, and provides search functionality through their API.
+
+1. Create an application on Algolia (Community Plan is enough for our use case), note the `Application ID`.
+2. Create an index named "search", `Indices -> Create Index`.
+3. Note the Search-Only API Key `API Keys -> Your API Keys`.
+
+Update the following block in `cg_config.rb`,
+
+```ruby
+SEARCH_CONFIG = {
+  api_key: '<API_KEY>',
+  index_name: 'search',
+  app_id: '<APP_ID>',
+  debug: false
+}
 ```
 
 ## Configuration
 
-Modify the configuration of the course by editing the file `cg_config.rb`. You can look at a complicated example to see some of the things that are possible: `cg_config.rb_sample`
+The list of configuration directives, and their meaning and intended usage is available in the self documented `cg_config.rb`.
 
 ## Examples
 
