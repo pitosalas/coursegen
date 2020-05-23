@@ -1,6 +1,0 @@
-<% gen = SearchIndex.new @items %>
-var tipuesearch = { "pages": [
-<% gen.index.each do |item| %>
-        {"title": "<%= item[:title]%>", "text": "<%= item[:text] %>", "tags": "<%= item[:tags] %>", "loc": "<%= item[:loc] %>" },
-<% end %>
-]};

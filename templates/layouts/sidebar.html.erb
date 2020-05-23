@@ -1,7 +1,7 @@
 <div class="col-md-3  border rounded-lg sidebar">
-  <% if (HELPFUL_BOX) %>
+  <% if HELPFUL_BOX %>
   <div class="row well"
-    style="color: rgb(158, 48, 48);padding-top: 4px;padding-bottom: 4px;padding-left: 8px;padding-right: 8px;margin-bottom: 8px;">
+    style="color: rgb(158, 48, 48);padding: 4px 8px;margin-bottom: 8px;">
     <%= render "/helpful_box.*" %>
   </div>
   <% end %>

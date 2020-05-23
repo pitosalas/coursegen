@@ -4,13 +4,20 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script src="/bootstrap/js/custom.js"></script>
-<script src="/tipuesearch/tipuesearch_content.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js"></script>
 <script>
-  $(document).ready(function () {
-    $('#tipue_search_input').tipuesearch({
-      'show': 20,
-      'contextBuffer': 100
-    });
+  docsearch({
+    // Your apiKey and indexName will be given to you once
+    // we create your config
+    apiKey: '<%= SEARCH_CONFIG[:api_key] %>',
+    indexName: '<%= SEARCH_CONFIG[:index_name] %>',
+    <% if SEARCH_CONFIG[:app_id] != '' %>
+      appId: '<%= SEARCH_CONFIG[:app_id] %>',
+    <% end %>
+    // Replace inputSelector with a CSS selector
+    // matching your search input
+    inputSelector: '#tipue_search_input',
+    // Set debug to true to inspect the dropdown
+    debug: <%= SEARCH_CONFIG[:debug] %>,
   });
 </script>
