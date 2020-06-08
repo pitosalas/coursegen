@@ -1,19 +1,19 @@
-<div class="row">
+<div class="row justify-content-between">
   <div class="col-8">
-    <h3>
+    <h1>
       <%= citem.title %>
-      <span class="h6">
+      <span style="font-size: 1rem">
         <% if citem.lecture? %>
           (<%= citem.lecture_date_s %>, <%= citem.lecture_number_s.to_s %>)
         <% end %>
       </span>
-    </h3>
+    </h1>
 
   </div>
-  <div class="col pt-4">
+  <div class="col-3 pt-4">
     <%if citem.lecture? && citem.section != "root" %>
       <%= link_to_prev toc, item %> <%=link_to_next toc, item %>
     <% end %>
   </div>
 </div>
-<h6><%= citem.desc %></h6>
+<h4><%= citem.desc %></h4>
