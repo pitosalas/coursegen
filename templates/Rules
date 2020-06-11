@@ -44,10 +44,6 @@ route '/bootstrap/**/*' do
   @item.identifier.to_s
 end
 
-route '/tipuesearch/**/*' do
-  @item.identifier.to_s
-end
-
 # Select which .md.erb becomes the home page of the site
 route HOME_PAGE do
   '/index.html'
@@ -58,8 +54,6 @@ route '/**/*' do
     raise RuntimeError, "Missing required extension: \".#{item.identifier}\""
   elsif item.binary?
     item.identifier.to_s
-  elsif item.identifier == "/searchtipuesearch_content/"
-    item.identifier.chop + '.' + item[:extension] rescue fail "in route * in Rules"
   elsif item[:status] == "hidden"
     nil
   elsif item[:type] == "subsection"

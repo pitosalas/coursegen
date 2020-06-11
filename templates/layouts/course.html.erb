@@ -11,7 +11,7 @@
   <%= render "/banner.*", toc: Toc.instance, item: item, citem: @citem %>
   <%= render "/nav-menus.*", toc: Toc.instance, item: item, citem: @citem %>
   <section>
-    <div class="container">
+    <div class="container DocSearch-content">
       <div class="row">
         <div class="col-md-9">
           <%= render "/body_header.*", toc: Toc.instance, item: item, citem: @citem %>
@@ -21,7 +21,6 @@
       </div>
     </div>
   </section>
-  <!-- jQuery -->
   <%= render "/bottom_includes.*" %>
   <footer>
     <%= render "/body_footer.*" %>
