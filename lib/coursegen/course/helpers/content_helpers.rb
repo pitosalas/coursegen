@@ -169,7 +169,7 @@ module ContentHelpers
   end
 
   def homework_hdr(show_legend: :on)
-    body = '#### Homework due for today'
+    body = '## Homework due for today'
     legend = "\n**Legend**: #{partbadge}: Participation (pass/fail) | #{pdfbadge}: PDF | #{teambadge}: Team | #{zipbadge}:  Attachment"
     body += legend if show_legend == :on
     body
@@ -333,6 +333,10 @@ module ContentHelpers
 
   def ul(body)
     "<ul>#{body}</ul>"
+  end
+
+  def slide
+    '<slide_break></slide_break>'
   end
 
   def list_items(*items)

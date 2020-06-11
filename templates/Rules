@@ -34,6 +34,16 @@ compile '/**/*.{md,ical}.erb' do
   end
 end
 
+compile '/**/*.md.erb', rep: :slides do
+  if item[:status] != "hidden"
+    filter :erb
+    layout '/slides.*'
+    write item.identifier.without_ext + '/slides.html'
+  else
+    nil
+  end
+end
+
 compile '/**/*' do
   if item.binary? || item[:status] == "hidden"
     nil

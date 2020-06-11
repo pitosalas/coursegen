@@ -10,10 +10,13 @@
     </h1>
 
   </div>
-  <div class="col-3 pt-4">
-    <%if citem.lecture? && citem.section != "root" %>
+  <div class="col pt-4">
+    <% if citem.lecture? && citem.section != "root" %>
+      <% if citem.slides %>
+        <%= link_to_slides %>
+      <% end %>
       <%= link_to_prev toc, item %> <%=link_to_next toc, item %>
     <% end %>
   </div>
 </div>
-<h4><%= citem.desc %></h4>
+<h3><%= citem.desc %></h3>

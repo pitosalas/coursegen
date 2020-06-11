@@ -72,6 +72,15 @@ module NavigationHelpers
     end
   end
 
+  def link_to_slides
+    '<a
+      class="btn btn-sm btn-light"
+      href="./slides.html"
+      title="slides">
+      <i class="fas fa-chalkboard-teacher"></i> Slides
+    </a>'
+  end
+
   private
 
   def nav_markup(text, path, icon, tooltip = '')
