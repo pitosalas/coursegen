@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= COURSE_SHORT_NAME %></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/white.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="https://unpkg.com/reveal.js@4.0.2/lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <style>
+    .scrollable {
+      bottom: 0;
+      overflow-y: auto  !important;
+      overflow-x: hidden !important;
+    }
+  </style>
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section data-markdown data-separator="^<slide_break></slide_break>" class="scrollable">
+      <textarea data-template>
+        <%= yield %>
+      </textarea>
+    </section>
+  </div>
+</div>
+
+<script src="https://unpkg.com/reveal.js@4.0.2/dist/reveal.js"></script>
+<!-- Plugins -->
+<script src="https://unpkg.com/reveal.js@4.0.2/plugin/markdown/markdown.js"></script>
+<script src="https://unpkg.com/reveal.js@4.0.2/plugin/highlight/highlight.js"></script>
+
+<script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        minScale: 0.2,
+        maxScale: 1.4,
+
+        markdown: {
+            breaks: true
+        },
+
+        // Optional reveal.js plugins
+        plugins: [ RevealMarkdown, RevealHighlight ]
+    });
+</script>
+</body>
