@@ -14,6 +14,9 @@
     <% if SEARCH_CONFIG[:app_id] != '' %>
       appId: '<%= SEARCH_CONFIG[:app_id] %>',
     <% end %>
+    algoliaOptions: {
+        hitsPerPage: 30
+    },
     // Replace inputSelector with a CSS selector
     // matching your search input
     inputSelector: '#tipue_search_input',
