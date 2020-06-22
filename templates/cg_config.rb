@@ -95,7 +95,20 @@ STYLING_CONFIG = {
 SEARCH_CONFIG = {
   api_key: '25626fae796133dc1e734c6bcaaeac3c',
   index_name: 'docsearch',
+
   # APP_ID is only used if you are running DocSearch on your own.
   app_id: '',
   debug: false
+}.freeze
+
+# SLIDES
+SLIDES_CONFIG = {
+  # Ignore_selectors ignore certain html elements from rendering in the slides.
+  ignore_selectors: ['h4'],
+
+  # Reveal.js specific options
+  # See: https://revealjs.com/config/
+  revealjs_opts: {
+    transition: 'slide'
+  }
 }.freeze

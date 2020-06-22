@@ -19,6 +19,12 @@
       overflow-y: auto  !important;
       overflow-x: hidden !important;
     }
+
+    <% SLIDES_CONFIG[:ignore_selectors].each do |s| %>
+    .slides <%= s %> {
+      display: none;
+    }
+    <% end %>
   </style>
 </head>
 
@@ -49,8 +55,12 @@
             breaks: true
         },
 
+        <% SLIDES_CONFIG[:revealjs_opts].each do |k, v| %>
+        <%= k %>: <%= v.to_json %>,
+        <% end %>
+
         // Optional reveal.js plugins
         plugins: [ RevealMarkdown, RevealHighlight ]
-    });
+    })
 </script>
 </body>
