@@ -21,6 +21,8 @@ This gem is still under development. In the current form it can already be used 
 - [Examples](#examples)
   - [Lectures](#lectures)
   - [Course Sites](#course-sites)
+- [Features](#features)
+  - [Slides](#slides)
 - [Open Source Catalog of Topics](#open-source-catalog-of-topics)
 - [Using course contents from another folder](#using-course-contents-from-another-folder)
 - [License](#license)
@@ -234,6 +236,44 @@ For more complex example of lectures see [here](https://github.com/pitosalas/cos
 - An simple example: <https://github.com/pitosalas/jbscosi2014>
 - A complex example (but based on a previous version): <https://github.com/pitosalas/cosi236b>
 - The resultant web site: <https://bit.ly/cosi236b>
+
+## Features
+
+### Slides
+
+*!!! Slides generation is currently in preview stage !!!*
+
+To enable slides generation in a specific lecture, add `slides: true` to the header of the markdown file.
+
+```markdown
+---
+title: Some Lecture
+slides: true
+---
+...
+```
+
+Coursegen uses the tag `<%= slide %>` to properly separate each slide.
+
+```erb
+# Slide 1
+* some lines
+* some lines
+
+<%= slide %>
+
+# Slide 2
+* some lines
+```
+
+To disregard some content from rendering into the slides, add the html element into `cg_config.rb`.
+
+```ruby
+SLIDES_CONFIG = {
+  # This ignores any element that is <h4>
+  ignore_selector: ['h4']
+}
+```
 
 ## Open Source Catalog of Topics
 
