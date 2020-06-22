@@ -16,7 +16,6 @@ module CourseGen
       copy_template_dir('lib', 'lib')
       delete_target_file('Rules')
       copy_template_file('Rules', 'Rules')
-      copy_template_file('Guardfile', 'Guardfile')
       copy_template_file('.gitignore', '.gitignore')
       copy_template_file('cg_config.rb', 'cg_config.rb')
       copy_template_file('cg_config.rb_sample', 'cg_config.rb_sample')
