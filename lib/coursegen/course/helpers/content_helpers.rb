@@ -60,7 +60,7 @@ module ContentHelpers
 
   def callout(title, body)
     <<~HTMLSTRING
-      <div class="border border-primary rounded p-2 m-3">
+      <div class="callout border border-primary rounded p-2 m-3">
       <span class="badge badge-pill badge-primary">#{title}</span>#{body}
       </div>
     HTMLSTRING
