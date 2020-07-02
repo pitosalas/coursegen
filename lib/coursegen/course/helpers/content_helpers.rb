@@ -52,7 +52,7 @@ module ContentHelpers
 
   def callout_1(title, body)
     <<~HTMLSTRING
-      <div class="well well-sm">
+      <div class="well well-sm callout">
       <span class="themebg label label-primary">#{title}</span>#{body}
       </div>
     HTMLSTRING
