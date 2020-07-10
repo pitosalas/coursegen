@@ -14,6 +14,7 @@ class ListOf
   #               :number
   #               :title
   #               :homeworks
+  #               :lectref
   # items:        refers to nanoc's @items (temp hack!)
   def initialize(markup_adaptor, data_adaptor, rows, cols, subsections, items)
     @mark = markup_adaptor
@@ -81,6 +82,18 @@ class ListOf
     if col_selector == :title && detail
       nitem = @items[row_id.identifier]
       link_to_unless_current(nitem[:title], nitem)
+    elsif col_selector == :hwref
+      tag_value = @data.cell_value(row_id, :homework)
+      tag_value.nil? ? "n/a" : link_to_section(:homework, tag_value.to_sym)
+    elsif col_selector == :lectref
+      tag_value = @data.cell_value(row_id, :lectref)
+      if tag_value.nil?
+        "n/a"
+      else
+        atag_values = tag_value.split(" ")
+        atag_links = atag_values.map {|tv| link_to_lecture(tv.to_sym)}
+        atag_links.join(", ")
+      end
     elsif col_selector == :date
       @data.cell_value(row_id, col_selector).strftime('%b %-d')
     else

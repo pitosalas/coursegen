@@ -1,3 +1,6 @@
+require 'pry'
+require 'pry-byebug'
+
 # Standard way to access information to be used in a list_of()
 class DataAdaptor
   def initialize(source)
@@ -5,8 +8,8 @@ class DataAdaptor
   end
 
   # column_selector is one of: :number, :date, :title, :homework
-  COL_NAMES = {number: "#", date: "lecture date", title: "title",
-                homework: "homework", desc: "description", cat: "category"}
+  COL_NAMES = { number: '#', date: 'lecture date', title: 'title',
+                homework: 'homework', desc: 'description', cat: 'category', hwref: 'homework', lectref: 'topics' }
 
   def column_name(column_selector)
     COL_NAMES[column_selector]
@@ -14,6 +17,7 @@ class DataAdaptor
 
   def rows
     @section.each do |citem|
+      puts "---- #{citem}"
       yield citem
     end
   end
@@ -39,13 +43,15 @@ class DataAdaptor
     when :end_date_time
       citem.schedule_end_date_time
     when :full_desc
-      desc = citem.desc || ""
-      hw = citem.homework || ""
-      desc + ". HW: " + hw
+      desc = citem.desc || ''
+      hw = citem.homework || ''
+      desc + '. HW: ' + hw
     when :cat
       citem.cat
+    when :lectref
+      citem.lectref
     else
-      "error!"
+      'error!'
     end
   end
 end

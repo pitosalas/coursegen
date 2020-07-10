@@ -20,8 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-
+  
   spec.add_dependency 'activesupport'
   spec.add_dependency 'adsf'
   spec.add_dependency 'byebug'
