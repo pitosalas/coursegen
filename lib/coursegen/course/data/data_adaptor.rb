@@ -17,7 +17,6 @@ class DataAdaptor
 
   def rows
     @section.each do |citem|
-      puts "---- #{citem}"
       yield citem
     end
   end

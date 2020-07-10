@@ -29,7 +29,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     adsf (1.4.3)
       rack (>= 1.0.0, < 3.0.0)
-    ast (2.4.1)
     byebug (11.1.3)
     coderay (1.1.3)
     colored (1.2)
@@ -115,8 +114,6 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.19.2)
-    parser (2.7.1.4)
-      ast (~> 2.4.1)
     pastel (0.7.4)
       equatable (~> 0.6)
       tty-color (~> 0.5)
@@ -125,13 +122,11 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.5)
     rack (2.2.3)
-    rainbow (3.0.0)
     rake (13.0.1)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     ref (2.0.0)
-    regexp_parser (1.7.1)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -146,18 +141,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
-    rubocop (0.87.1)
-      parallel (~> 1.10)
-      parser (>= 2.7.1.1)
-      rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.7)
-      rexml
-      rubocop-ast (>= 0.1.0, < 1.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (0.1.0)
-      parser (>= 2.7.0.1)
-    ruby-progressbar (1.10.1)
     rubytree (1.0.0)
       json (~> 2.1)
       structured_warnings (~> 0.3)
@@ -174,7 +157,6 @@ GEM
     tty-which (0.4.2)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    unicode-display_width (1.7.0)
     zeitwerk (2.3.1)
 
 PLATFORMS
@@ -185,7 +167,6 @@ DEPENDENCIES
   coursegen!
   rake
   rspec
-  rubocop
 
 BUNDLED WITH
    2.1.4

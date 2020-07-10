@@ -247,7 +247,6 @@ module ContentHelpers
       </a>
       </div>
     HEREDOC
-    puts body
     body
   end
 
