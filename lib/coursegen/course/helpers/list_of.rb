@@ -15,14 +15,16 @@ class ListOf
   #               :title
   #               :homeworks
   #               :lectref
+  #               :readings
   # items:        refers to nanoc's @items (temp hack!)
-  def initialize(markup_adaptor, data_adaptor, rows, cols, subsections, items)
+  def initialize(markup_adaptor, data_adaptor, rows, cols, subsections, items, headers)
     @mark = markup_adaptor
     @rows = rows
     @cols = cols
     @data = data_adaptor
     @subsections = subsections
     @items = items
+    @headers = headers
   end
 
   # Render renders the underlying lecture table.
@@ -41,7 +43,12 @@ class ListOf
 
     @cols.each do |col|
       @mark.header_begin
-      @mark.header_content(@data.column_name(col))
+      if @headers.nil?
+        @mark.header_content(@data.column_name(col))
+      else
+        puts @headers[col]
+        @mark.header_content(@headers[col])
+      end
       @mark.header_end
     end
 
