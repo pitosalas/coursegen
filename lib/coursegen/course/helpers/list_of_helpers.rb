@@ -17,7 +17,7 @@ module ListOfHelpers
   #               string in an item
   #               e.g. "/content/topics/arch/"
   # items:        refers to nanoc's @items (temp hack!)
-  def list_of(source:, rows:, cols:, headers:, subsections: [], items:)
+  def list_of(source:, rows:, cols:, headers: {}, subsections: [], items:)
     markup_adaptor = BootstrapMarkup.new
     data_adaptor = DataAdaptor.new(source)
     lecture_table_builder = ListOf.new(markup_adaptor, data_adaptor, rows, cols, subsections, items, headers)

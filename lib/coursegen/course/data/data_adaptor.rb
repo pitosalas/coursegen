@@ -1,6 +1,3 @@
-require 'pry'
-require 'pry-byebug'
-
 # Standard way to access information to be used in a list_of()
 class DataAdaptor
   def initialize(source)
@@ -51,6 +48,8 @@ class DataAdaptor
       citem.lectref
     when :reading
       citem.reading
+    when :order
+      citem.order
     else
       'error!'
     end

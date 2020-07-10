@@ -43,12 +43,7 @@ class ListOf
 
     @cols.each do |col|
       @mark.header_begin
-      if @headers.nil?
-        @mark.header_content(@data.column_name(col))
-      else
-        puts @headers[col]
-        @mark.header_content(@headers[col])
-      end
+      @mark.header_content(@headers[col] || @data.column_name(col))
       @mark.header_end
     end
 
