@@ -9,7 +9,7 @@ class DataAdaptor
 
   # column_selector is one of: :number, :date, :title, :homework
   COL_NAMES = { number: '#', date: 'lecture date', title: 'title',
-                homework: 'homework', desc: 'description', cat: 'category', hwref: 'homework', lectref: 'topics' }
+                homework: 'homework', desc: 'description', cat: 'category', hwref: 'homework', lectref: 'topics', reading: 'reading' }
 
   def column_name(column_selector)
     COL_NAMES[column_selector]
@@ -49,6 +49,8 @@ class DataAdaptor
       citem.cat
     when :lectref
       citem.lectref
+    when :reading
+      citem.reading
     else
       'error!'
     end
