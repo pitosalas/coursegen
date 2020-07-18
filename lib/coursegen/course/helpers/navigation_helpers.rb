@@ -72,27 +72,27 @@ module NavigationHelpers
     end
   end
 
-  def link_to_slides_2
-    '<a
-      class="btn btn-sm btn-primary"
-      href="./slides.html"
-      title="slides">
-      <i class="fas fa-chalkboard-teacher"></i> Slides
-    </a>'
-  end
+  # def link_to_slides_2
+  #   '<a
+  #     class="btn btn-sm btn-primary"
+  #     href="./slides.html"
+  #     title="slides">
+  #     <i class="fas fa-chalkboard-teacher"></i> Slides
+  #   </a>'
+  # end
 
   def link_to_slides (attrs = {})
     link_to "slides", "./slides.html", attrs
   end
 
-  def link_to_homework_2(citem)
-    unless citem.hwref.nil?
-      "<div class=\"btn btn-sm btn-primary\">" +
-      "<i class=\"fad fa-backpack\"></i>" +
-      link_to_section(:homework, citem.hwref.to_sym) +
-      "</div>"
-    end
-  end
+  # def link_to_homework_2(citem)
+  #   unless citem.hwref.nil?
+  #     "<div class=\"btn btn-sm btn-primary\">" +
+  #     "<i class=\"fad fa-backpack\"></i>" +
+  #     link_to_section(:homework, citem.hwref.to_sym) +
+  #     "</div>"
+  #   end
+  # end
 
   def link_to_homework(citem, attrs = {})
     unless citem.hwref.nil?
@@ -103,18 +103,18 @@ module NavigationHelpers
 
   private
 
-  def nav_markup2(text, path, icon, tooltip = '')
-    "<a class=\"nav-btn btn btn-mini\" href=\"#{path}\">
-    <i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
-  end
+  # def nav_markup2(text, path, icon, tooltip = '')
+  #   "<a class=\"nav-btn btn btn-mini\" href=\"#{path}\">
+  #   <i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
+  # end
 
   def nav_markup(path, text)
     "<a class=\"btn btn-sm btn-primary\" href=\"#{path}\">#{text}</a>"
   end
 
-  def nav_markup_3(path, text, fontawesome, tooltip = '')
-    "<a class=\"btn btn-sm btn-primary\" href=\"#{path}\">" + 
-    "<i class=\"#{fontawesome}\"></i>" + 
-    "#{text}</a>"
-  end
+  # def nav_markup_3(path, text, fontawesome, tooltip = '')
+  #   "<a class=\"btn btn-sm btn-primary\" href=\"#{path}\">" + 
+  #   "<i class=\"#{fontawesome}\"></i>" + 
+  #   "#{text}</a>"
+  # end
 end
