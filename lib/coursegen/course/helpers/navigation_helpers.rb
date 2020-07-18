@@ -53,14 +53,14 @@ module NavigationHelpers
     link_to(the_item[:title], the_item)
   end
 
-  def link_to_next(toc, item)
+  def link_to_next(toc, item, attrs = {})
     next_nitem = toc.find_next_forn(item).identifier
-    nav_markup2 @items[next_nitem].path, 'next'
+    link_to 'next', @items[next_nitem].path, attrs
   end
 
-  def link_to_prev(toc, item)
+  def link_to_prev(toc, item, attrs = {})
     prev_nitem = toc.find_previous_forn(item).identifier
-    nav_markup2 @items[prev_nitem].path, 'previous'
+    link_to 'previous', @items[prev_nitem].path, attrs
   end
 
   def link_to_inclusion(item)
@@ -72,22 +72,49 @@ module NavigationHelpers
     end
   end
 
-  def link_to_slides
+  def link_to_slides_2
     '<a
-      class="btn btn-sm btn-light"
+      class="btn btn-sm btn-primary"
       href="./slides.html"
       title="slides">
       <i class="fas fa-chalkboard-teacher"></i> Slides
     </a>'
   end
 
-  private
-
-  def nav_markup(text, path, icon, tooltip = '')
-    "<a class=\"nav-btn btn btn-mini\" href=\"#{path}\"><i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
+  def link_to_slides (attrs = {})
+    link_to "slides", "./slides.html", attrs
   end
 
-  def nav_markup2(path, text)
-    "<a class=\"btn btn-sm btn-light\" href=\"#{path}\">#{text}</a>"
+  def link_to_homework_2(citem)
+    unless citem.hwref.nil?
+      "<div class=\"btn btn-sm btn-primary\">" +
+      "<i class=\"fad fa-backpack\"></i>" +
+      link_to_section(:homework, citem.hwref.to_sym) +
+      "</div>"
+    end
+  end
+
+  def link_to_homework(citem, attrs = {})
+    unless citem.hwref.nil?
+      the_item = @items[lookup_nitem("homework", citem.hwref).identifier]
+      link_to(the_item[:title], the_item, attrs)
+    end
+  end
+
+  private
+
+  def nav_markup2(text, path, icon, tooltip = '')
+    "<a class=\"nav-btn btn btn-mini\" href=\"#{path}\">
+    <i class=\"#{icon}\" rel=\"tooltip\" title=\"#{tooltip}\"></i>#{text}</a>"
+  end
+
+  def nav_markup(path, text)
+    "<a class=\"btn btn-sm btn-primary\" href=\"#{path}\">#{text}</a>"
+  end
+
+  def nav_markup_3(path, text, fontawesome, tooltip = '')
+    "<a class=\"btn btn-sm btn-primary\" href=\"#{path}\">" + 
+    "<i class=\"#{fontawesome}\"></i>" + 
+    "#{text}</a>"
   end
 end
