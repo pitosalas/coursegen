@@ -83,22 +83,29 @@ h6 {
 
 h1 {
   padding-top: 20px;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 h2 {
   margin-top: 20px;
   border-top: rgb(64, 56, 207) solid 2px;
   padding-top: 5px;
-  font-size: 1.5rem;
-}
-
-h3 {
   font-size: 1.25rem;
 }
 
-h4 {
+h3 {
   font-size: 1rem;
+}
+
+h3.subheader {
+  /* border-bottom: rgb(64, 56, 207) solid 2px; */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+
+}
+
+h4 {
+  font-size: 0.75rem;
 }
 
 /* Table use only */

@@ -7,30 +7,32 @@
 require 'coursegen'
 
 # AUTHOR
-AUTHOR_NAME = 'R. Pito Salas'
-AUTHOR_EMAIL = 'pitosalas@gmail.com'
+AUTHOR_NAME = 'yourname'
+AUTHOR_EMAIL = 'yourname'
 COPYRIGHT_STRING = "Copyright (2013-#{Time.now.year}) #{AUTHOR_NAME}, #{AUTHOR_EMAIL}"
 
+# Bucket Deployment of the course
+AWS_BUCKET = "yourbucketname"
+
 # COURSE
-COURSE_SHORT_NAME = 'Sample Course'
-COURSE_LONG_NAME = 'Sample Coursegen Course'
-COURSE_ABBREV = 'SC'
+COURSE_SHORT_NAME = 'cool'
+COURSE_LONG_NAME = 'Cool Course'
+COURSE_ABBREV = 'CC'
 
 # Lectures_schedule defines the schedule of lectures.
 #
 # This is primarily used to 1) figure out the time and date of each class,
 # and 2) figure out the ordering of classes on the sidebar.
+
 LECTURES_SCHEDULE_CONFIG = ScheduleDef.new(
-  first_day: 'jan-17-2017',
-  weekdays: %i[tuesday wednesday thursday],
-  start_times: %w[15:30 14:00 15:30],
-  end_times: %w[16:50 16:00 16:50],
-  number: 39,
-  start_time: '15:30',
-  end_time: '16:50',
-  skips: %w[feb-9-2017 feb-21-2017 feb-22-2017
-            feb-23-2017 apr-11-2017 apr-12-2017
-            apr-13-2017 apr-18-2017 apr-19-2017]
+  first_day: "jul-20-2020",
+  weekdays: [:monday,],
+  start_times: ["15:30", "15:30"],
+  end_times: ["16:50", "16:50"],
+  number: 28,
+  skips: [],
+  start_time: "15:30",
+  end_time: "16:50"
 )
 
 # Section_config defines the structure of the course.
@@ -44,22 +46,23 @@ LECTURES_SCHEDULE_CONFIG = ScheduleDef.new(
 # Additionally, you can choose to hide the section on the sidebar by setting
 # hidden: true.
 SECTION_CONFIG = [
-  SectionDef.new('Intro', 'intro', type: :section),
-  SectionDef.new('Lectures', 'lectures', type: :lecture, schedule: LECTURES_SCHEDULE_CONFIG),
-  SectionDef.new('Extras', 'extras', hidden: true, type: :section)
+  SectionDef.new("Intro", "intro", type: :section, collapsed: false, bullet: :star),
+  SectionDef.new("Lectures", "lectures",
+                 type: :lecture, schedule: LECTURES_SCHEDULE_CONFIG, bullet: :dash),
+  SectionDef.new("Homework", "homework", hidden: true, type: :section),
 ].freeze
 
 # SITE
 #
 # The URL of the deployed site.
 # Please include any http or https prefix.
-SITE_URL = 'http://localhost:3000/'
+SITE_URL = "http://coolcourse.s3-website-us-east-1.amazonaws.com"
 
 # Home_page sets the home page of the site.
 # This is usually /content/index.md.erb.
 #
 # Note: the .erb suffix is required when setting the HOME_PAGE path.
-HOME_PAGE = '/content/index.md.erb'
+HOME_PAGE = "/content/intro/welcome.md.erb"
 
 # Menulinks defines the links on the navigation bar.
 # They are formatted as "Name" - "URL" pair.
@@ -67,9 +70,7 @@ HOME_PAGE = '/content/index.md.erb'
 # Examples:
 #   %w[HOME /content/index.md]
 #   %w[TOC /content/course_toc.md]
-MENULINKS = [%w[TOC /content/intro/course_toc.md/],
-             %w[Welcome /content/intro/welcome.md/],
-             %w[Extra /content/extras/extra_content.md/]].freeze
+MENULINKS = [%w[lectures /content/intro/welcome.md/]].freeze
 
 # Helpful_box provides a feedback box on the sidebar.
 #
@@ -93,9 +94,8 @@ STYLING_CONFIG = {
 # search API key, and name of your index from Algolia.
 # For details, please refer to https://github.com/pitosalas/coursegen/blob/master/README.md.
 SEARCH_CONFIG = {
-  api_key: '25626fae796133dc1e734c6bcaaeac3c',
-  index_name: 'docsearch',
-
+  api_key: '855a55e631c6523e8201162e6d9c1e9c',
+  index_name: 'coolcourse',
   # APP_ID is only used if you are running DocSearch on your own.
   app_id: '',
   debug: false
@@ -104,7 +104,7 @@ SEARCH_CONFIG = {
 # SLIDES
 SLIDES_CONFIG = {
   # Ignore_selectors ignore certain html elements from rendering in the slides.
-  ignore_selectors: ['h4'],
+  ignore_selectors: ['li ul'],
 
   # Reveal.js specific options
   # See: https://revealjs.com/config/
