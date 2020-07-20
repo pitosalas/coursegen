@@ -85,7 +85,7 @@ class ListOf
       nitem = @items[row_id.identifier]
       link_to_unless_current(nitem[:title], nitem)
     elsif col_selector == :hwref
-      tag_value = @data.cell_value(row_id, :homework)
+      tag_value = @data.cell_value(row_id, :hwref)
       tag_value.nil? ? "n/a" : link_to_section(:homework, tag_value.to_sym)
     elsif col_selector == :lectref
       tag_value = @data.cell_value(row_id, :lectref)

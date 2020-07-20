@@ -46,6 +46,8 @@ class DataAdaptor
       citem.cat
     when :lectref
       citem.lectref
+    when :hwref
+      citem.hwref
     when :reading
       citem.reading
     when :order
