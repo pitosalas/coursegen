@@ -90,11 +90,11 @@ h2 {
   margin-top: 20px;
   border-top: rgb(64, 56, 207) solid 2px;
   padding-top: 5px;
-  font-size: 1.25rem;
+  font-size: 1.30rem;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 h3.subheader {
@@ -105,13 +105,14 @@ h3.subheader {
 }
 
 h4 {
-  font-size: 0.75rem;
+  font-size: 1.0rem;
+  margin-left: 18px;
 }
 
 /* Table use only */
 h5 {
   margin-top: 15px;
-  font-weight: bold;
+  font-size: 0.8rem;
   font-variant: small-caps;
 }
 
