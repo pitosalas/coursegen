@@ -81,8 +81,8 @@ module NavigationHelpers
   #   </a>'
   # end
 
-  def link_to_slides (attrs = {})
-    link_to "slides", "./slides.html", attrs
+  def link_to_slides(attrs = {})
+    link_to("slides", "./slides.html", attrs)
   end
 
   # def link_to_homework_2(citem)
@@ -97,7 +97,7 @@ module NavigationHelpers
   def link_to_homework(citem, attrs = {})
     unless citem.hwref.nil?
       the_item = @items[lookup_nitem("homework", citem.hwref).identifier]
-      link_to(the_item[:title], the_item, attrs)
+      " | " + link_to(the_item[:title], the_item, attrs)
     end
   end
 
