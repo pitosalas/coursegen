@@ -97,7 +97,7 @@ module NavigationHelpers
   def link_to_homework(citem, attrs = {})
     unless citem.hwref.nil?
       the_item = @items[lookup_nitem("homework", citem.hwref).identifier]
-      " | " + link_to(the_item[:title], the_item, attrs)
+      link_to(the_item[:title], the_item, attrs)
     end
   end
 
