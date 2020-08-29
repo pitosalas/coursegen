@@ -30,6 +30,8 @@ class DataAdaptor
       citem.identifier
     when :desc
       citem.desc
+    when :due
+      citem.due
     when :homework
       citem.homework
     when :assigned
