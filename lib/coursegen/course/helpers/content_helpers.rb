@@ -307,11 +307,11 @@ module ContentHelpers
   end
 
   def source_begin(language)
-    "<pre><code class=\"#{language}\">"
+    "<pre class=\"#{language}\">"
   end
 
   def source_end
-    '</code></pre>'
+    '</pre>'
   end
 
   def postit_begin(title)
@@ -349,7 +349,7 @@ module ContentHelpers
   end
 
   def lab_note(title)
-    "<h5 style=\"font-family:'Permanent Marker'; font-szie:18px; color: red;\">#{title}</h5>"
+    "<h3 style=\"font-family:'Permanent Marker'; font-szie:18px; color: red;\">#{title}</h3>"
   end
 
   def toasty(header, *items)
