@@ -66,9 +66,15 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def iconbadge(icon, tooltip)
+  def iconbadge1(icon, tooltip)
     %(<img src="/bootstrap/bootstrap-icons-1.0.0/#{icon}.svg" title="#{tooltip}" class="iconbadge">)
   end
+
+  def iconbadge(icon, tooltip)
+    %(<svg class="bi" width="32" height="32" fill="blue">
+      <use xlink:href="/bootstrap/bootstrap-icons-1.0.0/
+      bootstrap-icons.svg##{icon}"/>
+    </svg>)
 
   def textbadge(text, tooltip)
     %(<span class="label label-info" data-toggle="tooltip" data-placement="top" title="#{tooltip}">#{text}</span>)
