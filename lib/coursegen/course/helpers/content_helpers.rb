@@ -66,40 +66,44 @@ module ContentHelpers
     HTMLSTRING
   end
 
+  def iconbadge(icon, tooltip)
+    %(<img src="/bootstrap/bootstrap-icons-1.0.0/#{icon}.svg" title="#{tooltip}" class="iconbadge">)
+  end
+
   def textbadge(text, tooltip)
     %(<span class="label label-info" data-toggle="tooltip" data-placement="top" title="#{tooltip}">#{text}</span>)
   end
 
-  def iconbadge(icon, tooltip)
+  def iconbadge2(icon, tooltip)
     %(<span class="fas fa-#{icon} themefg" data-toggle="tooltip" data-placement="top" title="#{tooltip}"></span>)
   end
 
   def pdfbadge
-    iconbadge('file-pdf', 'Submit as 1 page pdf, include name and homework #')
+    iconbadge('file-earmark-richtext-fill', 'Submit as 1 page pdf, include name and homework #')
   end
 
   def codebadge
-    iconbadge('code', 'Work on code in your portfolio')
+    iconbadge('file-code-fill', 'Work on code in your portfolio')
   end
 
   def cloudbadge
-    iconbadge('cloud-upload-alt', 'Work on code in your portfolio')
+    iconbadge('cloud-fill', 'Work on code in your portfolio')
   end
 
   def zipbadge
-    iconbadge('briefcase', 'Submit work as an attachment')
+    iconbadge('file-earmark-zip-fill', 'Submit work as an attachment')
   end
 
   def partbadge
-    iconbadge('hand-peace', 'Graded for participation only - pass/fail')
+    iconbadge('heart-half', 'Graded for participation only - pass/fail')
   end
 
   def timebadge
-    iconbadge('coffee', 'Must be submitted first thing on day of class')
+    iconbadge('alarm-fill', 'Must be submitted first thing on day of class')
   end
 
   def teambadge
-    iconbadge('handshake', 'Team Deliverable')
+    iconbadge('people-fill', 'Team Deliverable')
   end
 
   def include_image_old(filename_string, extra_class: nil)
