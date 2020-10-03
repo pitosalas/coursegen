@@ -58,12 +58,18 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def callout(title, body)
+  def callout_2(title, body)
     <<~HTMLSTRING
       <div class="callout border border-primary rounded p-2 m-3">
       <span class="badge badge-pill badge-primary">#{title}</span>#{body}
       </div>
     HTMLSTRING
+  end
+
+  def callout(title, body)
+    %(<div class="jumbotron py-1">
+       <h1 class="display-5">#{title}</h1>
+       <p class="lead">#{body}</p></div>)
   end
 
   def iconbadge1(icon, tooltip)
