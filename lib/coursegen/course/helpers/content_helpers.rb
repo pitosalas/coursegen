@@ -68,7 +68,7 @@ module ContentHelpers
 
   def callout(title, body)
     %(<div class="jumbotron py-1 border border-primary border-rounded-lg">
-       <h2 class="display-5">#{title}</h2>
+       <h1 class="display-5">#{title}</h1>
        <p class="lead">#{body}</p></div>)
   end
 
