@@ -77,7 +77,7 @@ module ContentHelpers
   end
 
   def iconbadge(icon, tooltip)
-    %(<svg class="bi iconbadge" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg>)
+    %(<svg class="bi iconbadge" title="#{tooltip}" data-placement="top" data-title="#{tooltip}" data-toggle="tooltip" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg>)
   end
   
   def textbadge(text, tooltip)
@@ -89,7 +89,7 @@ module ContentHelpers
   end
 
   def pdfbadge
-    iconbadge('file-earmark-richtext-fill', 'Submit as 1 page pdf, include name and homework #')
+    iconbadge('file-earmark-richtext-fill', 'Submit a pdf file')
   end
 
   def codebadge
@@ -244,7 +244,7 @@ module ContentHelpers
       active = count == 0 ? 'active' : ''
       body << <<~HEREDOC
         <div class="carousel-item #{active}">
-          <img class="d-block w-100" src="/content/topics/images/#{fname}">
+          <img class="d-block w-80" src="/content/topics/images/#{fname}">
         </div>
       HEREDOC
       count += 1
