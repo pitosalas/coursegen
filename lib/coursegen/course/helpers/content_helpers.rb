@@ -1,6 +1,5 @@
 # ContentHelpers is used to annotate content.
 module ContentHelpers
-  
   def include_topic(item_symbol)
     incorporated_topic = lookup_nitem('topics', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
@@ -51,7 +50,7 @@ module ContentHelpers
     italic_red(string)
   end
 
-  def callout_1(title, body)
+  def callout1(title, body)
     <<~HTMLSTRING
       <div class="well well-sm callout">
       <span class="themebg label label-primary">#{title}</span>#{body}
@@ -59,7 +58,7 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def callout_2(title, body)
+  def callout2(title, body)
     <<~HTMLSTRING
       <div class="callout border border-primary rounded p-2 m-3">
       <span class="badge badge-pill badge-primary">#{title}</span>#{body}
@@ -67,10 +66,19 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def callout(title, body)
-    %(<div class="jumbotron py-1 border border-primary border-rounded-lg">
-       <h1 class="display-5">#{title}</h1>
-       <p class="lead">#{body}</p></div>)
+  def callout(title, body, style=:big)
+    if (style == :big)
+      %(<div class="jumbotron py-1 border border-primary border-rounded-lg">
+        <h1 class="display-5">#{title}</h1>
+        <p class="lead">#{body}</p></div>)
+    elsif (style == :small)
+      <<~HTMLSTRING
+      <div class="callout border border-primary rounded p-2 m-3">
+      <span class="badge badge-pill badge-primary">#{title}</span>#{body}
+      </div>
+      HTMLSTRING
+    end
+    "error in callout call."
   end
 
   def iconbadge1(icon, tooltip)
@@ -80,7 +88,7 @@ module ContentHelpers
   def iconbadge(icon, tooltip)
     %(<svg class="bi iconbadge" title="#{tooltip}" data-placement="top" data-title="#{tooltip}" data-toggle="tooltip" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg>)
   end
-  
+
   def textbadge(text, tooltip)
     %(<span class="label label-info" data-toggle="tooltip" data-placement="top" title="#{tooltip}">#{text}</span>)
   end
@@ -201,8 +209,8 @@ module ContentHelpers
   #     body << %(" class="img-polaroid" alt=""></div>)
   #     counter += 1
   #   end
-  #   body << %(</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-  #               <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+  #   body << %(</div> <a class="left carousel-control" href="#myCarousel" data-slide="prev"></a>
+  #               <a class="right carousel-control" href="#myCarousel" data-slide="next"></a>
   #           </div>)
   #   body
   # end
@@ -235,7 +243,7 @@ module ContentHelpers
   #   body
   # end
 
-  def carousel_V4(filenames)
+  def carousel_v4(filenames)
     body = <<~HEREDOC
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
