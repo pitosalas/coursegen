@@ -77,8 +77,9 @@ module ContentHelpers
       <span class="badge badge-pill badge-primary">#{title}</span>#{body}
       </div>
       HTMLSTRING
+    else
+      "error in callout call #{style}"
     end
-    "error in callout call."
   end
 
   def iconbadge1(icon, tooltip)
