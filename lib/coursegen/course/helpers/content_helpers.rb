@@ -86,8 +86,12 @@ module ContentHelpers
     %(<img src="/bootstrap/bootstrap-icons-1.0.0/#{icon}.svg" title="#{tooltip}" class="iconbadge">)
   end
 
-  def iconbadge(icon, tooltip)
-    %(<svg class="bi iconbadge" title="#{tooltip}" data-placement="top" data-title="#{tooltip}" data-toggle="tooltip" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg>)
+  def iconbadge3(icon, tooltip, shorttext="")
+    %(<svg class="iconbadge bi" title="#{tooltip}" data-placement="top" data-title="#{tooltip}" data-toggle="tooltip" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg>#{shorttext})
+  end
+
+  def iconbadge(icon, tooltip, shorttext="")
+    %(<svg class="iconbadge bi" title="#{tooltip}" data-placement="top" data-title="#{tooltip}" data-toggle="tooltip" fill="blue"><use xlink:href="/bootstrap/bootstrap-icons-1.0.0/bootstrap-icons.svg##{icon}"/></svg><span class="icontext" >#{shorttext}</span>)
   end
 
   def textbadge(text, tooltip)
@@ -99,31 +103,31 @@ module ContentHelpers
   end
 
   def pdfbadge
-    iconbadge('file-earmark-richtext-fill', 'Submit a pdf file')
+    iconbadge('file-earmark-richtext-fill', 'Submit a pdf file', "pdf")
   end
 
   def codebadge
-    iconbadge('file-code-fill', 'Work on code in your portfolio')
+    iconbadge('file-code-fill', 'Work on code in your portfolio', "portfolio")
   end
 
   def cloudbadge
-    iconbadge('cloud-fill', 'Work on code in your portfolio')
+    iconbadge('cloud-fill', 'Work on code in your portfolio', 'portfolio')
   end
 
   def zipbadge
-    iconbadge('file-earmark-zip-fill', 'Submit work as an attachment')
+    iconbadge('file-earmark-zip-fill', 'Submit work in a zipfile', 'zip')
   end
 
   def partbadge
-    iconbadge('heart-half', 'Graded for participation only - pass/fail')
+    iconbadge('heart-half', 'Graded for participation only - pass/fail', 'participation')
   end
 
   def timebadge
-    iconbadge('alarm-fill', 'Must be submitted first thing on day of class')
+    iconbadge('alarm-fill', 'Must be submitted first thing on day of class', 'early submit')
   end
 
   def teambadge
-    iconbadge('people-fill', 'Team Deliverable')
+    iconbadge('people-fill', 'Team Deliverable', 'team deliverable')
   end
 
   def include_image_old(filename_string, extra_class: nil)
