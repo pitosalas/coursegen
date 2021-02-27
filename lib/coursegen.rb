@@ -27,6 +27,8 @@ require 'coursegen/course/lib/ical_adaptor'
 require 'coursegen/course/helpers/list_of'
 require 'coursegen/course/helpers/ical_feed_helpers'
 require 'coursegen/course/lib/helpers_'
+require 'coursegen/course/lib/nanoc_filters.rb'
+
 
 # Coursegen is a course curriculum site generator based on nanoc, with
 # support for sections, lectures, code examples, homeworks, course
