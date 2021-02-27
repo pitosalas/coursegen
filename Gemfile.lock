@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coursegen (0.9.7)
+    coursegen (0.9.8)
       activesupport
       adsf
       byebug
