@@ -16,4 +16,12 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /topic_link :(\w+)$/.source), "<%= link_to_topic( :\\1) %>")
     .gsub(Regexp.new(prefix.source + /slide_title (.+)$/.source), "<slide_break></slide_break>\n\n### \\1")
     .gsub(Regexp.new(prefix.source + /lecture_end/.source), end_of_lecture)
+    .gsub(Regexp.new(prefix.source + /deliverable (.+)$/.source), "<%= deliverable( \"\\1\") %>")
+    .gsub(Regexp.new(prefix.source + /pdfbadge/.source), pdfbadge)
+    .gsub(Regexp.new(prefix.source + /partbadge/.source), partbadge)
+    .gsub(Regexp.new(prefix.source + /teambadge/.source), teambadge)
+    .gsub(Regexp.new(prefix.source + /slide_break/.source),  "<slide_break></slide_break>")
+
+
+
   end
