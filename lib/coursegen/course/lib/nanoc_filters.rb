@@ -25,7 +25,6 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /source_begin :(.+)$/.source), "<%= source_begin ( \":language-\\1\") %>")
     .gsub(Regexp.new(prefix.source + /source_end$/.source), "<%= source_end %>")
     .gsub(Regexp.new(prefix.source + /team_deliverable (.+)$/.source), "<%= team_deliverable( \"\\1\") %>")
-
-
+    .gsub(Regexp.new(prefix.source + /discussion_box (.+)$/.source), "<%= discussion_box( \"\\1\") %>")
 
   end
