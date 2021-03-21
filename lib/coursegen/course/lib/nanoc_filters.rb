@@ -13,7 +13,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /h2 (.+)$/.source), "## \\1 ")
     .gsub(Regexp.new(prefix.source + /h3 (.+)$/.source), "### \\1 ")
     .gsub(Regexp.new(prefix.source + /topic_include :(\w+)$/.source), "<%= include_topic( :\\1) %>")
-    .gsub(Regexp.new(prefix.source + /topic_link :(\w+)$/.source), "<%= link_to_topic( :\\1) %>")
+    .gsub(Regexp.new(prefix.source + /topic_link :(\w+)/.source), "<%= link_to_topic( :\\1) %>")
     .gsub(Regexp.new(prefix.source + /slide_title (.+)$/.source), "<slide_break></slide_break>\n\n### \\1")
     .gsub(Regexp.new(prefix.source + /lecture_end/.source), end_of_lecture)
     .gsub(Regexp.new(prefix.source + /deliverable (.+)$/.source), "<%= deliverable( \"\\1\") %>")
