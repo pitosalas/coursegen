@@ -67,19 +67,20 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def callout(title, body, style=:big)
-    if (style == :big)
+  def callout(title, body, style="big")
+    style = style.to_s if style.class != String
+    if (style == "big")
       %(<div class="jumbotron py-1 border border-primary border-rounded-lg">
         <h1 class="display-5">#{title}</h1>
         <p class="lead">#{body}</p></div>)
-    elsif (style == :small)
+    elsif (style == "small")
       <<~HTMLSTRING
       <div class="callout border border-primary rounded p-2 m-3">
       <span class="badge badge-pill badge-primary">#{title}</span>#{body}
       </div>
       HTMLSTRING
     else
-      "error in callout call #{style}"
+      "error in callout call: .#{style}. #{style.class}"
     end
   end
 
