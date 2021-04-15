@@ -5,7 +5,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     content
       .gsub(Regexp.new(prefix.source + /callout :(\w+), "(.+)", "(.+)"/.source)) { callout($2, $3, $1) }
       .gsub(Regexp.new(prefix.source + /deliverable (.+)$/.source)) { deliverable($1) }
-      .gsub(Regexp.new(prefix.source + /discussion_box (.+)$/.source), "<%= discussion_box( \"\\1\") %>")
+      .gsub(Regexp.new(prefix.source + /discussion_box "(.+)"/.source)) { discussion_box($1) }
       .gsub(Regexp.new(prefix.source + /h1 (.+)$/.source), "# \\1 ")
       .gsub(Regexp.new(prefix.source + /h2 (.+)$/.source), "## \\1 ")
       .gsub(Regexp.new(prefix.source + /h3 (.+)$/.source), "### \\1 ")
