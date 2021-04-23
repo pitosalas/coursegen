@@ -67,7 +67,7 @@ module ContentHelpers
     HTMLSTRING
   end
 
-  def callout(title, body, style="big")
+  def callout3(title, body, style="big")
     style = style.to_s if style.class != String
     if (style == "big")
       %(<div class="jumbotron py-1 border border-primary border-rounded-lg">
@@ -83,6 +83,24 @@ module ContentHelpers
       "error in callout call: .#{style}. #{style.class}"
     end
   end
+
+  def callout(title, body, style="big")
+    style = style.to_s if style.class != String
+    if (style == "big")
+      %(<div class="callout callout-big">
+        <h1 class="display-5">#{title}</h1>
+        <p class="lead">#{body}</p></div>)
+    elsif (style == "small")
+      <<~HTMLSTRING
+      <div class="callout callout-small">
+      <span class="badge badge-pill badge-primary">#{title}</span>#{body}
+      </div>
+      HTMLSTRING
+    else
+      "error in callout call: .#{style}. #{style.class}"
+    end
+  end
+
 
   def iconbadge1(icon, tooltip)
     %(<img src="/bootstrap/bootstrap-icons-1.0.0/#{icon}.svg" title="#{tooltip}" class="iconbadge">)
