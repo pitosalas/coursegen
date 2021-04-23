@@ -194,8 +194,12 @@ module ContentHelpers
     "*Discussion:*{: style=\"color: blue\"} *#{string}*"
   end
 
-  def discussion_box(string)
+  def discussion_box1(string)
     %(<div class="alert alert-info"><strong>Discussion:</strong> #{string}</div>)
+  end
+
+  def discussion_box(string)
+    %(<div class="discussionbox"><strong>Discussion:</strong> #{string}</div>)
   end
 
   def homework_hdr(show_legend: :on)
