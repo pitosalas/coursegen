@@ -92,9 +92,9 @@ module ContentHelpers
         <p class="lead">#{body}</p></div>)
     elsif (style == "small")
       <<~HTMLSTRING
-      <div class="callout callout-small">
-      <span class="badge badge-pill badge-primary">#{title}</span>#{body}
-      </div>
+        <div class="callout callout-small">
+          <span class="callout-badge">#{title}</span>#{body}
+        </div>
       HTMLSTRING
     else
       "error in callout call: .#{style}. #{style.class}"
