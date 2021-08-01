@@ -1,3 +1,4 @@
+require "pry"
 # Class ListOf represents a lecture table.
 class ListOf
   # Initialize creates an instance of ListOf.
@@ -53,7 +54,6 @@ class ListOf
   def generate_rows
     @data.rows do |row_id|
       next unless include_row?(row_id)
-
       if subsection_hdr?(row_id)
         generate_summary_row(row_id)
       else
@@ -108,11 +108,11 @@ class ListOf
   end
 
   def include_by_row_type?(row_id)
-    @rows.include?(row_id.type)
+    tf = @rows.include?(row_id.type)
   end
 
   def include_by_subsection_path?(row_id)
-    @subsections.empty? || @subsections.include?(row_id.subsection)
+    tf = @subsections.empty? || @subsections.include?(row_id.subsection)
   end
 
   def subsection_hdr?(row_id)
