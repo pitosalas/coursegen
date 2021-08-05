@@ -11,8 +11,8 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
       .gsub(Regexp.new(prefix.source + /h3 (.+)$/.source), "### \\1 ")
       .gsub(Regexp.new(prefix.source + /h4 (.+)$/.source), "#### \\1 ")
       .gsub(Regexp.new(prefix.source + /h5 (.+)$/.source)) { "<h5>#{$1}</h5>" }
-      .gsub(Regexp.new(prefix.source + /image :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{$1}.jpg\" class=\"img-thumbnail\" style=\"height:300px;\"/>" }
-      .gsub(Regexp.new(prefix.source + /image :(\w+), :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{$2}.jpg\" class=\"img-thumbnail\" style=\"height:#{$1}px;\"/>" }
+      .gsub(Regexp.new(prefix.source + /image :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{$1}.jpg\" class=\"img-thumbnail d-block mx-auto\" style=\"height:300px;\"/>" }
+      .gsub(Regexp.new(prefix.source + /image :(\w+), :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{$2}.jpg\" class=\"img-thumbnail d-block mx-auto\" style=\"height:#{$1}px;\"/>" }
       .gsub(Regexp.new(prefix.source + /lecture_end/.source), end_of_lecture)
       .gsub(Regexp.new(prefix.source + /li (.+)$/.source)) { "<li>#{$1}</li>" }
       .gsub(Regexp.new(prefix.source + /partbadge/.source), partbadge)
