@@ -36,6 +36,8 @@ class DataAdaptor
       citem.homework
     when :assigned
       citem.assigned
+    when :cat
+      citem.cat
     when :start_date_time
       citem.schedule_start_date_time
     when :end_date_time
