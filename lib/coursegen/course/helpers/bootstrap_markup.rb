@@ -5,8 +5,8 @@ class BootstrapMarkup
     @str = ''
   end
 
-  def table_begin(css_class = 'table-condensed')
-    @str << "<table class=\"table x #{css_class}\">"
+  def table_begin(css_class = 'table-sm')
+    @str << "<table class=\"table #{css_class}\">"
   end
 
   def table_end
