@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'icalendar'
   spec.add_dependency 'kramdown'
   spec.add_dependency 'nanoc'
+  spec.add_dependency 'nanoc-live'
   spec.add_dependency 'nokogiri'
   spec.add_dependency 'rubytree'
   spec.add_dependency 'thor'
