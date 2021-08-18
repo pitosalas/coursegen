@@ -19,7 +19,7 @@ class Section
 
   def find_by_short_name(sname)
     matches = @citems.select { |c| sname == c.short_name }
-    raise RuntimeError,"'#{sname}': invalid reference in section \"#{@section}\"" if matches.length == 0
+    raise RuntimeError, "'#{sname}': invalid reference in section \"#{@section}\"" if matches.length == 0
     raise RuntimeError, "'#{sname}': duplicate referenced in section \"#{@section}\"" if matches.length != 1
     matches[0]
   end
@@ -73,6 +73,16 @@ class Section
   end
 
   def sort_pages
-    @citems.sort! { |a,b| a.order <=> b.order } rescue fail "sort_pages in section.rb"
+    # @citems.sort! { |a,b| a.order <=> b.order} rescue fail "sort_pages in section.rb"
+    @citems.sort! do |a, b|
+      comp = a.order <=> b.order
+      if !(a.due.nil? || b.due.nil?)
+        if a.due.class != Date || b.due.class != Date
+          puts "sort_pages_type #{a.title} #{b.title} #{a.class} #{b.class}"
+        end
+        comp = a.due <=> b.due
+      end
+      comp
+    end
   end
 end

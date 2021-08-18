@@ -1,5 +1,6 @@
 require 'byebug'
 require 'active_support/inflector'
+require 'date'
 
 #
 # Coursegen Item decorates Nanoc Item
@@ -93,8 +94,24 @@ class CItem
     @slides = @nitem[:slides]
     @lectref = @nitem[:lectref]
     @reading = @nitem[:reading]
-    @due = @nitem[:due]
+    @due = parse_date(@nitem[:due])
 
+  end
+
+  def parse_date(datestring)
+    if datestring.nil? || datestring == "TBD"
+      val = Date.parse("jan-1-1985")
+    else 
+    # Date.parse(datestring)
+      val = Date.strptime(datestring, "%m/%d/%y")
+    end
+    # if val.nil?
+    #   puts "Nil date: #{datestring} #{@title}"
+    # end
+    val
+  rescue
+    puts("bad parse date: #{datestring}")
+    nil
   end
 
   def parse_identifier(ident)

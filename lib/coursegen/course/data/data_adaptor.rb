@@ -46,8 +46,6 @@ class DataAdaptor
       desc = citem.desc || ''
       hw = citem.homework || ''
       desc + '. HW: ' + hw
-    when :cat
-      citem.cat
     when :lectref
       citem.lectref
     when :hwref
