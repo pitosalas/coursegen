@@ -73,16 +73,16 @@ class Section
   end
 
   def sort_pages
-    # @citems.sort! { |a,b| a.order <=> b.order} rescue fail "sort_pages in section.rb"
-    @citems.sort! do |a, b|
-      comp = a.order <=> b.order
-      if !(a.due.nil? || b.due.nil?)
-        if a.due.class != Date || b.due.class != Date
-          puts "sort_pages_type #{a.title} #{b.title} #{a.class} #{b.class}"
-        end
-        comp = a.due <=> b.due
-      end
-      comp
-    end
+    @citems.sort! { |a,b| a.order <=> b.order} rescue fail "sort_pages in section.rb"
+    # @citems.sort! do |a, b|
+    #   comp = a.order <=> b.order
+    #   if !(a.due.nil? || b.due.nil?)
+    #     if a.due.class != Date || b.due.class != Date
+    #       puts "sort_pages_type #{a.title} #{b.title} #{a.class} #{b.class}"
+    #     end
+    #     comp = a.due <=> b.due
+    #   end
+    #   comp
+    # end
   end
 end
