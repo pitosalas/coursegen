@@ -1,15 +1,12 @@
 # Class TableHelper provides methods for creating a table.
 class TableHelper
-  def initialize(*property)
-    @prop = property
+  def initialize(css_styles)
+    @css_styles = css_styles
     @bm = BootstrapMarkup.new
   end
 
   def headers(*labels)
-    css_style = ''
-    css_style += ' table-condensed' if @prop.include? :normal
-    css_style += ' table-bordered' if @prop.include? :bordered
-    @bm.table_begin(css_style)
+    @bm.table_begin(@css_styles)
     @bm.headers_begin
     labels.each do |h|
       @bm.header_begin

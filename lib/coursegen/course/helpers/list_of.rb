@@ -1,4 +1,3 @@
-require "pry"
 # Class ListOf represents a lecture table.
 class ListOf
   # Initialize creates an instance of ListOf.
@@ -30,7 +29,7 @@ class ListOf
 
   # Render renders the underlying lecture table.
   def render
-    @mark.table_begin
+    @mark.table_begin("table-striped table-sm table-responsive table-hover")
     generate_headers
     generate_rows
     @mark.table_end
