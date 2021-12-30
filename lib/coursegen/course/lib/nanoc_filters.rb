@@ -18,6 +18,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
       .gsub(Regexp.new(prefix.source + /partbadge/.source), partbadge)
       .gsub(Regexp.new(prefix.source + /pdfbadge/.source), pdfbadge)
       .gsub(Regexp.new(prefix.source + /section_link :(\w+), :(\w+)/.source)) { link_to_section($1, $2) }
+      .gsub(Regexp.new(prefix.source + /section_include :(\w+), :(\w+)/.source)) { include_from_section($1, $2) }
       .gsub(Regexp.new(prefix.source + /slide_bigtitle (.+)$/.source), "<slide_break></slide_break>\n\n## \\1")
       .gsub(Regexp.new(prefix.source + /slide_break/.source),  "<slide_break></slide_break>")
       .gsub(Regexp.new(prefix.source + /slide_subtitle (.+)$/.source), "<slide_break></slide_break>\n\n#### \\1")

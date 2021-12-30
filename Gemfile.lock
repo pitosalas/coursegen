@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    coursegen (0.9.19)
+    coursegen (0.9.20)
       activesupport
       adsf
       byebug
@@ -20,7 +20,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4)
+    activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -51,7 +51,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
-    ffi (1.15.3)
+    ffi (1.15.4)
     formatador (0.3.0)
     guard (2.18.0)
       formatador (>= 0.2.4)
@@ -69,7 +69,7 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     http_parser.rb (0.6.0)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     icalendar (2.7.1)
       ice_cube (~> 0.16)
@@ -78,12 +78,11 @@ GEM
     json_schema (0.21.0)
     kramdown (2.3.1)
       rexml
-    listen (3.6.0)
+    listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lumberjack (1.2.8)
     method_source (1.0.0)
-    mini_portile2 (2.6.1)
     minitest (5.14.4)
     nanoc (4.12.2)
       addressable (~> 2.5)
@@ -123,8 +122,7 @@ GEM
       nanoc-cli (~> 4.11, >= 4.11.14)
       nanoc-core (~> 4.11, >= 4.11.14)
     nenv (0.3.0)
-    nokogiri (1.12.3)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -136,7 +134,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-livereload (0.3.17)
       rack
@@ -173,7 +171,7 @@ GEM
     tty-which (0.5.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.2)
 
 PLATFORMS
   ruby
