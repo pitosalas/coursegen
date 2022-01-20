@@ -17,6 +17,8 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
       .gsub(Regexp.new(prefix.source + /li (.+)$/.source)) { "<li>#{$1}</li>" }
       .gsub(Regexp.new(prefix.source + /partbadge/.source), partbadge)
       .gsub(Regexp.new(prefix.source + /pdfbadge/.source), pdfbadge)
+      .gsub(Regexp.new(prefix.source + /image_random "(\w+)", "(\w+)"/.source)) { "<img src=\"https://picsum.photos/#{$1}/#{$2}.jpg\" /> "}
+      .gsub(Regexp.new(prefix.source + /image_rnd/.source)) { "<img src=\"https://picsum.photos/100/200.jpg\" />"}
       .gsub(Regexp.new(prefix.source + /section_link :(\w+), :(\w+)/.source)) { link_to_section($1, $2) }
       .gsub(Regexp.new(prefix.source + /section_include :(\w+), :(\w+)/.source)) { include_from_section($1, $2) }
       .gsub(Regexp.new(prefix.source + /slide_bigtitle (.+)$/.source), "<slide_break></slide_break>\n\n## \\1")
@@ -34,4 +36,5 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
       .gsub(Regexp.new(prefix.source + /ul_end$/.source)) { "</ul>" }
       .gsub(Regexp.new(prefix.source + /youtube \"(.+)\"$/.source)) {  %Q!<iframe width="560" height="315" src="#{$1}"></iframe>! }
       .gsub(Regexp.new(prefix.source + /zipbadge/.source), zipbadge)
-end
+
+    end
