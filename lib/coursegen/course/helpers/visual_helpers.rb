@@ -8,8 +8,8 @@ module VisualHelpers
     elsif type == :random
       part1 = "<slide_break></slide_break>\n\n"
       part2 = "<h2 class=\"shadow p-3 bg-white rounded\">Thank you. Questions?"
-      part3 = random_image :normal, "800", "50"
-      part4 = "\</h2>"
+      part3 = random_image :normal, "800", "100"
+      part4 = "<small>&nbsp;(random Image from picsum.photos)</small>\</h2>"
     end
     part1 + part2 + part3 + part4
   end
