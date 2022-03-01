@@ -25,7 +25,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
       .gsub(Regexp.new(prefix.source + /slide_break/.source),  "<slide_break></slide_break>")
       .gsub(Regexp.new(prefix.source + /slide_subtitle (.+)$/.source), "<slide_break></slide_break>\n\n#### \\1")
       .gsub(Regexp.new(prefix.source + /slide_title (.+)$/.source), "<slide_break></slide_break>\n\n### \\1")
-      .gsub(Regexp.new(prefix.source + /source_begin :(.+)$/.source)) { source_begin( ":language-"+$1) }
+      .gsub(Regexp.new(prefix.source + /source_begin :(.+)$/.source)) { source_begin("language-"+$1) }
       .gsub(Regexp.new(prefix.source + /source_end/.source), source_end)
       .gsub(Regexp.new(prefix.source + /team_deliverable (.+)$/.source)) { team_deliverable($1) }
       .gsub(Regexp.new(prefix.source + /teambadge/.source), teambadge)
