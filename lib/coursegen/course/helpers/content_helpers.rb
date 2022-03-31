@@ -359,11 +359,11 @@ module ContentHelpers
   end
 
   def source_begin(language)
-    "<pre class=\"#{language}\">"
+    "<pre><code class=\"#{language}\">"
   end
 
   def source_end
-    '</pre>'
+    '</code></pre>'
   end
 
   def postit_begin(title)
