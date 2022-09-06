@@ -1,6 +1,5 @@
 # ContentHelpers is used to annotate content.
 module ContentHelpers
-
   def include_topic(item_symbol)
     incorporated_topic = lookup_nitem('topics', item_symbol.to_s)
     items[incorporated_topic.identifier.to_s].compiled_content
@@ -75,9 +74,9 @@ module ContentHelpers
         <p class="lead">#{body}</p></div>)
     elsif (style == "small")
       <<~HTMLSTRING
-      <div class="callout border border-primary rounded p-2 m-3">
-      <span class="badge badge-pill badge-primary">#{title}</span>#{body}
-      </div>
+        <div class="callout border border-primary rounded p-2 m-3">
+        <span class="badge badge-pill badge-primary">#{title}</span>#{body}
+        </div>
       HTMLSTRING
     else
       "error in callout call: .#{style}. #{style.class}"
@@ -100,7 +99,6 @@ module ContentHelpers
       "error in callout call: .#{style}. #{style.class}"
     end
   end
-
 
   def iconbadge1(icon, tooltip)
     %(<img src="/bootstrap/bootstrap-icons-1.0.0/#{icon}.svg" title="#{tooltip}" class="iconbadge">)
