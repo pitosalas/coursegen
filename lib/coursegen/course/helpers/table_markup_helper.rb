@@ -1,4 +1,4 @@
-class TableMarkup
+class TableMarkupHelper
   def self.begin properties
     @th = TableHelper.new(properties)
   end
