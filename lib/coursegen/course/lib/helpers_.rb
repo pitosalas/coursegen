@@ -7,6 +7,7 @@ include ListOfHelpers
 include ICalFeedHelpers
 include FormattingHelpers
 include VisualHelpers
+include TableMarkupHelper
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Tagging
