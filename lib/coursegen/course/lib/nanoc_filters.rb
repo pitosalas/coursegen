@@ -49,9 +49,8 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /ul_end$/.source)) { "</ul>" }
     .gsub(Regexp.new(prefix.source + /youtube "(.+)"$/.source)) { %(<iframe width="560" height="315" src="#{Regexp.last_match(1)}"></iframe>) }
     .gsub(Regexp.new(prefix.source + /zipbadge/.source), zipbadge)
-    .gsub(Regexp.new(prefix.source + /tbegin/.source)) { TableMarkup.begin(Regexp.last_match(1)) ;  "ZZZ" }
-    .gsub(Regexp.new(prefix.source + /trow/.source), teambadge)
-    .gsub(Regexp.new(prefix.source + /thead/.source), teambadge)
-    .gsub(Regexp.new(prefix.source + /tend/.source)) { TableMarkup.end; "XXX" }
-
+    .gsub(Regexp.new(prefix.source + /tbegin "(.+)"$/.source)) { TableMarkupHelper.begin(Regexp.last_match(1));}
+    .gsub(Regexp.new(prefix.source + /thead "(.+)"$/.source)) {TableMarkupHelper.headers(Regexp.last_match(1));}
+    .gsub(Regexp.new(prefix.source + /trow "(.+)"$/.source)) {TableMarkupHelper.row(Regexp.last_match(1));}
+    .gsub(Regexp.new(prefix.source + /tend/.source)) { TableMarkupHelper.end ;}
 end
