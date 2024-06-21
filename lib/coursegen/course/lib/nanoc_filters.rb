@@ -16,6 +16,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /h5 (.+)$/.source)) { "<h5>#{Regexp.last_match(1)}</h5>" }
     .gsub(Regexp.new(prefix.source + /image :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{Regexp.last_match(1)}.jpg\" class=\"img-thumbnail d-block mx-auto\" style=\"height:300px;\"/>" }
     .gsub(Regexp.new(prefix.source + /image :(\w+), :(\w+)$/.source)) { "<img src=\"/content/topics/images/#{Regexp.last_match(2)}.jpg\" class=\"img-thumbnail d-block mx-auto\" style=\"height:#{Regexp.last_match(1)}px;\"/>" }
+    .gsub(Regexp.new(prefix.source + /image :(\w+), \{(.*?)\}$/.source)) { "<img src=\"/content/topics/images/#{Regexp.last_match(1)}.jpg\" class=\"img-thumbnail d-block mx-auto\" #{Regexp.last_match(2)}/>" }
     .gsub(Regexp.new(prefix.source + /quote (.+)$/.source), "<blockquote class=\"pretty\">\\1</blockquote>")
     .gsub(Regexp.new(prefix.source + /lecture_end/.source), end_of_lecture)
     .gsub(Regexp.new(prefix.source + /li (.+)$/.source)) { "<li>#{Regexp.last_match(1)}</li>" }
