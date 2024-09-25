@@ -12,6 +12,11 @@ module NavigationHelpers
     link_to(the_citem.title, the_item)
   end
 
+  def btn_to_topic(item_symbol)
+    the_item = @items[lookup_nitem("topics", item_symbol.to_s).identifier]
+    link_to(the_item[:title], the_item, attributes={class: "btn btn-sm btn-secondary"})
+  end
+
   def link_to_topic(item_symbol)
     link_to_section :topics, item_symbol
   end

@@ -45,6 +45,7 @@ Nanoc::Filter.define(:handle_shortcodes) do |content, _params = {}|
     .gsub(Regexp.new(prefix.source + /teambadge/.source), teambadge)
     .gsub(Regexp.new(prefix.source + /topic_include :(\w+)$/.source)) { include_topic(Regexp.last_match(1)) }
     .gsub(Regexp.new(prefix.source + /topic_link :(\w+)/.source)) { link_to_topic(Regexp.last_match(1)) }
+    .gsub(Regexp.new(prefix.source + /topic_btn :(\w+)/.source)) { btn_to_topic(Regexp.last_match(1)) }
     .gsub(Regexp.new(prefix.source + /ul_begin :(\w+)/.source)) { "<ul class=\"#{Regexp.last_match(1)}\">" }
     .gsub(Regexp.new(prefix.source + /ul_begin$/.source)) { "<ul>" }
     .gsub(Regexp.new(prefix.source + /ul_end$/.source)) { "</ul>" }
